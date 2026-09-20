@@ -41,6 +41,33 @@ node figma/tests/simulate.js    # 29 regression checks – must pass before comm
 cd android/TipsApp && ./gradlew installDebug
 ```
 
+## How to work with what
+
+**Golden rules**
+- `rules/DESIGN-RULES.md` is the contract. Change it only when Jan agrees; if code and rules disagree, stop and ask.
+- **View ID = Figma layer name = Compose test tag** (`tip_steps`). Wide and portrait layouts use the same IDs and the same file names (`res/layout/` vs `res/layout-port/`).
+- Invented content only. Never commit Škoda files.
+- Small commits, one step at a time; run the tests of the part you touched first. Push only when asked.
+
+**Branches and tags**
+- `main` – the agreed state. Tag **`wide-baseline`** = the wide app exactly as approved (phase 2a, "the existing app").
+- Reshape work happens on its own branch (portrait: `reshape-portrait`) and is merged only after review. `git diff wide-baseline --stat` then shows what the new display cost in code.
+
+**Figma part** (Node only, any OS): edit `figma/plugin/code.js`, `figma/plugin-src/`, `figma/assistant-src/` or the rules – **never** the generated HTML files – then `node figma/build.mjs` and `node figma/tests/simulate.js` (must end with `0 failed`). Add a test for every bug fixed.
+
+**Design exports** (`design-exports/`): JSON via the plugin (*Export JSON*), PNG via Figma (*Export → PNG, 1x*). Naming and sizes: `design-exports/README.md`. They are the reference for the app; Jan re-exports when the design changes.
+
+**Android part** (MacBook, one emulator at a time – stop one before booting the other):
+```bash
+cd android/TipsApp
+./gradlew installDebug                                  # build + install on the running emulator
+adb shell am start -n cz.digiteq.tips/.HomeActivity     # other screens: adb root first (activities aren't exported)
+adb exec-out screencap -d <id of EMU_display_0> -p > /tmp/shot.png   # id: adb shell dumpsys SurfaceFlinger --display-id
+```
+After a UI change, look at a screenshot next to the PNG in `design-exports/png/` and list the differences. The emulator window is smaller than the Figma frame (system bars): expect the app area to be about 80 dp wider and 64 dp lower on the wide emulator; fixed sizes must match exactly. More: `android/README.md`.
+
+**Claude Code** reads `CLAUDE.md` first. Useful prompts: "do the next step of the spec and show it on the emulator", "compare the running screen with the Figma export", "explain why you did X".
+
 ## Docs
 
 | Doc | For |
