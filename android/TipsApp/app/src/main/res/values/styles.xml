@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Tips" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="android:fontFamily">@font/inter</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+
+    <!-- Root of the Tips.* style names (dotted names inherit from their prefix) -->
+    <style name="Tips" parent="" />
+
+    <!-- Text: size in sp, weight from the Inter family -->
+    <style name="Tips.Text">
+        <item name="android:fontFamily">@font/inter</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="Tips.Text.Title40" parent="Tips.Text">
+        <item name="android:textSize">40sp</item>
+        <item name="android:textFontWeight">700</item>
+    </style>
+    <style name="Tips.Text.Label" parent="Tips.Text">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textFontWeight">600</item>
+        <item name="android:textColor">@color/accent</item>
+    </style>
+    <style name="Tips.Text.Body" parent="Tips.Text">
+        <item name="android:textSize">26sp</item>
+        <item name="android:textColor">@color/white_65</item>
+    </style>
+    <style name="Tips.Text.ButtonLabel" parent="Tips.Text">
+        <item name="android:textSize">26sp</item>
+        <item name="android:textFontWeight">600</item>
+        <item name="android:textColor">@color/on_accent</item>
+    </style>
+    <style name="Tips.Text.CategoryTitle" parent="Tips.Text">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textFontWeight">600</item>
+    </style>
+    <style name="Tips.Text.Count" parent="Tips.Text">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/white_60</item>
+    </style>
+
+    <!-- Components -->
+    <style name="Tips.Header">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/header_height</item>
+        <item name="android:background">@color/black_15</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingHorizontal">@dimen/screen_padding</item>
+    </style>
+    <style name="Tips.IconButton">
+        <item name="android:layout_width">@dimen/icon_button_size</item>
+        <item name="android:layout_height">@dimen/icon_button_size</item>
+        <item name="android:padding">@dimen/icon_button_padding</item>
+        <item name="android:background">@drawable/bg_icon_button</item>
+        <item name="android:tint">@color/white</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+    <style name="Tips.Card">
+        <item name="android:background">@drawable/bg_card</item>
+        <item name="android:padding">@dimen/card_padding</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+    <!-- Card whose children are 20 apart (card inner gap) -->
+    <style name="Tips.Card.Spaced">
+        <item name="android:divider">@drawable/divider_card_gap</item>
+        <item name="android:showDividers">middle</item>
+    </style>
+    <style name="Tips.MediaPlaceholder">
+        <item name="android:background">@drawable/bg_media_placeholder</item>
+    </style>
+    <style name="Tips.PrimaryButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:paddingHorizontal">@dimen/button_padding_horizontal</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/bg_button_primary</item>
+        <item name="android:foreground">@drawable/ripple_pill</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+    <style name="Tips.CategoryIcon">
+        <item name="android:layout_width">@dimen/category_icon_size</item>
+        <item name="android:layout_height">@dimen/category_icon_size</item>
+        <item name="android:padding">@dimen/category_icon_padding</item>
+        <item name="android:background">@drawable/bg_category_icon</item>
+        <item name="android:tint">@color/accent</item>
+    </style>
+</resources>

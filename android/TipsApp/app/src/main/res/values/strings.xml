@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tips (POC)</string>
+
+    <!-- S1 Home -->
+    <string name="home_title">Tips</string>
+    <string name="home_settings">Settings</string>
+    <string name="home_featured_label">TIP OF THE DAY</string>
+    <string name="home_featured_title">Let adaptive cruise control handle stop-and-go traffic</string>
+    <string name="home_featured_body">In traffic jams, ACC can bring the car to a full stop and move off again. Tap Resume or the accelerator to continue.</string>
+    <string name="home_featured_button">Read tip</string>
+
+    <string name="category_driving">Driving</string>
+    <string name="category_comfort">Comfort</string>
+    <string name="category_efficiency">Efficiency</string>
+    <string name="category_safety">Safety</string>
+    <string name="category_count_driving">14 tips</string>
+    <string name="category_count_comfort">9 tips</string>
+    <string name="category_count_efficiency">11 tips</string>
+    <string name="category_count_safety">8 tips</string>
+</resources>

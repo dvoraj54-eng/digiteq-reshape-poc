@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- S1 Home, wide display: featured tip left (vertical card), 2x2 category grid right (R1) -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/home_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_screen"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/home_header"
+        style="@style/Tips.Header">
+
+        <LinearLayout
+            android:id="@+id/home_header_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/divider_24"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:showDividers="middle">
+
+            <ImageView
+                android:id="@+id/home_settings_button"
+                style="@style/Tips.IconButton"
+                android:contentDescription="@string/home_settings"
+                android:src="@drawable/ic_settings" />
+
+            <TextView
+                android:id="@+id/home_title"
+                style="@style/Tips.Text.Title40"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home_title" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/home_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@drawable/divider_pane_gap"
+        android:orientation="horizontal"
+        android:padding="@dimen/screen_padding"
+        android:showDividers="middle">
+
+        <!-- Featured tip: image on top, text column below -->
+        <LinearLayout
+            android:id="@+id/home_featured_tip"
+            style="@style/Tips.Card.Spaced"
+            android:layout_width="800dp"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/home_featured_tip_image"
+                style="@style/Tips.MediaPlaceholder"
+                android:layout_width="match_parent"
+                android:layout_height="340dp">
+
+                <ImageView
+                    android:layout_width="@dimen/media_icon_size"
+                    android:layout_height="@dimen/media_icon_size"
+                    android:layout_gravity="center"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_image"
+                    android:tint="@color/white_40" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/home_featured_tip_text"
+                style="@style/Tips.Card.Spaced"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:padding="0dp">
+
+                <TextView
+                    android:id="@+id/home_featured_tip_label"
+                    style="@style/Tips.Text.Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home_featured_label" />
+
+                <TextView
+                    android:id="@+id/home_featured_tip_title"
+                    style="@style/Tips.Text.Title40"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home_featured_title" />
+
+                <TextView
+                    android:id="@+id/home_featured_tip_body"
+                    style="@style/Tips.Text.Body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home_featured_body" />
+
+                <!-- spacer: pushes the button to the bottom -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <LinearLayout
+                    android:id="@+id/home_featured_tip_open_button"
+                    style="@style/Tips.PrimaryButton">
+
+                    <TextView
+                        android:id="@+id/home_featured_tip_open_button_label"
+                        style="@style/Tips.Text.ButtonLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_featured_button" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Category grid: 2 rows x 2 cards, gaps 32, fills the rest -->
+        <LinearLayout
+            android:id="@+id/home_category_cards"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:divider="@drawable/divider_pane_gap"
+            android:orientation="vertical"
+            android:showDividers="middle">
+
+            <LinearLayout
+                android:id="@+id/home_category_cards_row_1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:divider="@drawable/divider_pane_gap"
+                android:orientation="horizontal"
+                android:showDividers="middle">
+
+                <include layout="@layout/view_home_category_card_driving" />
+                <include layout="@layout/view_home_category_card_comfort" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/home_category_cards_row_2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:divider="@drawable/divider_pane_gap"
+                android:orientation="horizontal"
+                android:showDividers="middle">
+
+                <include layout="@layout/view_home_category_card_efficiency" />
+                <include layout="@layout/view_home_category_card_safety" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

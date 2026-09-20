@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/home_category_card_comfort"
+    style="@style/Tips.Card"
+    android:layout_width="0dp"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="@drawable/ripple_card">
+
+    <ImageView
+        style="@style/Tips.CategoryIcon"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_airline_seat_recline_normal" />
+
+    <!-- spacer: pushes title and count to the bottom -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/home_category_card_comfort_title"
+        style="@style/Tips.Text.CategoryTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/category_comfort" />
+
+    <TextView
+        android:id="@+id/home_category_card_comfort_count"
+        style="@style/Tips.Text.Count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/category_count_comfort" />
+</LinearLayout>

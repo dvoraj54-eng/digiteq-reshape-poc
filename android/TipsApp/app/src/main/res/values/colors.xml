@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Screen background gradient -->
+    <color name="bg_gradient_start">#231915</color>
+    <color name="bg_gradient_end">#9A5A36</color>
+
+    <!-- Accent (green) -->
+    <color name="accent">#4ADE80</color>
+    <color name="accent_16">#294ADE80</color>
+    <color name="on_accent">#1E1512</color>
+
+    <!-- White / black with opacity (Figma: "white 10 %" = #1AFFFFFF) -->
+    <color name="white">#FFFFFFFF</color>
+    <color name="white_90">#E6FFFFFF</color>
+    <color name="white_85">#D9FFFFFF</color>
+    <color name="white_65">#A6FFFFFF</color>
+    <color name="white_60">#99FFFFFF</color>
+    <color name="white_40">#66FFFFFF</color>
+    <color name="white_12">#1FFFFFFF</color>
+    <color name="white_10">#1AFFFFFF</color>
+    <color name="white_8">#14FFFFFF</color>
+    <color name="black_30">#4D000000</color>
+    <color name="black_15">#26000000</color>
+</resources>

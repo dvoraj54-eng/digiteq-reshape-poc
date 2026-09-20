@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Figma px = dp at 160 dpi -->
+    <dimen name="header_height">132dp</dimen>
+    <dimen name="screen_padding">24dp</dimen>
+    <dimen name="pane_gap">32dp</dimen>
+
+    <dimen name="touch_min">76dp</dimen>
+    <dimen name="icon_button_size">76dp</dimen>
+    <dimen name="icon_button_padding">22dp</dimen>
+
+    <dimen name="card_radius">16dp</dimen>
+    <dimen name="card_padding">32dp</dimen>
+    <dimen name="card_gap">20dp</dimen>
+
+    <dimen name="button_height">76dp</dimen>
+    <dimen name="button_padding_horizontal">48dp</dimen>
+
+    <dimen name="media_icon_size">64dp</dimen>
+    <dimen name="category_icon_size">76dp</dimen>
+    <dimen name="category_icon_padding">20dp</dimen>
+</resources>
