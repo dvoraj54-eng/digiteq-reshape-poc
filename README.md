@@ -33,7 +33,7 @@ rules/DESIGN-RULES.md ─────────────── the contract
 ## Quick start
 
 ```bash
-# Figma part (any machine with Node 18+)
+# Figma part (any machine with Node 18+ – Windows, macOS, Linux)
 node figma/build.mjs            # rebuild the plugin UI + assistant after editing *-src or the rules
 node figma/tests/simulate.js    # 27 regression checks – must pass before committing
 
