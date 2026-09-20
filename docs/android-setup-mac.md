@@ -3,8 +3,10 @@
 Goal: Android Studio + two Android Automotive emulators (**wide** and **portrait**), Claude Code in the terminal, the repo on GitHub.
 Time: ~1 hour, most of it downloads (~15 GB free disk needed).
 
-Assumes an **Apple Silicon** Mac (M1–M4). On an Intel Mac pick the **x86_64** images wherever this says arm64.
-Check: Apple menu → *About This Mac* → Chip.
+Jan's MacBook: **Intel (x86_64), macOS 15.7, 16 GB RAM.** The guide is written for that; Apple Silicon differences are noted where they matter.
+Check on any Mac: `uname -m` → `x86_64` = Intel, `arm64` = Apple Silicon.
+
+**Intel Mac in short:** emulator images **x86_64**, run **one emulator at a time**, Homebrew builds packages from source (slow – see §1).
 
 ---
 
@@ -17,8 +19,20 @@ Open **Terminal**.
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 # follow the 2 "Next steps" lines it prints (adds brew to your PATH), then:
 
-brew install git gh node
-git --version && gh --version && node -v    # node must be 18+
+brew install git gh
+git --version && gh --version
+```
+
+**Node 18+:** on Intel Macs Homebrew has no ready-built packages any more and compiles from source (`./configure`, `make` in the output) – node + openssl can take 30+ minutes. Faster: install the **LTS .pkg** from [nodejs.org](https://nodejs.org) (2 minutes). (`brew install node` also works if you have the time; on Apple Silicon it's fast.)
+
+A warning *"A newer Command Line Tools release is available"* is harmless. Update afterwards via *System Settings → General → Software Update*, or:
+```bash
+sudo rm -rf /Library/Developer/CommandLineTools
+sudo xcode-select --install
+```
+
+```bash
+node -v                                      # must be 18+
 
 # Claude Code
 curl -fsSL https://claude.ai/install.sh | bash
@@ -42,8 +56,9 @@ git config --global user.email "you@example.com"    # the e-mail of your GitHub 
 **More Actions → SDK Manager** (or *Android Studio → Settings → Languages & Frameworks → Android SDK*).
 
 **SDK Platforms** tab → tick **Show Package Details** (bottom right):
-- **Android 15 (API 35)**: *Android SDK Platform 35* and **Android Automotive with Google APIs arm64-v8a System Image** (API 35-ext15)
-- *Alternative if the 35 image misbehaves:* **Android 14 (API 34)** → *Android Automotive with Google APIs arm64-v8a System Image* (API 34-ext9)
+- **Android 15 (API 35)**: *Android SDK Platform 35* and **Android Automotive with Google APIs Intel x86_64 Atom System Image** (API 35-ext15)
+- *Alternative if the 35 image misbehaves:* **Android 14 (API 34)** → *Android Automotive with Google APIs Intel x86_64 Atom System Image* (API 34-ext9)
+- (Apple Silicon: the same images in **arm64-v8a**.)
 
 > Take **"Google APIs"**, not "Google Play Store": only images without Play Store accept **custom hardware profiles**, and we need custom display sizes.
 
@@ -95,9 +110,9 @@ The diagonal sizes are chosen so both come out at **160 dpi (mdpi)**. Tip: you c
 (The wide full-display size is still a [PLACEHOLDER] in the rules; 1920 × 1200 leaves room for the system bars around our 1840 × 1092 app area. Adjust once we know the real value.)
 
 ### 5.2 Virtual devices
-For each profile: select it → **Next** → system image **API 35 Automotive with Google APIs (arm64)** → Next →
+For each profile: select it → **Next** → system image **API 35 Automotive with Google APIs (x86_64)** → Next →
 - AVD name: `Wide_1920x1200` / `Portrait_1400x1840` (Claude Code uses these names)
-- *Show Advanced Settings*: Graphics **Hardware**, Internal storage 8 GB, Boot option **Cold boot**
+- *Show Advanced Settings*: RAM **4096 MB**, Graphics **Hardware** (if the screen flickers or stays black: **Software**), Internal storage 8 GB, Boot option **Cold boot**
 - Finish.
 
 ### 5.3 First start and check
@@ -119,22 +134,22 @@ adb shell wm size 1400x1840 && adb shell wm density 160    # reset: wm size rese
 
 **Car must be parked:** the emulator starts in gear P. Normal apps are hidden while "driving". If our app disappears: emulator side bar **⋯ (Extended controls) → Car data / Car sensor data → Gear = P, speed 0**.
 
-Running both emulators at once works on 16 GB RAM; on 8 GB run one at a time.
+**Run one emulator at a time** (Intel, 16 GB): two automotive emulators + Android Studio + Gradle would make everything slow. Close one before starting the other (Device Manager ■, or `adb emu kill`).
 
 ## 6. GitHub repository
 
-On the MacBook (unzip the repo folder first, e.g. to `~/dev/digiteq-reshape-poc`):
+The repo already exists: **github.com/dvoraj54-eng/digiteq-reshape-poc** (created from the work PC). On the MacBook just clone it:
 
 ```bash
-cd ~/dev/digiteq-reshape-poc
+mkdir -p ~/dev && cd ~/dev
 gh auth login                       # GitHub.com → HTTPS → login with browser
-git init -b main
-git add . && git commit -m "Figma reshape tools, rules, docs"
-gh repo create digiteq-reshape-poc --private --source . --push
+gh repo clone dvoraj54-eng/digiteq-reshape-poc
+cd digiteq-reshape-poc
+node figma/tests/simulate.js        # quick check: 27 passed, 0 failed
 ```
 
-Private repo, invented content only – still, don't add Škoda files here.
-On the work PC (Figma part): `gh repo clone digiteq-reshape-poc` (or GitHub Desktop), then pull/push as usual.
+Both machines then work with `git pull` / `git push` as usual – pull before you start, push when you stop.
+Invented content only – don't add Škoda files here (keep the repo private when not needed otherwise).
 
 ## 7. Start Claude Code
 
@@ -155,7 +170,8 @@ Useful: keep Android Studio open on `android/TipsApp` at the same time – Claud
 | `adb: command not found` | `source ~/.zshrc`; check `ANDROID_HOME` path exists |
 | No Automotive images in SDK Manager | Tick **Show Package Details** on the *SDK Platforms* tab |
 | Custom profile not offered for an image | You picked a *Play Store* image → use *Google APIs* |
-| Emulator black / very slow | Graphics = Hardware; close other emulators; cold boot from Device Manager (▾ → Cold Boot Now) |
+| Emulator black / very slow | Only one emulator running; try Graphics = Software (Intel); cold boot from Device Manager (▾ → Cold Boot Now) |
+| `brew install` runs for ages (`make` output) | Normal on Intel Macs (built from source). For Node use the .pkg from nodejs.org |
 | App not in the launcher / closes | Car not parked (see 5.3); or app not launchable – check `adb shell am start -n cz.digiteq.tips/.HomeActivity` |
 | Gradle: "Unsupported Java" | Gradle JDK = bundled jbr (section 4) |
 | `gradlew: Permission denied` | `chmod +x android/TipsApp/gradlew` |

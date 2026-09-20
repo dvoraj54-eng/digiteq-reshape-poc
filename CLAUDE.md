@@ -67,4 +67,4 @@ Status of the Figma part (phase 1) is described in `docs/figma-pipeline.md` – 
 
 ## Environment
 
-MacBook (Apple Silicon), Android Studio with bundled JBR (`JAVA_HOME` set in `~/.zshrc`), SDK in `~/Library/Android/sdk`, Android Automotive emulator images "Google APIs" (no Play Store). Setup: `docs/android-setup-mac.md`. If the environment is missing something, tell Jan the exact step from that doc instead of working around it.
+MacBook Pro **Intel (x86_64)**, macOS 15.7, 16 GB RAM – emulator images x86_64, **only one emulator running at a time** (stop one before booting the other; builds are slower than on Apple Silicon, so avoid unnecessary clean builds). Android Studio with bundled JBR (`JAVA_HOME` set in `~/.zshrc`), SDK in `~/Library/Android/sdk`, Android Automotive emulator images "Google APIs" (no Play Store). Setup: `docs/android-setup-mac.md`. If the environment is missing something, tell Jan the exact step from that doc instead of working around it.
