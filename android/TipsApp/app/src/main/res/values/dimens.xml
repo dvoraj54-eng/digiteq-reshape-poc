@@ -19,4 +19,11 @@
     <dimen name="media_icon_size">64dp</dimen>
     <dimen name="category_icon_size">76dp</dimen>
     <dimen name="category_icon_padding">20dp</dimen>
+
+    <!-- S2 Category -->
+    <dimen name="tip_row_height">104dp</dimen>
+    <dimen name="tip_row_gap">16dp</dimen>
+    <dimen name="scrollbar_width">6dp</dimen>
+    <dimen name="scrollbar_thumb_height">180dp</dimen>
+    <dimen name="dropdown_width">452dp</dimen>
 </resources>

@@ -3,7 +3,7 @@
 `TipsApp/` – the Tips app from the Figma POC as an Android Automotive app (XML Views, Kotlin).
 Spec: `docs/android-app-spec.md`. Mac setup: `docs/android-setup-mac.md`.
 
-**Status:** phase 2a – wide layouts only (`res/layout/`). S1 Home done; S2, S3 and navigation follow.
+**Status:** phase 2a – wide layouts only (`res/layout/`). S1 Home and S2 Category done; S3 and navigation follow.
 
 ## Build and run (from `android/TipsApp`)
 
@@ -27,3 +27,6 @@ The app area is the display minus the 76 dp system bar on top (1920 × 1124 dp o
 
 - **Inter** font (SIL Open Font License 1.1, `licenses/Inter-OFL.txt`), static TTFs from the Inter 4.1 release.
 - **Material Symbols** icons (Apache 2.0), `res/drawable/ic_*.xml`.
+
+**Launching a screen directly:** `CategoryActivity` and later screens are not exported, so plain `adb shell am start`
+is denied. Run `adb root` once (works on the Google APIs emulator images), then `am start -n cz.digiteq.tips/.CategoryActivity`.

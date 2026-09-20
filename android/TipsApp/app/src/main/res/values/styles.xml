@@ -42,6 +42,38 @@
         <item name="android:textColor">@color/white_60</item>
     </style>
 
+    <style name="Tips.Text.Meta" parent="Tips.Text">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textFontWeight">600</item>
+        <item name="android:textColor">@color/white_60</item>
+    </style>
+    <style name="Tips.Text.Pill" parent="Tips.Text">
+        <item name="android:textSize">26sp</item>
+        <item name="android:textFontWeight">500</item>
+    </style>
+    <style name="Tips.Text.Tab" parent="Tips.Text">
+        <item name="android:textSize">26sp</item>
+        <item name="android:textFontWeight">500</item>
+        <item name="android:textColor">@color/white_85</item>
+    </style>
+    <style name="Tips.Text.Tab.Selected">
+        <item name="android:textFontWeight">600</item>
+        <item name="android:textColor">@color/accent</item>
+    </style>
+    <style name="Tips.Text.RowTitle" parent="Tips.Text">
+        <item name="android:textSize">26sp</item>
+        <item name="android:textFontWeight">600</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+    <style name="Tips.Text.RowSubtitle" parent="Tips.Text.Count">
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+    <style name="Tips.Text.OptionLabel" parent="Tips.Text">
+        <item name="android:textSize">26sp</item>
+    </style>
+
     <!-- Components -->
     <style name="Tips.Header">
         <item name="android:layout_width">match_parent</item>
@@ -88,5 +120,61 @@
         <item name="android:padding">@dimen/category_icon_padding</item>
         <item name="android:background">@drawable/bg_category_icon</item>
         <item name="android:tint">@color/accent</item>
+    </style>
+
+    <!-- S2 Category -->
+    <style name="Tips.FilterPill">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">76dp</item>
+        <item name="android:paddingStart">32dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">@drawable/bg_pill</item>
+        <item name="android:foreground">@drawable/ripple_pill</item>
+        <item name="android:divider">@drawable/divider_12</item>
+        <item name="android:showDividers">middle</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+    <style name="Tips.Tab">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">96dp</item>
+        <item name="android:paddingHorizontal">40dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/bg_tab</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+    <style name="Tips.ListRow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/tip_row_height</item>
+        <!-- horizontal only: the 62 dp text block is centred in the 104 dp row (Figma: y = 21) -->
+        <item name="android:paddingHorizontal">24dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">@drawable/bg_list_row</item>
+        <item name="android:foreground">@drawable/ripple_card</item>
+        <item name="android:divider">@drawable/divider_24</item>
+        <item name="android:showDividers">middle</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+    <style name="Tips.RowIcon">
+        <item name="android:layout_width">56dp</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:padding">14dp</item>
+        <item name="android:background">@drawable/bg_icon_button</item>
+        <item name="android:tint">@color/white</item>
+    </style>
+    <style name="Tips.DropdownOption">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">88dp</item>
+        <item name="android:paddingHorizontal">24dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">@drawable/bg_dropdown_option</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
     </style>
 </resources>

@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The 11 tip rows of S2. Shared by layout/ and layout-port/ (same IDs as the Figma layers).
+     Rows 8-11 repeat tips 1-4, like the Figma placeholder rows. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/category_tip_list_rows"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:divider="@drawable/divider_16"
+    android:orientation="vertical"
+    android:showDividers="middle">
+
+    <LinearLayout
+        android:id="@+id/category_tip_row_1"
+        style="@style/Tips.ListRow">
+
+        <ImageView
+            style="@style/Tips.RowIcon"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_lightbulb" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/category_tip_row_1_title"
+                style="@style/Tips.Text.RowTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tip_1_title" />
+
+            <TextView
+                android:id="@+id/category_tip_row_1_subtitle"
+                style="@style/Tips.Text.RowSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/tip_1_subtitle" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_chevron_right"
+            android:tint="@color/white_60" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/category_tip_row_2"
+        style="@style/Tips.ListRow">
+
+        <ImageView
+            style="@style/Tips.RowIcon"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_lightbulb" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/category_tip_row_2_title"
+                style="@style/Tips.Text.RowTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tip_2_title" />
+
+            <TextView
+                android:id="@+id/category_tip_row_2_subtitle"
+                style="@style/Tips.Text.RowSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/tip_2_subtitle" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_chevron_right"
+            android:tint="@color/white_60" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/category_tip_row_3"
+        style="@style/Tips.ListRow">
+
+        <ImageView
+            style="@style/Tips.RowIcon"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_lightbulb" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/category_tip_row_3_title"
+                style="@style/Tips.Text.RowTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tip_3_title" />
+
+            <TextView
+                android:id="@+id/category_tip_row_3_subtitle"
+                style="@style/Tips.Text.RowSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/tip_3_subtitle" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_chevron_right"
+            android:tint="@color/white_60" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/category_tip_row_4"
+        style="@style/Tips.ListRow">
+
+        <ImageView
+            style="@style/Tips.RowIcon"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_lightbulb" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/category_tip_row_4_title"
+                style="@style/Tips.Text.RowTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tip_4_title" />
+
+            <TextView
+                android:id="@+id/category_tip_row_4_subtitle"
+                style="@style/Tips.Text.RowSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/tip_4_subtitle" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_chevron_right"
+            android:tint="@color/white_60" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/category_tip_row_5"
+        style="@style/Tips.ListRow">
+
+        <ImageView
+            style="@style/Tips.RowIcon"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_lightbulb" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/category_tip_row_5_title"
+                style="@style/Tips.Text.RowTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tip_5_title" />
+
+            <TextView
+                android:id="@+id/category_tip_row_5_subtitle"
+                style="@style/Tips.Text.RowSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/tip_5_subtitle" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_chevron_right"
+            android:tint="@color/white_60" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/category_tip_row_6"
+        style="@style/Tips.ListRow">
+
+        <ImageView
+            style="@style/Tips.RowIcon"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_lightbulb" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/category_tip_row_6_title"
+                style="@style/Tips.Text.RowTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tip_6_title" />
+
+            <TextView
+                android:id="@+id/category_tip_row_6_subtitle"
+                style="@style/Tips.Text.RowSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/tip_6_subtitle" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_chevron_right"
+            android:tint="@color/white_60" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/category_tip_row_7"
+        style="@style/Tips.ListRow">
+
+        <ImageView
+            style="@style/Tips.RowIcon"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_lightbulb" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/category_tip_row_7_title"
+                style="@style/Tips.Text.RowTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tip_7_title" />
+
+            <TextView
+                android:id="@+id/category_tip_row_7_subtitle"
+                style="@style/Tips.Text.RowSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/tip_7_subtitle" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_chevron_right"
+            android:tint="@color/white_60" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/category_tip_row_8"
+        style="@style/Tips.ListRow">
+
+        <ImageView
+            style="@style/Tips.RowIcon"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_lightbulb" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/category_tip_row_8_title"
+                style="@style/Tips.Text.RowTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tip_1_title" />
+
+            <TextView
+                android:id="@+id/category_tip_row_8_subtitle"
+                style="@style/Tips.Text.RowSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/tip_1_subtitle" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_chevron_right"
+            android:tint="@color/white_60" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/category_tip_row_9"
+        style="@style/Tips.ListRow">
+
+        <ImageView
+            style="@style/Tips.RowIcon"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_lightbulb" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/category_tip_row_9_title"
+                style="@style/Tips.Text.RowTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tip_2_title" />
+
+            <TextView
+                android:id="@+id/category_tip_row_9_subtitle"
+                style="@style/Tips.Text.RowSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/tip_2_subtitle" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_chevron_right"
+            android:tint="@color/white_60" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/category_tip_row_10"
+        style="@style/Tips.ListRow">
+
+        <ImageView
+            style="@style/Tips.RowIcon"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_lightbulb" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/category_tip_row_10_title"
+                style="@style/Tips.Text.RowTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tip_3_title" />
+
+            <TextView
+                android:id="@+id/category_tip_row_10_subtitle"
+                style="@style/Tips.Text.RowSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/tip_3_subtitle" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_chevron_right"
+            android:tint="@color/white_60" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/category_tip_row_11"
+        style="@style/Tips.ListRow">
+
+        <ImageView
+            style="@style/Tips.RowIcon"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_lightbulb" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/category_tip_row_11_title"
+                style="@style/Tips.Text.RowTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tip_4_title" />
+
+            <TextView
+                android:id="@+id/category_tip_row_11_subtitle"
+                style="@style/Tips.Text.RowSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/tip_4_subtitle" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_chevron_right"
+            android:tint="@color/white_60" />
+    </LinearLayout>
+</LinearLayout>

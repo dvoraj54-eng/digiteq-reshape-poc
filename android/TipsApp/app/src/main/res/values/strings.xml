@@ -18,4 +18,41 @@
     <string name="category_count_comfort">9 tips</string>
     <string name="category_count_efficiency">11 tips</string>
     <string name="category_count_safety">8 tips</string>
+
+    <!-- S2 Category -->
+    <string name="category_back">Back</string>
+    <string name="category_search">Search</string>
+    <string name="category_filter">Filter tips</string>
+    <string name="category_filter_newest">Newest</string>
+    <string name="category_filter_popular">Most popular</string>
+    <string name="category_filter_unread">Not read yet</string>
+    <string name="category_tab_all">All</string>
+    <string name="category_tab_assistants">Assistants</string>
+    <string name="category_tab_parking">Parking</string>
+    <string name="category_tab_winter">Winter</string>
+    <string name="category_preview_meta">%1$s READ</string>
+    <string name="category_open_button">Open tip</string>
+
+    <!-- Tips (invented). List rows 8-11 repeat tips 1-4, like the Figma placeholder rows. -->
+    <string name="tip_1_title">Stop-and-go with adaptive cruise control</string>
+    <string name="tip_1_subtitle">Assistants · 2 min</string>
+    <string name="tip_1_body">ACC keeps a set distance to the car ahead and can brake to a full stop in traffic jams.</string>
+    <string name="tip_2_title">Keep your lane with Lane Assist</string>
+    <string name="tip_2_subtitle">Assistants · 1 min</string>
+    <string name="tip_2_body">Lane Assist gently steers the car back when it drifts toward a lane marking without indicating.</string>
+    <string name="tip_3_title">Park hands-free with Park Assist</string>
+    <string name="tip_3_subtitle">Parking · 3 min</string>
+    <string name="tip_3_body">Park Assist finds a suitable space and steers for you while you control speed and brake.</string>
+    <string name="tip_4_title">Use the area view camera</string>
+    <string name="tip_4_subtitle">Parking · 1 min</string>
+    <string name="tip_4_body">The area view camera shows the car from above, so you can judge tight spaces and obstacles.</string>
+    <string name="tip_5_title">Pre-heat the cabin before winter drives</string>
+    <string name="tip_5_subtitle">Winter · 2 min</string>
+    <string name="tip_5_body">Set a departure time and the cabin warms up while the car is still plugged in.</string>
+    <string name="tip_6_title">Clear foggy windows fast</string>
+    <string name="tip_6_subtitle">Winter · 1 min</string>
+    <string name="tip_6_body">Use the defrost button to clear the windscreen and the rear window quickly.</string>
+    <string name="tip_7_title">Adjust the steering assist level</string>
+    <string name="tip_7_subtitle">Assistants · 1 min</string>
+    <string name="tip_7_body">Choose how strongly the steering assist corrects the car, from gentle to firm.</string>
 </resources>
