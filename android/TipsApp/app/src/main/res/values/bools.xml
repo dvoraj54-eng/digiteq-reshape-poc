@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Design rule R7 (panes end on the last whole list row). Off on the wide display, on in portrait (values-port). -->
+    <bool name="align_panes_to_rows">false</bool>
+</resources>
