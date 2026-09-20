@@ -11,6 +11,10 @@ Phase 2b (branch `reshape-portrait`): portrait layouts in `res/layout-port/` (sa
 Wide → `Wide_1920x1200` (`res/layout/`), portrait → `Portrait_1400x1840` (`res/layout-port/`). Only one at a time (Intel Mac, 16 GB): `adb emu kill`, then start the other. Both are 160 dpi, so 1 Figma px = 1 dp.
 R7 (list and preview end on the last whole row) is switched on by the bool `align_panes_to_rows`: `false` in `values/`, `true` in `values-port/`.
 
+## Tests
+
+`android/run-tests.sh` runs the layout-rule tests (rules §10) on both emulators and takes screenshots of every screen; details in `docs/android-tests.md`.
+
 ## Build and run (from `android/TipsApp`)
 
 ```bash
