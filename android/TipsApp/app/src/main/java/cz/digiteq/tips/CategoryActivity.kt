@@ -11,7 +11,6 @@ import androidx.core.view.children
 import cz.digiteq.tips.data.TipsRepository
 import cz.digiteq.tips.databinding.ActivityCategoryBinding
 import cz.digiteq.tips.databinding.PopupCategoryFilterBinding
-import cz.digiteq.tips.ui.alignPanesToRows
 import cz.digiteq.tips.util.padForSystemBars
 
 class CategoryActivity : AppCompatActivity() {
@@ -57,7 +56,7 @@ class CategoryActivity : AppCompatActivity() {
             }
         }
         tabs.forEach { (tab, _) -> tab.setOnClickListener { selectTab(tab) } }
-        selectTab(binding.categoryTabAssistants)
+        selectTab(binding.categoryTabAll)
     }
 
     private fun setUpFilter() {
@@ -99,14 +98,6 @@ class CategoryActivity : AppCompatActivity() {
         rows.children.forEachIndexed { index, row -> row.setOnClickListener { select(index) } }
         binding.categoryTipListScrollbar.attachTo(binding.categoryTipListScroll)
         select(0)
-
-        // R7: list and preview card end on the last fully visible row.
-        binding.categoryContent.alignPanesToRows(
-            panes = listOf(binding.categoryTipList, binding.categoryTipPreview),
-            rowCount = TipsRepository.tips.size,
-            rowHeightPx = resources.getDimensionPixelSize(R.dimen.tip_row_height),
-            rowGapPx = resources.getDimensionPixelSize(R.dimen.tip_row_gap),
-        )
     }
 
     private fun select(index: Int) {

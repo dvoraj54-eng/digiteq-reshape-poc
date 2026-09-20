@@ -40,7 +40,7 @@
                 android:id="@+id/tip_back_button"
                 style="@style/Tips.IconButton"
                 android:contentDescription="@string/tip_back"
-                android:src="@drawable/ic_arrow_back" />
+                android:src="@drawable/ic_chevron_left" />
 
             <ImageView
                 android:id="@+id/tip_search_button"
@@ -72,7 +72,8 @@
                 android:layout_gravity="center"
                 android:importantForAccessibility="no"
                 android:src="@drawable/ic_image"
-                android:tint="@color/white_40" />
+                android:alpha="0.6"
+                    android:tint="@color/white" />
         </FrameLayout>
 
         <!-- Settings-style column: cards 16 apart, nav buttons at the bottom -->
@@ -298,7 +299,7 @@
                         android:layout_width="28dp"
                         android:layout_height="28dp"
                         android:importantForAccessibility="no"
-                        android:src="@drawable/ic_arrow_back"
+                        android:src="@drawable/ic_chevron_left"
                         android:tint="@color/white" />
 
                     <TextView
@@ -329,7 +330,7 @@
                         android:layout_width="28dp"
                         android:layout_height="28dp"
                         android:importantForAccessibility="no"
-                        android:src="@drawable/ic_arrow_forward"
+                        android:src="@drawable/ic_chevron_right"
                         android:tint="@color/on_accent" />
                 </LinearLayout>
             </LinearLayout>

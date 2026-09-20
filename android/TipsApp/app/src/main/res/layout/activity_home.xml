@@ -24,7 +24,7 @@
                 android:id="@+id/home_settings_button"
                 style="@style/Tips.IconButton"
                 android:contentDescription="@string/home_settings"
-                android:src="@drawable/ic_settings" />
+                android:src="@drawable/ic_sliders_horizontal" />
 
             <TextView
                 android:id="@+id/home_title"
@@ -64,7 +64,8 @@
                     android:layout_gravity="center"
                     android:importantForAccessibility="no"
                     android:src="@drawable/ic_image"
-                    android:tint="@color/white_40" />
+                    android:alpha="0.6"
+                    android:tint="@color/white" />
             </FrameLayout>
 
             <LinearLayout

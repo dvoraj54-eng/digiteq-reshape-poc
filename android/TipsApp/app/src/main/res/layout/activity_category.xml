@@ -24,7 +24,7 @@
                 android:id="@+id/category_back_button"
                 style="@style/Tips.IconButton"
                 android:contentDescription="@string/category_back"
-                android:src="@drawable/ic_arrow_back" />
+                android:src="@drawable/ic_chevron_left" />
 
             <TextView
                 android:id="@+id/category_title"
@@ -49,7 +49,7 @@
                     android:layout_width="28dp"
                     android:layout_height="28dp"
                     android:importantForAccessibility="no"
-                    android:src="@drawable/ic_expand_more"
+                    android:src="@drawable/ic_chevron_down"
                     android:tint="@color/white" />
             </LinearLayout>
         </LinearLayout>
@@ -75,7 +75,7 @@
 
                 <TextView
                     android:id="@+id/category_tab_all_label"
-                    style="@style/Tips.Text.Tab"
+                    style="@style/Tips.Text.Tab.Selected"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/category_tab_all" />
@@ -87,7 +87,7 @@
 
                 <TextView
                     android:id="@+id/category_tab_assistants_label"
-                    style="@style/Tips.Text.Tab.Selected"
+                    style="@style/Tips.Text.Tab"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/category_tab_assistants" />
@@ -136,7 +136,7 @@
         android:padding="@dimen/screen_padding"
         android:showDividers="middle">
 
-        <!-- Preview card. Height is set by RowAlignedPanes (R7). -->
+        <!-- Preview card: fills the content height -->
         <LinearLayout
             android:id="@+id/category_tip_preview"
             style="@style/Tips.Card.Spaced"
@@ -155,12 +155,13 @@
                     android:layout_gravity="center"
                     android:importantForAccessibility="no"
                     android:src="@drawable/ic_image"
-                    android:tint="@color/white_40" />
+                    android:alpha="0.6"
+                    android:tint="@color/white" />
             </FrameLayout>
 
             <TextView
                 android:id="@+id/category_tip_preview_meta"
-                style="@style/Tips.Text.Meta"
+                style="@style/Tips.Text.Label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -195,7 +196,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- Tip list: rows + scrollbar 16 to the right. Height is set by RowAlignedPanes (R7). -->
+        <!-- Tip list: rows + scrollbar 16 to the right, fills the content height -->
         <LinearLayout
             android:id="@+id/category_tip_list"
             android:layout_width="0dp"

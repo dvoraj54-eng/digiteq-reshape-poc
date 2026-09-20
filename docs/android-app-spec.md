@@ -20,7 +20,7 @@ Sources of truth, in this order: `rules/DESIGN-RULES.md` → this spec → `desi
 | Data | Static, in Kotlin (`data/TipsRepository.kt`) – texts in §6. No network, no database, no car APIs. |
 | Theme | `Theme.Material3.Dark.NoActionBar` based; **no ActionBar/Toolbar** – the 132 dp header is part of each layout |
 | Font | **Inter** (OFL licence) bundled in `res/font/` (Regular, Medium, SemiBold, Bold). Downloadable fonts may not work on the Google APIs emulator image. Fallback: `sans-serif` / `sans-serif-medium`. |
-| Icons | Material Symbols vector drawables (*New → Vector Asset*): `settings`, `arrow_back`, `search`, `bookmark`, `expand_more`, `chevron_right`, `lightbulb`, `image`, `directions_car`, `airline_seat_recline_normal`, `eco`, `shield` |
+| Icons | **Lucide** (ISC licence) stroke icons as vector drawables in `res/drawable/ic_*.xml` – the set used in the Figma file: `sliders-horizontal` (settings), `chevron-left` (back / previous), `chevron-right` (rows / next), `chevron-down` (filter), `search`, `bookmark`, `lightbulb`, `image`, `car`, `asterisk`, `zap`, `shield`. Tint them from the layout. Note: an `android:tint` colour's alpha is ignored on these vectors – use `android:alpha` for translucent icons |
 
 ### Android Automotive specifics
 Add to the manifest:
@@ -62,8 +62,8 @@ Design the wide layouts in 2a with this in mind: IDs exactly as in Figma, no lay
 | Tabs (S2) | Each tab height 96, padding 40 horiz., label 26 sp. Selected: `#4ADE80` SemiBold + 4 dp underline `#4ADE80` at the bottom. Others: Medium, white 85 % |
 | Content area | Padding **24**, gap between panes **32** |
 | Card | Black 30 % (`#4D000000`), radius 16, padding 32, inner gap 20 |
-| Media placeholder | White 8 %, radius 12, centred `image` icon 64 (S3: 96), white 40 % |
-| Label "TIP OF THE DAY" / meta | SemiBold 22 sp `#4ADE80` (meta text white 60 %) |
+| Media placeholder | White 8 %, radius 12, centred `image` icon 64 (S3: 96), white 60 % (measured on the Figma PNG) |
+| Label "TIP OF THE DAY" / S2 meta line | SemiBold 22 sp `#4ADE80` (both are green in the Figma wide export) |
 | Card title | Bold 40 sp white (featured / preview) |
 | Body text | 26 sp white 65 % |
 | Primary button | Fill `#4ADE80`, height **76**, radius 38, padding horiz. 48, label SemiBold 26 sp `#1E1512`. **Wraps its label** – never stretched |
@@ -95,7 +95,7 @@ Header: `home_settings_button`, `home_title` ("Tips"), left-aligned.
 Tap a category card → `CategoryActivity` (Driving). Tap "Read tip" → `TipDetailActivity`.
 
 ### S2 Category – `activity_category.xml` (list–detail)
-Header, one row: `category_back_button`, `category_title` ("Driving"), `category_filter_button` ("Newest"), `category_tabs` (All · Assistants · Parking · Winter, "Assistants" selected) centred in the free space, `category_search_button` right.
+Header, one row: `category_back_button`, `category_title` ("Driving"), `category_filter_button` ("Newest"), `category_tabs` (All · Assistants · Parking · Winter, "All" selected in the wide export) centred in the free space, `category_search_button` right.
 The header was measured to fit in 1400 (1312 ≤ 1400), so **tabs stay in the header in both variants** (R4 not triggered). If Jan later tests a narrower display, R4 moves `category_tabs` to a row under the header.
 
 | | Wide | Portrait |
@@ -106,7 +106,7 @@ The header was measured to fit in 1400 (1312 ≤ 1400), so **tabs stay in the he
 | Rows visible | 7 | 11 (R3: extra height = more rows) |
 
 - Rows: a vertical `LinearLayout` in a `ScrollView` with **11 static rows** `category_tip_row_1 … _11` (IDs matching Figma; `…_title`, `…_subtitle` inside). Row 1 selected. (A RecyclerView would lose the 1:1 IDs; for 11 static items this is simpler and fine.)
-- **R7 in code:** after layout, set the list pane height to a whole number of rows (`n = floor((available + 16) / 120)`, `h = n × 120 − 16`) and give the preview card the same height, so both panes end on one line. Put it in a small reusable helper (`RowAlignedPanes` / `doOnLayout`) – it is a demo point: *the rule from the rules file is implemented once and works on both displays*.
+- **R7 in code (added in 2b – the wide baseline has no R7, its panes fill the content height like the Figma wide frame; a reference implementation is in commit `a052781`):** after layout, set the list pane height to a whole number of rows (`n = floor((available + 16) / 120)`, `h = n × 120 − 16`) and give the preview card the same height, so both panes end on one line. Put it in a small reusable helper (`RowAlignedPanes` / `doOnLayout`) – it is a demo point: *the rule from the rules file is implemented once and works on both displays*.
 - Filter pill → `category_filter_dropdown` (PopupWindow, options `category_filter_option_1..3`), anchored under the pill (R6), must stay inside the window.
 - Tap a row → selects it and updates the preview. "Open tip" → `TipDetailActivity`.
 

@@ -26,7 +26,7 @@ The app area is the display minus the 76 dp system bar on top (1920 × 1124 dp o
 ## Third-party assets
 
 - **Inter** font (SIL Open Font License 1.1, `licenses/Inter-OFL.txt`), static TTFs from the Inter 4.1 release.
-- **Material Symbols** icons (Apache 2.0), `res/drawable/ic_*.xml`.
+- **Lucide** icons (ISC licence, `licenses/Lucide-ISC.txt`), converted to vector drawables in `res/drawable/ic_*.xml`.
 
 **Launching a screen directly:** `CategoryActivity` and later screens are not exported, so plain `adb shell am start`
 is denied. Run `adb root` once (works on the Google APIs emulator images), then `am start -n cz.digiteq.tips/.CategoryActivity`.

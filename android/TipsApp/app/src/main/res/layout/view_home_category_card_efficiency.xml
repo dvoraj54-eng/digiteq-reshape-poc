@@ -12,7 +12,7 @@
     <ImageView
         style="@style/Tips.CategoryIcon"
         android:importantForAccessibility="no"
-        android:src="@drawable/ic_eco" />
+        android:src="@drawable/ic_zap" />
 
     <!-- spacer: pushes title and count to the bottom -->
     <View

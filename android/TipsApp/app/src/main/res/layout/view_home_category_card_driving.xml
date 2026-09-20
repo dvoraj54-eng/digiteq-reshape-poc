@@ -12,7 +12,7 @@
     <ImageView
         style="@style/Tips.CategoryIcon"
         android:importantForAccessibility="no"
-        android:src="@drawable/ic_directions_car" />
+        android:src="@drawable/ic_car" />
 
     <!-- spacer: pushes title and count to the bottom -->
     <View
