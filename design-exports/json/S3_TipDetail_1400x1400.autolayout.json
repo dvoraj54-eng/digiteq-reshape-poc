@@ -1,0 +1,989 @@
+{
+  "name": "S3_TipDetail_1400x1400",
+  "type": "FRAME",
+  "x": 6540,
+  "y": 2564,
+  "w": 1400,
+  "h": 1532,
+  "layout": {
+    "mode": "VERTICAL",
+    "gap": 0,
+    "pad": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "children": [
+    {
+      "name": "tip_header",
+      "type": "FRAME",
+      "x": 0,
+      "y": 0,
+      "w": 1400,
+      "h": 132,
+      "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 24,
+        "pad": [
+          0,
+          24,
+          0,
+          40
+        ]
+      },
+      "sizing": [
+        "FILL",
+        "FIXED"
+      ],
+      "children": [
+        {
+          "name": "tip_title",
+          "type": "TEXT",
+          "x": 40,
+          "y": 44,
+          "w": 726,
+          "h": 44,
+          "sizing": [
+            "HUG",
+            "HUG"
+          ],
+          "text": "Stop-and-go with adaptive cruise control",
+          "fontSize": 36
+        },
+        {
+          "name": "tip_header_actions",
+          "type": "FRAME",
+          "x": 1116,
+          "y": 28,
+          "w": 260,
+          "h": 76,
+          "layout": {
+            "mode": "HORIZONTAL",
+            "gap": 16,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "sizing": [
+            "HUG",
+            "HUG"
+          ],
+          "children": [
+            {
+              "name": "tip_save_button",
+              "type": "FRAME",
+              "x": 0,
+              "y": 0,
+              "w": 76,
+              "h": 76,
+              "layout": {
+                "mode": "HORIZONTAL",
+                "gap": 0,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "sizing": [
+                "FIXED",
+                "FIXED"
+              ],
+              "children": [
+                {
+                  "name": "icon",
+                  "type": "FRAME",
+                  "x": 22,
+                  "y": 22,
+                  "w": 32,
+                  "h": 32,
+                  "sizing": [
+                    "FIXED",
+                    "FIXED"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "tip_back_button",
+              "type": "FRAME",
+              "x": 92,
+              "y": 0,
+              "w": 76,
+              "h": 76,
+              "layout": {
+                "mode": "HORIZONTAL",
+                "gap": 0,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "sizing": [
+                "FIXED",
+                "FIXED"
+              ],
+              "children": [
+                {
+                  "name": "icon",
+                  "type": "FRAME",
+                  "x": 22,
+                  "y": 22,
+                  "w": 32,
+                  "h": 32,
+                  "sizing": [
+                    "FIXED",
+                    "FIXED"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "tip_search_button",
+              "type": "FRAME",
+              "x": 184,
+              "y": 0,
+              "w": 76,
+              "h": 76,
+              "layout": {
+                "mode": "HORIZONTAL",
+                "gap": 0,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "sizing": [
+                "FIXED",
+                "FIXED"
+              ],
+              "children": [
+                {
+                  "name": "icon",
+                  "type": "FRAME",
+                  "x": 22,
+                  "y": 22,
+                  "w": 32,
+                  "h": 32,
+                  "sizing": [
+                    "FIXED",
+                    "FIXED"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tip_content",
+      "type": "FRAME",
+      "x": 0,
+      "y": 132,
+      "w": 1400,
+      "h": 1400,
+      "layout": {
+        "mode": "VERTICAL",
+        "gap": 32,
+        "pad": [
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      "sizing": [
+        "FILL",
+        "FILL"
+      ],
+      "children": [
+        {
+          "name": "tip_image",
+          "type": "FRAME",
+          "x": 100,
+          "y": 24,
+          "w": 1200,
+          "h": 448,
+          "layout": {
+            "mode": "VERTICAL",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "sizing": [
+            "FIXED",
+            "FIXED"
+          ],
+          "children": [
+            {
+              "name": "icon",
+              "type": "FRAME",
+              "x": 552,
+              "y": 176,
+              "w": 96,
+              "h": 96,
+              "sizing": [
+                "FIXED",
+                "FIXED"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "tip_body",
+          "type": "FRAME",
+          "x": 100,
+          "y": 504,
+          "w": 1200,
+          "h": 872,
+          "layout": {
+            "mode": "VERTICAL",
+            "gap": 16,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "sizing": [
+            "FIXED",
+            "FILL"
+          ],
+          "children": [
+            {
+              "name": "tip_steps",
+              "type": "FRAME",
+              "x": 0,
+              "y": 0,
+              "w": 1200,
+              "h": 400,
+              "layout": {
+                "mode": "VERTICAL",
+                "gap": 16,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "sizing": [
+                "FILL",
+                "HUG"
+              ],
+              "children": [
+                {
+                  "name": "tip_step_1",
+                  "type": "FRAME",
+                  "x": 0,
+                  "y": 0,
+                  "w": 1200,
+                  "h": 88,
+                  "layout": {
+                    "mode": "HORIZONTAL",
+                    "gap": 24,
+                    "pad": [
+                      16,
+                      24,
+                      16,
+                      24
+                    ]
+                  },
+                  "sizing": [
+                    "FILL",
+                    "HUG"
+                  ],
+                  "children": [
+                    {
+                      "name": "number",
+                      "type": "FRAME",
+                      "x": 24,
+                      "y": 16,
+                      "w": 56,
+                      "h": 56,
+                      "layout": {
+                        "mode": "HORIZONTAL",
+                        "gap": 0,
+                        "pad": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ]
+                      },
+                      "sizing": [
+                        "FIXED",
+                        "FIXED"
+                      ],
+                      "children": [
+                        {
+                          "name": "tip_step_1_number",
+                          "type": "TEXT",
+                          "x": 22,
+                          "y": 13,
+                          "w": 13,
+                          "h": 31,
+                          "sizing": [
+                            "HUG",
+                            "HUG"
+                          ],
+                          "text": "1",
+                          "fontSize": 26
+                        }
+                      ]
+                    },
+                    {
+                      "name": "tip_step_1_text",
+                      "type": "TEXT",
+                      "x": 104,
+                      "y": 29,
+                      "w": 1072,
+                      "h": 31,
+                      "sizing": [
+                        "FILL",
+                        "HUG"
+                      ],
+                      "text": "Press the ACC button on the steering wheel.",
+                      "fontSize": 26
+                    }
+                  ]
+                },
+                {
+                  "name": "tip_step_2",
+                  "type": "FRAME",
+                  "x": 0,
+                  "y": 104,
+                  "w": 1200,
+                  "h": 88,
+                  "layout": {
+                    "mode": "HORIZONTAL",
+                    "gap": 24,
+                    "pad": [
+                      16,
+                      24,
+                      16,
+                      24
+                    ]
+                  },
+                  "sizing": [
+                    "FILL",
+                    "HUG"
+                  ],
+                  "children": [
+                    {
+                      "name": "number",
+                      "type": "FRAME",
+                      "x": 24,
+                      "y": 16,
+                      "w": 56,
+                      "h": 56,
+                      "layout": {
+                        "mode": "HORIZONTAL",
+                        "gap": 0,
+                        "pad": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ]
+                      },
+                      "sizing": [
+                        "FIXED",
+                        "FIXED"
+                      ],
+                      "children": [
+                        {
+                          "name": "tip_step_2_number",
+                          "type": "TEXT",
+                          "x": 20,
+                          "y": 13,
+                          "w": 17,
+                          "h": 31,
+                          "sizing": [
+                            "HUG",
+                            "HUG"
+                          ],
+                          "text": "2",
+                          "fontSize": 26
+                        }
+                      ]
+                    },
+                    {
+                      "name": "tip_step_2_text",
+                      "type": "TEXT",
+                      "x": 104,
+                      "y": 29,
+                      "w": 1072,
+                      "h": 31,
+                      "sizing": [
+                        "FILL",
+                        "HUG"
+                      ],
+                      "text": "Set your speed with SET, then choose a following distance.",
+                      "fontSize": 26
+                    }
+                  ]
+                },
+                {
+                  "name": "tip_step_3",
+                  "type": "FRAME",
+                  "x": 0,
+                  "y": 208,
+                  "w": 1200,
+                  "h": 88,
+                  "layout": {
+                    "mode": "HORIZONTAL",
+                    "gap": 24,
+                    "pad": [
+                      16,
+                      24,
+                      16,
+                      24
+                    ]
+                  },
+                  "sizing": [
+                    "FILL",
+                    "HUG"
+                  ],
+                  "children": [
+                    {
+                      "name": "number",
+                      "type": "FRAME",
+                      "x": 24,
+                      "y": 16,
+                      "w": 56,
+                      "h": 56,
+                      "layout": {
+                        "mode": "HORIZONTAL",
+                        "gap": 0,
+                        "pad": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ]
+                      },
+                      "sizing": [
+                        "FIXED",
+                        "FIXED"
+                      ],
+                      "children": [
+                        {
+                          "name": "tip_step_3_number",
+                          "type": "TEXT",
+                          "x": 20,
+                          "y": 13,
+                          "w": 17,
+                          "h": 31,
+                          "sizing": [
+                            "HUG",
+                            "HUG"
+                          ],
+                          "text": "3",
+                          "fontSize": 26
+                        }
+                      ]
+                    },
+                    {
+                      "name": "tip_step_3_text",
+                      "type": "TEXT",
+                      "x": 104,
+                      "y": 29,
+                      "w": 1072,
+                      "h": 31,
+                      "sizing": [
+                        "FILL",
+                        "HUG"
+                      ],
+                      "text": "In a jam, the car stops and waits behind the vehicle ahead.",
+                      "fontSize": 26
+                    }
+                  ]
+                },
+                {
+                  "name": "tip_step_4",
+                  "type": "FRAME",
+                  "x": 0,
+                  "y": 312,
+                  "w": 1200,
+                  "h": 88,
+                  "layout": {
+                    "mode": "HORIZONTAL",
+                    "gap": 24,
+                    "pad": [
+                      16,
+                      24,
+                      16,
+                      24
+                    ]
+                  },
+                  "sizing": [
+                    "FILL",
+                    "HUG"
+                  ],
+                  "children": [
+                    {
+                      "name": "number",
+                      "type": "FRAME",
+                      "x": 24,
+                      "y": 16,
+                      "w": 56,
+                      "h": 56,
+                      "layout": {
+                        "mode": "HORIZONTAL",
+                        "gap": 0,
+                        "pad": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ]
+                      },
+                      "sizing": [
+                        "FIXED",
+                        "FIXED"
+                      ],
+                      "children": [
+                        {
+                          "name": "tip_step_4_number",
+                          "type": "TEXT",
+                          "x": 19,
+                          "y": 13,
+                          "w": 18,
+                          "h": 31,
+                          "sizing": [
+                            "HUG",
+                            "HUG"
+                          ],
+                          "text": "4",
+                          "fontSize": 26
+                        }
+                      ]
+                    },
+                    {
+                      "name": "tip_step_4_text",
+                      "type": "TEXT",
+                      "x": 104,
+                      "y": 29,
+                      "w": 1072,
+                      "h": 31,
+                      "sizing": [
+                        "FILL",
+                        "HUG"
+                      ],
+                      "text": "Tap RES or the accelerator to move off again.",
+                      "fontSize": 26
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "tip_distance_setting",
+              "type": "FRAME",
+              "x": 0,
+              "y": 416,
+              "w": 1200,
+              "h": 175,
+              "layout": {
+                "mode": "VERTICAL",
+                "gap": 16,
+                "pad": [
+                  20,
+                  24,
+                  20,
+                  24
+                ]
+              },
+              "sizing": [
+                "FILL",
+                "HUG"
+              ],
+              "children": [
+                {
+                  "name": "tip_distance_setting_label",
+                  "type": "TEXT",
+                  "x": 24,
+                  "y": 20,
+                  "w": 304,
+                  "h": 31,
+                  "sizing": [
+                    "HUG",
+                    "HUG"
+                  ],
+                  "text": "Try it: following distance",
+                  "fontSize": 26
+                },
+                {
+                  "name": "tip_distance_segmented",
+                  "type": "FRAME",
+                  "x": 24,
+                  "y": 67,
+                  "w": 1152,
+                  "h": 88,
+                  "layout": {
+                    "mode": "HORIZONTAL",
+                    "gap": 6,
+                    "pad": [
+                      6,
+                      6,
+                      6,
+                      6
+                    ]
+                  },
+                  "sizing": [
+                    "FILL",
+                    "HUG"
+                  ],
+                  "children": [
+                    {
+                      "name": "tip_distance_option_close",
+                      "type": "FRAME",
+                      "x": 6,
+                      "y": 6,
+                      "w": 375,
+                      "h": 76,
+                      "layout": {
+                        "mode": "HORIZONTAL",
+                        "gap": 0,
+                        "pad": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ]
+                      },
+                      "sizing": [
+                        "FILL",
+                        "FIXED"
+                      ],
+                      "children": [
+                        {
+                          "name": "tip_distance_option_close_label",
+                          "type": "TEXT",
+                          "x": 152,
+                          "y": 23,
+                          "w": 70,
+                          "h": 31,
+                          "sizing": [
+                            "HUG",
+                            "HUG"
+                          ],
+                          "text": "Close",
+                          "fontSize": 26
+                        }
+                      ]
+                    },
+                    {
+                      "name": "tip_distance_option_medium",
+                      "type": "FRAME",
+                      "x": 387,
+                      "y": 6,
+                      "w": 379,
+                      "h": 76,
+                      "layout": {
+                        "mode": "HORIZONTAL",
+                        "gap": 0,
+                        "pad": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ]
+                      },
+                      "sizing": [
+                        "FILL",
+                        "FIXED"
+                      ],
+                      "children": [
+                        {
+                          "name": "tip_distance_option_medium_label",
+                          "type": "TEXT",
+                          "x": 138,
+                          "y": 23,
+                          "w": 102,
+                          "h": 31,
+                          "sizing": [
+                            "HUG",
+                            "HUG"
+                          ],
+                          "text": "Medium",
+                          "fontSize": 26
+                        }
+                      ]
+                    },
+                    {
+                      "name": "tip_distance_option_far",
+                      "type": "FRAME",
+                      "x": 771,
+                      "y": 6,
+                      "w": 375,
+                      "h": 76,
+                      "layout": {
+                        "mode": "HORIZONTAL",
+                        "gap": 0,
+                        "pad": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ]
+                      },
+                      "sizing": [
+                        "FILL",
+                        "FIXED"
+                      ],
+                      "children": [
+                        {
+                          "name": "tip_distance_option_far_label",
+                          "type": "TEXT",
+                          "x": 167,
+                          "y": 23,
+                          "w": 40,
+                          "h": 31,
+                          "sizing": [
+                            "HUG",
+                            "HUG"
+                          ],
+                          "text": "Far",
+                          "fontSize": 26
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "tip_helpful_toggle",
+              "type": "FRAME",
+              "x": 0,
+              "y": 607,
+              "w": 1200,
+              "h": 96,
+              "layout": {
+                "mode": "HORIZONTAL",
+                "gap": 24,
+                "pad": [
+                  0,
+                  24,
+                  0,
+                  24
+                ]
+              },
+              "sizing": [
+                "FILL",
+                "FIXED"
+              ],
+              "children": [
+                {
+                  "name": "tip_helpful_toggle_label",
+                  "type": "TEXT",
+                  "x": 24,
+                  "y": 33,
+                  "w": 1040,
+                  "h": 31,
+                  "sizing": [
+                    "FILL",
+                    "HUG"
+                  ],
+                  "text": "Show this tip again next time",
+                  "fontSize": 26
+                },
+                {
+                  "name": "switch",
+                  "type": "FRAME",
+                  "x": 1088,
+                  "y": 24,
+                  "w": 88,
+                  "h": 48,
+                  "layout": {
+                    "mode": "HORIZONTAL",
+                    "gap": 0,
+                    "pad": [
+                      0,
+                      4,
+                      0,
+                      4
+                    ]
+                  },
+                  "sizing": [
+                    "FIXED",
+                    "FIXED"
+                  ],
+                  "children": [
+                    {
+                      "name": "knob",
+                      "type": "ELLIPSE",
+                      "x": 44,
+                      "y": 4,
+                      "w": 40,
+                      "h": 40,
+                      "sizing": [
+                        "FIXED",
+                        "FIXED"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "spacer",
+              "type": "FRAME",
+              "x": 0,
+              "y": 719,
+              "w": 1,
+              "h": 61,
+              "sizing": [
+                "FIXED",
+                "FILL"
+              ],
+              "children": []
+            },
+            {
+              "name": "tip_nav",
+              "type": "FRAME",
+              "x": 0,
+              "y": 796,
+              "w": 1200,
+              "h": 76,
+              "layout": {
+                "mode": "HORIZONTAL",
+                "gap": 0,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "sizing": [
+                "FILL",
+                "HUG"
+              ],
+              "children": [
+                {
+                  "name": "tip_prev_button",
+                  "type": "FRAME",
+                  "x": 0,
+                  "y": 0,
+                  "w": 230,
+                  "h": 76,
+                  "layout": {
+                    "mode": "HORIZONTAL",
+                    "gap": 12,
+                    "pad": [
+                      0,
+                      48,
+                      0,
+                      32
+                    ]
+                  },
+                  "sizing": [
+                    "HUG",
+                    "FIXED"
+                  ],
+                  "children": [
+                    {
+                      "name": "icon",
+                      "type": "FRAME",
+                      "x": 32,
+                      "y": 24,
+                      "w": 28,
+                      "h": 28,
+                      "sizing": [
+                        "FIXED",
+                        "FIXED"
+                      ]
+                    },
+                    {
+                      "name": "tip_prev_button_label",
+                      "type": "TEXT",
+                      "x": 72,
+                      "y": 23,
+                      "w": 110,
+                      "h": 31,
+                      "sizing": [
+                        "HUG",
+                        "HUG"
+                      ],
+                      "text": "Previous",
+                      "fontSize": 26
+                    }
+                  ]
+                },
+                {
+                  "name": "tip_next_button",
+                  "type": "FRAME",
+                  "x": 981,
+                  "y": 0,
+                  "w": 219,
+                  "h": 76,
+                  "layout": {
+                    "mode": "HORIZONTAL",
+                    "gap": 12,
+                    "pad": [
+                      0,
+                      32,
+                      0,
+                      48
+                    ]
+                  },
+                  "sizing": [
+                    "HUG",
+                    "FIXED"
+                  ],
+                  "children": [
+                    {
+                      "name": "tip_next_button_label",
+                      "type": "TEXT",
+                      "x": 48,
+                      "y": 23,
+                      "w": 99,
+                      "h": 31,
+                      "sizing": [
+                        "HUG",
+                        "HUG"
+                      ],
+                      "text": "Next tip",
+                      "fontSize": 26
+                    },
+                    {
+                      "name": "icon",
+                      "type": "FRAME",
+                      "x": 159,
+                      "y": 24,
+                      "w": 28,
+                      "h": 28,
+                      "sizing": [
+                        "FIXED",
+                        "FIXED"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

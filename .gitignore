@@ -1,0 +1,23 @@
+# macOS / editors
+.DS_Store
+.idea/
+*.iml
+.vscode/
+
+# Android / Gradle
+android/**/build/
+android/**/.gradle/
+android/**/local.properties
+android/**/captures/
+android/**/.externalNativeBuild/
+android/**/.cxx/
+*.apk
+*.aab
+*.keystore
+
+# Screenshots taken during development (keep reference PNGs in design-exports/)
+android/**/screenshots-tmp/
+
+# Secrets
+.env
+*.key

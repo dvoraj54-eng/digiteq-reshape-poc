@@ -1,0 +1,24 @@
+The header needs 1312 of 1840, so R4 is not triggered and the tabs stay in the header.
+Usable width is 1792; minus one 32 gap leaves 1760 for two panes. Both panes keep well above their 560 minimum,
+so R1 applies: side by side. I give the preview card back its original 704 (vertical card, since it is below 1000)
+and the list the remaining 1056. Height is 912 for both; the list shows 7 rows at 120 pitch = 824, fits.
+
+```json
+{
+  "screen": "S2_Category_1400x1400",
+  "target": { "w": 1840, "h": 960 },
+  "mode": "side",
+  "r4": false,
+  "panes": [
+    { "name": "category_tip_preview", "x": 24, "y": 24, "w": 704, "h": 912, "card": "vertical" },
+    { "name": "category_tip_list", "x": 760, "y": 24, "w": 1056, "h": 912 }
+  ],
+  "overrides": [],
+  "decisions": [
+    "R4 not triggered: header needs 1312 of 1840",
+    "R1 side by side: 560 + 560 = 1120 <= 1760 available",
+    "preview 704 (< 1000 -> vertical card), list 1056 = 1760 - 704"
+  ],
+  "open_questions": []
+}
+```

@@ -1,0 +1,191 @@
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Digiteq Archer design system tokens (light theme) */
+  :root {
+    --primary: #1565C0; --primary-dark: #0D47A1; --on-primary: #FFFFFF;
+    --tint-primary: rgba(21,101,192,.08);
+    --bg-default: #F3F6FB; --surface-card: #FFFFFF; --surface-sunken: #EEF2F7; --surface-input: #F8FAFF; --surface-selected: #90CAF9;
+    --gradient-hero: linear-gradient(90deg, #0D47A1 0%, #1565C0 60%, #1976D2 100%);
+    --text-heading: #1A237E; --text-primary: #1A2340; --text-secondary: #455A64; --text-disabled: #90A4AE;
+    --divider: #E3EAF4; --border-input: #CFD8DC; --border-input-hover: #1976D2;
+    --success: #2E7D32; --error: #C62828; --chip-pending: #ED9B0E; --chip-neutral: rgba(0,0,0,.08);
+    --radius-md: 8px; --radius-lg: 12px; --radius-xl: 16px; --radius-pill: 20px;
+    --font-ui: "Figtree", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg-default); color: var(--text-primary); font: 400 13px/1.5 var(--font-ui); -webkit-font-smoothing: antialiased; }
+  svg.i { width: 18px; height: 18px; fill: currentColor; flex: none; }
+
+  .appbar { height: 44px; background: var(--gradient-hero); color: #fff; display: flex; align-items: center; gap: 8px; padding: 0 12px; font: 600 14px/1 var(--font-ui); letter-spacing: .01em; }
+  .appbar .sp { flex: 1; }
+  .appbar .tag { font: 600 10px/1 var(--font-ui); background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.25); border-radius: 6px; padding: 4px 7px; }
+
+  .wrap { padding: 10px; display: flex; flex-direction: column; gap: 10px; }
+  .card { background: var(--surface-card); border: 1px solid var(--divider); border-radius: var(--radius-xl); padding: 10px 12px 12px; }
+  .card h3 { margin: 0 0 8px; display: flex; align-items: center; gap: 8px; font: 600 13px/1.4 var(--font-ui); color: var(--text-heading); }
+  .card h3 .n { width: 18px; height: 18px; border-radius: 4px; background: var(--primary); color: #fff; display: inline-flex; align-items: center; justify-content: center; font: 700 10px/1 var(--font-ui); }
+  .card h3 .grow { flex: 1; }
+
+  .sel { display: flex; align-items: center; gap: 8px; font: 500 13px/1.4 var(--font-ui); }
+  .sel.bad { color: var(--text-secondary); font-weight: 400; }
+  .chip { display: inline-flex; align-items: center; gap: 4px; font: 600 11px/1.4 var(--font-ui); padding: 2px 8px; border-radius: var(--radius-md); background: var(--chip-neutral); color: var(--text-primary); white-space: nowrap; }
+  .chip.ok { background: var(--success); color: #fff; } .chip.fail { background: var(--error); color: #fff; } .chip.warn { background: var(--chip-pending); color: #fff; }
+
+  .seg { display: flex; border: 1px solid var(--divider); border-radius: var(--radius-md); overflow: hidden; }
+  .seg label { flex: 1; padding: 6px 4px; text-align: center; cursor: pointer; color: var(--text-secondary); font: 500 12px/1.3 var(--font-ui); border-left: 1px solid var(--divider); }
+  .seg label:first-child { border-left: 0; }
+  .seg label:hover { background: var(--tint-primary); }
+  .seg input { position: absolute; opacity: 0; pointer-events: none; }
+  .seg label b { display: block; font-weight: inherit; }
+  .seg label small { display: block; font: 400 11px/1.3 var(--font-ui); opacity: .85; white-space: nowrap; }
+  .seg label:has(input:checked) { background: var(--surface-selected); color: var(--primary-dark); font-weight: 600; }
+
+  .row { display: flex; gap: 6px; align-items: center; }
+  .row > * { flex: 1; min-width: 0; }
+  input[type=number], textarea { width: 100%; padding: 6px 8px; border: 1px solid var(--border-input); border-radius: var(--radius-lg); background: var(--surface-input); color: var(--text-primary); font: 400 12px/1.4 var(--font-ui); outline: none; }
+  input:hover, textarea:hover { border-color: var(--border-input-hover); }
+  input:focus, textarea:focus { border-color: var(--primary); box-shadow: inset 0 0 0 1px var(--primary); }
+  textarea { font: 400 11px/1.4 var(--font-mono); resize: vertical; }
+  textarea[readonly] { background: var(--surface-sunken); }
+
+  button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 5px 12px; border-radius: var(--radius-pill); border: 1px solid var(--primary); background: transparent; color: var(--primary); font: 500 12.5px/1.6 var(--font-ui); cursor: pointer; transition: all .2s ease; white-space: nowrap; }
+  button:hover:not(:disabled) { background: var(--tint-primary); }
+  button.primary { background: var(--primary); color: #fff; border-color: transparent; }
+  button.primary:hover:not(:disabled) { background: var(--primary-dark); box-shadow: 0 1px 4px rgba(21,101,192,.25); }
+  button:disabled { opacity: .5; cursor: default; }
+
+  .hint { font: 400 11px/1.45 var(--font-ui); color: var(--text-secondary); margin-top: 6px; }
+  .err { font: 500 11.5px/1.4 var(--font-ui); color: var(--error); margin-top: 6px; }
+  .mt { margin-top: 8px; }
+
+  footer { display: flex; align-items: center; gap: 8px; padding: 2px 12px 12px; color: var(--text-secondary); font: 400 11px/1.3 var(--font-ui); }
+  footer .plate { background: #fff; border: 1px solid var(--divider); border-radius: var(--radius-md); padding: 5px 8px; display: inline-flex; }
+  footer img { height: 15px; display: block; }
+</style>
+
+<div class="appbar">
+  <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12h-2v3h-3v2h5v-5zM7 9h3V7H5v5h2V9zm14-6H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16.01H3V4.99h18v14.02z"/></svg>
+  Digiteq Reshape Plugin
+  <span class="sp"></span><span class="tag">POC</span>
+</div>
+
+<div class="wrap">
+  <div class="card">
+    <h3><span class="n">1</span>Screen</h3>
+    <div id="sel" class="sel bad">Select a screen frame on the canvas…</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="n">2</span>Target content area</h3>
+    <div class="seg">
+      <label><input type="radio" name="res" value="1840x960"><b>Wide</b><small>1840 × 960</small></label>
+      <label><input type="radio" name="res" value="1400x1400" checked><b>Square</b><small>1400 × 1400</small></label>
+      <label><input type="radio" name="res" value="custom"><b>Custom</b><small>your size</small></label>
+    </div>
+    <div class="row mt" id="customRow">
+      <input id="cw" type="number" value="1600" step="8" aria-label="width">
+      <input id="ch" type="number" value="1200" step="8" aria-label="height">
+    </div>
+    <div class="hint">Header 132 is added. Width 960–2560, height 600–2000, multiples of 8, aspect 0.5–3.</div>
+    <div id="verr" class="err"></div>
+  </div>
+
+  <div class="card">
+    <h3><span class="n">3</span>Action</h3>
+    <div class="row">
+      <button id="reshape" class="primary">Reshape + check</button>
+      <button id="check">Check only</button>
+      <button id="export">Export JSON</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="n">4</span>Import LLM result</h3>
+    <textarea id="imp" style="height:70px" placeholder="Paste the JSON from the Digiteq Reshape Assistant (or the model's whole answer)"></textarea>
+    <div class="hint">A plan (“panes”) reshapes the selected <b>source</b> screen into a new frame. Fixes (“overrides”) change the selected frame in place – Ctrl/Cmd+Z undoes them.</div>
+    <div class="row mt"><button id="import" class="primary" style="flex:none">Apply JSON</button></div>
+  </div>
+
+  <div class="card">
+    <h3><span class="grow">Report</span><span id="status" class="chip">–</span></h3>
+    <textarea id="out" readonly style="height:170px" placeholder="Results appear here"></textarea>
+    <div class="row mt"><button id="copy" style="flex:none">Copy report</button></div>
+  </div>
+</div>
+
+<footer>
+  <span class="plate"><img alt="Digiteq Automotive" src="data:image/png;base64,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"></span>
+  <span>© Digiteq Automotive s.r.o. (2026)</span>
+</footer>
+
+<script>
+  const LIMITS = { minW: 960, maxW: 2560, minH: 600, maxH: 2000, minAspect: 0.5, maxAspect: 3 };
+  let selOk = false;
+  const $ = id => document.getElementById(id);
+
+  function target() {
+    const v = document.querySelector('input[name=res]:checked').value;
+    if (v !== 'custom') { const [w, h] = v.split('x').map(Number); return { w, h }; }
+    return { w: Number($('cw').value), h: Number($('ch').value) };
+  }
+  function validate({ w, h }) {
+    const e = [];
+    if (!Number.isInteger(w) || !Number.isInteger(h)) e.push('Width and height must be whole numbers.');
+    if (w < LIMITS.minW || w > LIMITS.maxW) e.push(`Width must be ${LIMITS.minW}–${LIMITS.maxW} (got ${w}).`);
+    if (h < LIMITS.minH || h > LIMITS.maxH) e.push(`Height must be ${LIMITS.minH}–${LIMITS.maxH} (got ${h}).`);
+    if (w % 8 || h % 8) e.push('Use multiples of 8 (design grid).');
+    const a = w / h;
+    if (a < LIMITS.minAspect || a > LIMITS.maxAspect) e.push(`Aspect ${a.toFixed(2)} is outside ${LIMITS.minAspect}–${LIMITS.maxAspect}.`);
+    return e;
+  }
+  function refresh() {
+    const custom = document.querySelector('input[name=res]:checked').value === 'custom';
+    $('customRow').style.display = custom ? 'flex' : 'none';
+    const errs = validate(target());
+    $('verr').textContent = errs.join(' ');
+    $('reshape').disabled = !selOk || errs.length > 0;
+    $('check').disabled = !selOk;
+    $('export').disabled = !selOk;
+    $('import').disabled = !selOk || !$('imp').value.trim();
+  }
+  document.querySelectorAll('input, textarea').forEach(i => i.addEventListener('input', refresh));
+
+  function setStatus(kind, text) { $('status').className = 'chip' + (kind ? ' ' + kind : ''); $('status').textContent = text; }
+  function working() { $('out').value = 'Working…'; setStatus('', 'Working…'); }
+  $('reshape').onclick = () => { working(); parent.postMessage({ pluginMessage: { type: 'run', action: 'reshape', ...target() } }, '*'); };
+  $('check').onclick = () => { working(); parent.postMessage({ pluginMessage: { type: 'run', action: 'check' } }, '*'); };
+  $('export').onclick = () => { working(); parent.postMessage({ pluginMessage: { type: 'run', action: 'export' } }, '*'); };
+  $('import').onclick = () => { working(); parent.postMessage({ pluginMessage: { type: 'run', action: 'import', json: $('imp').value } }, '*'); };
+  $('copy').onclick = () => { $('out').select(); document.execCommand('copy'); const b = $('copy'); b.textContent = 'Copied'; setTimeout(() => { b.textContent = 'Copy report'; }, 1200); };
+
+  // Summarise any report as one status chip (for demos)
+  function summarise(text) {
+    let r; try { r = JSON.parse(text); } catch (e) { return setStatus('', 'Done'); }
+    if (r.error || r.result === 'rejected' || r.fatal) return setStatus('fail', r.result === 'rejected' ? 'Plan rejected' : 'Error');
+    if (r.result === 'not possible') return setStatus('warn', 'Not possible');
+    const out = r.checks ? r.checks.output : r.result && typeof r.result.pass === 'boolean' ? r.result : null;
+    if (!out) return setStatus('', r.type === 'FRAME' ? 'JSON exported' : 'Done');
+    if (out.pass) return setStatus('ok', 'Checks passed');
+    setStatus('fail', `${out.fails.length} check${out.fails.length > 1 ? 's' : ''} failed`);
+  }
+
+  onmessage = e => {
+    const m = e.data.pluginMessage; if (!m) return;
+    if (m.type === 'selection') {
+      selOk = m.ok;
+      const el = $('sel');
+      el.className = 'sel' + (m.ok ? '' : ' bad');
+      if (m.ok) {
+        el.textContent = '';
+        const name = document.createElement('span'); name.textContent = m.name; name.style.cssText = 'flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap';
+        const size = document.createElement('span'); size.className = 'chip'; size.textContent = `${m.cw} × ${m.ch}`;
+        const kind = document.createElement('span'); kind.className = 'chip'; kind.textContent = m.autoLayout ? 'auto layout' : 'flat';
+        el.append(name, size, kind);
+      } else el.textContent = m.reason;
+      refresh();
+    }
+    if (m.type === 'result') { $('out').value = m.text; summarise(m.text); }
+  };
+  refresh();
+</script>

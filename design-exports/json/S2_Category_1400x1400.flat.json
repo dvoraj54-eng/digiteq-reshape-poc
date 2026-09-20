@@ -1,0 +1,1150 @@
+{
+  "name": "S2_Category_1400x1400",
+  "type": "FRAME",
+  "x": 6540,
+  "y": 8238,
+  "w": 1400,
+  "h": 1532,
+  "children": [
+    {
+      "name": "category_header",
+      "type": "FRAME",
+      "x": 0,
+      "y": 0,
+      "w": 1400,
+      "h": 132,
+      "children": [
+        {
+          "name": "category_header_left",
+          "type": "FRAME",
+          "x": 24,
+          "y": 28,
+          "w": 456,
+          "h": 76,
+          "children": [
+            {
+              "name": "category_back_button",
+              "type": "FRAME",
+              "x": 0,
+              "y": 0,
+              "w": 76,
+              "h": 76,
+              "children": [
+                {
+                  "name": "icon",
+                  "type": "FRAME",
+                  "x": 22,
+                  "y": 22,
+                  "w": 32,
+                  "h": 32
+                }
+              ]
+            },
+            {
+              "name": "category_title",
+              "type": "TEXT",
+              "x": 100,
+              "y": 14,
+              "w": 141,
+              "h": 48,
+              "text": "Driving",
+              "fontSize": 40
+            },
+            {
+              "name": "category_filter_button",
+              "type": "FRAME",
+              "x": 265,
+              "y": 0,
+              "w": 191,
+              "h": 76,
+              "children": [
+                {
+                  "name": "category_filter_button_label",
+                  "type": "TEXT",
+                  "x": 32,
+                  "y": 23,
+                  "w": 95,
+                  "h": 31,
+                  "text": "Newest",
+                  "fontSize": 26
+                },
+                {
+                  "name": "icon",
+                  "type": "FRAME",
+                  "x": 139,
+                  "y": 24,
+                  "w": 28,
+                  "h": 28
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "category_tabs",
+          "type": "FRAME",
+          "x": 548,
+          "y": 18,
+          "w": 684,
+          "h": 96,
+          "children": [
+            {
+              "name": "category_tab_all",
+              "type": "FRAME",
+              "x": 0,
+              "y": 0,
+              "w": 113,
+              "h": 96,
+              "children": [
+                {
+                  "name": "category_tab_all_label",
+                  "type": "TEXT",
+                  "x": 40,
+                  "y": 31,
+                  "w": 33,
+                  "h": 31,
+                  "text": "All",
+                  "fontSize": 26
+                }
+              ]
+            },
+            {
+              "name": "category_tab_assistants",
+              "type": "FRAME",
+              "x": 121,
+              "y": 0,
+              "w": 210,
+              "h": 96,
+              "children": [
+                {
+                  "name": "category_tab_assistants_label",
+                  "type": "TEXT",
+                  "x": 40,
+                  "y": 33,
+                  "w": 130,
+                  "h": 31,
+                  "text": "Assistants",
+                  "fontSize": 26
+                }
+              ]
+            },
+            {
+              "name": "category_tab_parking",
+              "type": "FRAME",
+              "x": 339,
+              "y": 0,
+              "w": 174,
+              "h": 96,
+              "children": [
+                {
+                  "name": "category_tab_parking_label",
+                  "type": "TEXT",
+                  "x": 40,
+                  "y": 33,
+                  "w": 94,
+                  "h": 31,
+                  "text": "Parking",
+                  "fontSize": 26
+                }
+              ]
+            },
+            {
+              "name": "category_tab_winter",
+              "type": "FRAME",
+              "x": 521,
+              "y": 0,
+              "w": 163,
+              "h": 96,
+              "children": [
+                {
+                  "name": "category_tab_winter_label",
+                  "type": "TEXT",
+                  "x": 40,
+                  "y": 33,
+                  "w": 83,
+                  "h": 31,
+                  "text": "Winter",
+                  "fontSize": 26
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "category_search_button",
+          "type": "FRAME",
+          "x": 1300,
+          "y": 28,
+          "w": 76,
+          "h": 76,
+          "children": [
+            {
+              "name": "icon",
+              "type": "FRAME",
+              "x": 22,
+              "y": 22,
+              "w": 32,
+              "h": 32
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "category_content",
+      "type": "FRAME",
+      "x": 0,
+      "y": 132,
+      "w": 1400,
+      "h": 1400,
+      "children": [
+        {
+          "name": "category_tip_preview",
+          "type": "FRAME",
+          "x": 24,
+          "y": 24,
+          "w": 560,
+          "h": 1352,
+          "children": [
+            {
+              "name": "category_tip_preview_image",
+              "type": "FRAME",
+              "x": 32,
+              "y": 32,
+              "w": 496,
+              "h": 344,
+              "children": [
+                {
+                  "name": "icon",
+                  "type": "FRAME",
+                  "x": 216,
+                  "y": 140,
+                  "w": 64,
+                  "h": 64
+                }
+              ]
+            },
+            {
+              "name": "category_tip_preview_meta",
+              "type": "TEXT",
+              "x": 32,
+              "y": 396,
+              "w": 282,
+              "h": 27,
+              "text": "ASSISTANTS · 2 MIN READ",
+              "fontSize": 22
+            },
+            {
+              "name": "category_tip_preview_title",
+              "type": "TEXT",
+              "x": 32,
+              "y": 443,
+              "w": 496,
+              "h": 96,
+              "text": "Stop-and-go with adaptive cruise control",
+              "fontSize": 40
+            },
+            {
+              "name": "category_tip_preview_body",
+              "type": "TEXT",
+              "x": 32,
+              "y": 559,
+              "w": 496,
+              "h": 93,
+              "text": "ACC keeps a set distance to the car ahead and can brake to a full stop in traffic jams.",
+              "fontSize": 26
+            },
+            {
+              "name": "spacer",
+              "type": "FRAME",
+              "x": 32,
+              "y": 32,
+              "w": 1,
+              "h": 1,
+              "children": []
+            },
+            {
+              "name": "category_open_button",
+              "type": "FRAME",
+              "x": 32,
+              "y": 1244,
+              "w": 203,
+              "h": 76,
+              "children": [
+                {
+                  "name": "category_open_button_label",
+                  "type": "TEXT",
+                  "x": 48,
+                  "y": 23,
+                  "w": 107,
+                  "h": 31,
+                  "text": "Open tip",
+                  "fontSize": 26
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "category_tip_list",
+          "type": "FRAME",
+          "x": 616,
+          "y": 24,
+          "w": 760,
+          "h": 1352,
+          "children": [
+            {
+              "name": "category_tip_list_rows",
+              "type": "FRAME",
+              "x": 0,
+              "y": 0,
+              "w": 738,
+              "h": 1352,
+              "children": [
+                {
+                  "name": "category_tip_row_1",
+                  "type": "FRAME",
+                  "x": 0,
+                  "y": 0,
+                  "w": 738,
+                  "h": 104,
+                  "children": [
+                    {
+                      "name": "icon_bg",
+                      "type": "FRAME",
+                      "x": 26,
+                      "y": 24,
+                      "w": 56,
+                      "h": 56,
+                      "children": [
+                        {
+                          "name": "icon",
+                          "type": "FRAME",
+                          "x": 14,
+                          "y": 14,
+                          "w": 28,
+                          "h": 28
+                        }
+                      ]
+                    },
+                    {
+                      "name": "text",
+                      "type": "FRAME",
+                      "x": 106,
+                      "y": 21,
+                      "w": 554,
+                      "h": 62,
+                      "children": [
+                        {
+                          "name": "category_tip_row_1_title",
+                          "type": "TEXT",
+                          "x": 0,
+                          "y": 0,
+                          "w": 554,
+                          "h": 31,
+                          "text": "Stop-and-go with adaptive cruise control",
+                          "fontSize": 26
+                        },
+                        {
+                          "name": "category_tip_row_1_subtitle",
+                          "type": "TEXT",
+                          "x": 0,
+                          "y": 35,
+                          "w": 554,
+                          "h": 27,
+                          "text": "Assistants · 2 min",
+                          "fontSize": 22
+                        }
+                      ]
+                    },
+                    {
+                      "name": "icon",
+                      "type": "FRAME",
+                      "x": 684,
+                      "y": 38,
+                      "w": 28,
+                      "h": 28
+                    }
+                  ]
+                },
+                {
+                  "name": "category_tip_row_2",
+                  "type": "FRAME",
+                  "x": 0,
+                  "y": 120,
+                  "w": 738,
+                  "h": 104,
+                  "children": [
+                    {
+                      "name": "icon_bg",
+                      "type": "FRAME",
+                      "x": 24,
+                      "y": 24,
+                      "w": 56,
+                      "h": 56,
+                      "children": [
+                        {
+                          "name": "icon",
+                          "type": "FRAME",
+                          "x": 14,
+                          "y": 14,
+                          "w": 28,
+                          "h": 28
+                        }
+                      ]
+                    },
+                    {
+                      "name": "text",
+                      "type": "FRAME",
+                      "x": 104,
+                      "y": 21,
+                      "w": 558,
+                      "h": 62,
+                      "children": [
+                        {
+                          "name": "category_tip_row_2_title",
+                          "type": "TEXT",
+                          "x": 0,
+                          "y": 0,
+                          "w": 558,
+                          "h": 31,
+                          "text": "Keep your lane with Lane Assist",
+                          "fontSize": 26
+                        },
+                        {
+                          "name": "category_tip_row_2_subtitle",
+                          "type": "TEXT",
+                          "x": 0,
+                          "y": 35,
+                          "w": 558,
+                          "h": 27,
+                          "text": "Assistants · 1 min",
+                          "fontSize": 22
+                        }
+                      ]
+                    },
+                    {
+                      "name": "icon",
+                      "type": "FRAME",
+                      "x": 686,
+                      "y": 38,
+                      "w": 28,
+                      "h": 28
+                    }
+                  ]
+                },
+                {
+                  "name": "category_tip_row_3",
+                  "type": "FRAME",
+                  "x": 0,
+                  "y": 240,
+                  "w": 738,
+                  "h": 104,
+                  "children": [
+                    {
+                      "name": "icon_bg",
+                      "type": "FRAME",
+                      "x": 24,
+                      "y": 24,
+                      "w": 56,
+                      "h": 56,
+                      "children": [
+                        {
+                          "name": "icon",
+                          "type": "FRAME",
+                          "x": 14,
+                          "y": 14,
+                          "w": 28,
+                          "h": 28
+                        }
+                      ]
+                    },
+                    {
+                      "name": "text",
+                      "type": "FRAME",
+                      "x": 104,
+                      "y": 21,
+                      "w": 558,
+                      "h": 62,
+                      "children": [
+                        {
+                          "name": "category_tip_row_3_title",
+                          "type": "TEXT",
+                          "x": 0,
+                          "y": 0,
+                          "w": 558,
+                          "h": 31,
+                          "text": "Park hands-free with Park Assist",
+                          "fontSize": 26
+                        },
+                        {
+                          "name": "category_tip_row_3_subtitle",
+                          "type": "TEXT",
+                          "x": 0,
+                          "y": 35,
+                          "w": 558,
+                          "h": 27,
+                          "text": "Parking · 3 min",
+                          "fontSize": 22
+                        }
+                      ]
+                    },
+                    {
+                      "name": "icon",
+                      "type": "FRAME",
+                      "x": 686,
+                      "y": 38,
+                      "w": 28,
+                      "h": 28
+                    }
+                  ]
+                },
+                {
+                  "name": "category_tip_row_4",
+                  "type": "FRAME",
+                  "x": 0,
+                  "y": 360,
+                  "w": 738,
+                  "h": 104,
+                  "children": [
+                    {
+                      "name": "icon_bg",
+                      "type": "FRAME",
+                      "x": 24,
+                      "y": 24,
+                      "w": 56,
+                      "h": 56,
+                      "children": [
+                        {
+                          "name": "icon",
+                          "type": "FRAME",
+                          "x": 14,
+                          "y": 14,
+                          "w": 28,
+                          "h": 28
+                        }
+                      ]
+                    },
+                    {
+                      "name": "text",
+                      "type": "FRAME",
+                      "x": 104,
+                      "y": 21,
+                      "w": 558,
+                      "h": 62,
+                      "children": [
+                        {
+                          "name": "category_tip_row_4_title",
+                          "type": "TEXT",
+                          "x": 0,
+                          "y": 0,
+                          "w": 558,
+                          "h": 31,
+                          "text": "Use the area view camera",
+                          "fontSize": 26
+                        },
+                        {
+                          "name": "category_tip_row_4_subtitle",
+                          "type": "TEXT",
+                          "x": 0,
+                          "y": 35,
+                          "w": 558,
+                          "h": 27,
+                          "text": "Parking · 1 min",
+                          "fontSize": 22
+                        }
+                      ]
+                    },
+                    {
+                      "name": "icon",
+                      "type": "FRAME",
+                      "x": 686,
+                      "y": 38,
+                      "w": 28,
+                      "h": 28
+                    }
+                  ]
+                },
+                {
+                  "name": "category_tip_row_5",
+                  "type": "FRAME",
+                  "x": 0,
+                  "y": 480,
+                  "w": 738,
+                  "h": 104,
+                  "children": [
+                    {
+                      "name": "icon_bg",
+                      "type": "FRAME",
+                      "x": 24,
+                      "y": 24,
+                      "w": 56,
+                      "h": 56,
+                      "children": [
+                        {
+                          "name": "icon",
+                          "type": "FRAME",
+                          "x": 14,
+                          "y": 14,
+                          "w": 28,
+                          "h": 28
+                        }
+                      ]
+                    },
+                    {
+                      "name": "text",
+                      "type": "FRAME",
+                      "x": 104,
+                      "y": 21,
+                      "w": 558,
+                      "h": 62,
+                      "children": [
+                        {
+                          "name": "category_tip_row_5_title",
+                          "type": "TEXT",
+                          "x": 0,
+                          "y": 0,
+                          "w": 558,
+                          "h": 31,
+                          "text": "Pre-heat the cabin before winter drives",
+                          "fontSize": 26
+                        },
+                        {
+                          "name": "category_tip_row_5_subtitle",
+                          "type": "TEXT",
+                          "x": 0,
+                          "y": 35,
+                          "w": 558,
+                          "h": 27,
+                          "text": "Winter · 2 min",
+                          "fontSize": 22
+                        }
+                      ]
+                    },
+                    {
+                      "name": "icon",
+                      "type": "FRAME",
+                      "x": 686,
+                      "y": 38,
+                      "w": 28,
+                      "h": 28
+                    }
+                  ]
+                },
+                {
+                  "name": "category_tip_row_6",
+                  "type": "FRAME",
+                  "x": 0,
+                  "y": 600,
+                  "w": 738,
+                  "h": 104,
+                  "children": [
+                    {
+                      "name": "icon_bg",
+                      "type": "FRAME",
+                      "x": 24,
+                      "y": 24,
+                      "w": 56,
+                      "h": 56,
+                      "children": [
+                        {
+                          "name": "icon",
+                          "type": "FRAME",
+                          "x": 14,
+                          "y": 14,
+                          "w": 28,
+                          "h": 28
+                        }
+                      ]
+                    },
+                    {
+                      "name": "text",
+                      "type": "FRAME",
+                      "x": 104,
+                      "y": 21,
+                      "w": 558,
+                      "h": 62,
+                      "children": [
+                        {
+                          "name": "category_tip_row_6_title",
+                          "type": "TEXT",
+                          "x": 0,
+                          "y": 0,
+                          "w": 558,
+                          "h": 31,
+                          "text": "Clear foggy windows fast",
+                          "fontSize": 26
+                        },
+                        {
+                          "name": "category_tip_row_6_subtitle",
+                          "type": "TEXT",
+                          "x": 0,
+                          "y": 35,
+                          "w": 558,
+                          "h": 27,
+                          "text": "Winter · 1 min",
+                          "fontSize": 22
+                        }
+                      ]
+                    },
+                    {
+                      "name": "icon",
+                      "type": "FRAME",
+                      "x": 686,
+                      "y": 38,
+                      "w": 28,
+                      "h": 28
+                    }
+                  ]
+                },
+                {
+                  "name": "category_tip_row_7",
+                  "type": "FRAME",
+                  "x": 0,
+                  "y": 720,
+                  "w": 738,
+                  "h": 104,
+                  "children": [
+                    {
+                      "name": "icon_bg",
+                      "type": "FRAME",
+                      "x": 24,
+                      "y": 24,
+                      "w": 56,
+                      "h": 56,
+                      "children": [
+                        {
+                          "name": "icon",
+                          "type": "FRAME",
+                          "x": 14,
+                          "y": 14,
+                          "w": 28,
+                          "h": 28
+                        }
+                      ]
+                    },
+                    {
+                      "name": "text",
+                      "type": "FRAME",
+                      "x": 104,
+                      "y": 21,
+                      "w": 558,
+                      "h": 62,
+                      "children": [
+                        {
+                          "name": "category_tip_row_7_title",
+                          "type": "TEXT",
+                          "x": 0,
+                          "y": 0,
+                          "w": 558,
+                          "h": 31,
+                          "text": "Adjust the steering assist level",
+                          "fontSize": 26
+                        },
+                        {
+                          "name": "category_tip_row_7_subtitle",
+                          "type": "TEXT",
+                          "x": 0,
+                          "y": 35,
+                          "w": 558,
+                          "h": 27,
+                          "text": "Assistants · 1 min",
+                          "fontSize": 22
+                        }
+                      ]
+                    },
+                    {
+                      "name": "icon",
+                      "type": "FRAME",
+                      "x": 686,
+                      "y": 38,
+                      "w": 28,
+                      "h": 28
+                    }
+                  ]
+                },
+                {
+                  "name": "category_tip_row_8",
+                  "type": "FRAME",
+                  "x": 0,
+                  "y": 840,
+                  "w": 738,
+                  "h": 104,
+                  "children": [
+                    {
+                      "name": "icon_bg",
+                      "type": "FRAME",
+                      "x": 24,
+                      "y": 24,
+                      "w": 56,
+                      "h": 56,
+                      "children": [
+                        {
+                          "name": "icon",
+                          "type": "FRAME",
+                          "x": 14,
+                          "y": 14,
+                          "w": 28,
+                          "h": 28
+                        }
+                      ]
+                    },
+                    {
+                      "name": "text",
+                      "type": "FRAME",
+                      "x": 104,
+                      "y": 21,
+                      "w": 558,
+                      "h": 62,
+                      "children": [
+                        {
+                          "name": "category_tip_row_8_title",
+                          "type": "TEXT",
+                          "x": 0,
+                          "y": 0,
+                          "w": 558,
+                          "h": 31,
+                          "text": "Stop-and-go with adaptive cruise control",
+                          "fontSize": 26
+                        },
+                        {
+                          "name": "category_tip_row_8_subtitle",
+                          "type": "TEXT",
+                          "x": 0,
+                          "y": 35,
+                          "w": 558,
+                          "h": 27,
+                          "text": "Assistants · 2 min",
+                          "fontSize": 22
+                        }
+                      ]
+                    },
+                    {
+                      "name": "icon",
+                      "type": "FRAME",
+                      "x": 686,
+                      "y": 38,
+                      "w": 28,
+                      "h": 28
+                    }
+                  ]
+                },
+                {
+                  "name": "category_tip_row_9",
+                  "type": "FRAME",
+                  "x": 0,
+                  "y": 960,
+                  "w": 738,
+                  "h": 104,
+                  "children": [
+                    {
+                      "name": "icon_bg",
+                      "type": "FRAME",
+                      "x": 24,
+                      "y": 24,
+                      "w": 56,
+                      "h": 56,
+                      "children": [
+                        {
+                          "name": "icon",
+                          "type": "FRAME",
+                          "x": 14,
+                          "y": 14,
+                          "w": 28,
+                          "h": 28
+                        }
+                      ]
+                    },
+                    {
+                      "name": "text",
+                      "type": "FRAME",
+                      "x": 104,
+                      "y": 21,
+                      "w": 558,
+                      "h": 62,
+                      "children": [
+                        {
+                          "name": "category_tip_row_9_title",
+                          "type": "TEXT",
+                          "x": 0,
+                          "y": 0,
+                          "w": 558,
+                          "h": 31,
+                          "text": "Keep your lane with Lane Assist",
+                          "fontSize": 26
+                        },
+                        {
+                          "name": "category_tip_row_9_subtitle",
+                          "type": "TEXT",
+                          "x": 0,
+                          "y": 35,
+                          "w": 558,
+                          "h": 27,
+                          "text": "Assistants · 1 min",
+                          "fontSize": 22
+                        }
+                      ]
+                    },
+                    {
+                      "name": "icon",
+                      "type": "FRAME",
+                      "x": 686,
+                      "y": 38,
+                      "w": 28,
+                      "h": 28
+                    }
+                  ]
+                },
+                {
+                  "name": "category_tip_row_10",
+                  "type": "FRAME",
+                  "x": 0,
+                  "y": 1080,
+                  "w": 738,
+                  "h": 104,
+                  "children": [
+                    {
+                      "name": "icon_bg",
+                      "type": "FRAME",
+                      "x": 24,
+                      "y": 24,
+                      "w": 56,
+                      "h": 56,
+                      "children": [
+                        {
+                          "name": "icon",
+                          "type": "FRAME",
+                          "x": 14,
+                          "y": 14,
+                          "w": 28,
+                          "h": 28
+                        }
+                      ]
+                    },
+                    {
+                      "name": "text",
+                      "type": "FRAME",
+                      "x": 104,
+                      "y": 21,
+                      "w": 558,
+                      "h": 62,
+                      "children": [
+                        {
+                          "name": "category_tip_row_10_title",
+                          "type": "TEXT",
+                          "x": 0,
+                          "y": 0,
+                          "w": 558,
+                          "h": 31,
+                          "text": "Park hands-free with Park Assist",
+                          "fontSize": 26
+                        },
+                        {
+                          "name": "category_tip_row_10_subtitle",
+                          "type": "TEXT",
+                          "x": 0,
+                          "y": 35,
+                          "w": 558,
+                          "h": 27,
+                          "text": "Parking · 3 min",
+                          "fontSize": 22
+                        }
+                      ]
+                    },
+                    {
+                      "name": "icon",
+                      "type": "FRAME",
+                      "x": 686,
+                      "y": 38,
+                      "w": 28,
+                      "h": 28
+                    }
+                  ]
+                },
+                {
+                  "name": "category_tip_row_11",
+                  "type": "FRAME",
+                  "x": 0,
+                  "y": 1200,
+                  "w": 738,
+                  "h": 104,
+                  "children": [
+                    {
+                      "name": "icon_bg",
+                      "type": "FRAME",
+                      "x": 24,
+                      "y": 24,
+                      "w": 56,
+                      "h": 56,
+                      "children": [
+                        {
+                          "name": "icon",
+                          "type": "FRAME",
+                          "x": 14,
+                          "y": 14,
+                          "w": 28,
+                          "h": 28
+                        }
+                      ]
+                    },
+                    {
+                      "name": "text",
+                      "type": "FRAME",
+                      "x": 104,
+                      "y": 21,
+                      "w": 558,
+                      "h": 62,
+                      "children": [
+                        {
+                          "name": "category_tip_row_11_title",
+                          "type": "TEXT",
+                          "x": 0,
+                          "y": 0,
+                          "w": 558,
+                          "h": 31,
+                          "text": "Use the area view camera",
+                          "fontSize": 26
+                        },
+                        {
+                          "name": "category_tip_row_11_subtitle",
+                          "type": "TEXT",
+                          "x": 0,
+                          "y": 35,
+                          "w": 558,
+                          "h": 27,
+                          "text": "Parking · 1 min",
+                          "fontSize": 22
+                        }
+                      ]
+                    },
+                    {
+                      "name": "icon",
+                      "type": "FRAME",
+                      "x": 686,
+                      "y": 38,
+                      "w": 28,
+                      "h": 28
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "category_tip_list_scrollbar",
+              "type": "FRAME",
+              "x": 754,
+              "y": 0,
+              "w": 6,
+              "h": 1352,
+              "children": [
+                {
+                  "name": "thumb",
+                  "type": "RECTANGLE",
+                  "x": 0,
+                  "y": 0,
+                  "w": 6,
+                  "h": 180
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "category_filter_dropdown",
+      "type": "FRAME",
+      "x": 289,
+      "y": 112,
+      "w": 452,
+      "h": 320,
+      "hidden": true,
+      "children": [
+        {
+          "name": "category_filter_option_1",
+          "type": "FRAME",
+          "x": 16,
+          "y": 16,
+          "w": 420,
+          "h": 88,
+          "children": [
+            {
+              "name": "category_filter_option_1_label",
+              "type": "TEXT",
+              "x": 24,
+              "y": 29,
+              "w": 320,
+              "h": 31,
+              "text": "Newest",
+              "fontSize": 26
+            },
+            {
+              "name": "radio",
+              "type": "ELLIPSE",
+              "x": 368,
+              "y": 30,
+              "w": 28,
+              "h": 28
+            }
+          ]
+        },
+        {
+          "name": "category_filter_option_2",
+          "type": "FRAME",
+          "x": 16,
+          "y": 116,
+          "w": 420,
+          "h": 88,
+          "children": [
+            {
+              "name": "category_filter_option_2_label",
+              "type": "TEXT",
+              "x": 24,
+              "y": 29,
+              "w": 320,
+              "h": 31,
+              "text": "Most popular",
+              "fontSize": 26
+            },
+            {
+              "name": "radio",
+              "type": "ELLIPSE",
+              "x": 368,
+              "y": 30,
+              "w": 28,
+              "h": 28
+            }
+          ]
+        },
+        {
+          "name": "category_filter_option_3",
+          "type": "FRAME",
+          "x": 16,
+          "y": 216,
+          "w": 420,
+          "h": 88,
+          "children": [
+            {
+              "name": "category_filter_option_3_label",
+              "type": "TEXT",
+              "x": 24,
+              "y": 29,
+              "w": 320,
+              "h": 31,
+              "text": "Not read yet",
+              "fontSize": 26
+            },
+            {
+              "name": "radio",
+              "type": "ELLIPSE",
+              "x": 368,
+              "y": 30,
+              "w": 28,
+              "h": 28
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

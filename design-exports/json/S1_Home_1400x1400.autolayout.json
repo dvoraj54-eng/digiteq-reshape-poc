@@ -1,0 +1,795 @@
+{
+  "name": "S1_Home_1400x1400",
+  "type": "FRAME",
+  "x": 6540,
+  "y": -900,
+  "w": 1400,
+  "h": 1532,
+  "layout": {
+    "mode": "VERTICAL",
+    "gap": 0,
+    "pad": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "children": [
+    {
+      "name": "home_header",
+      "type": "FRAME",
+      "x": 0,
+      "y": 0,
+      "w": 1400,
+      "h": 132,
+      "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 24,
+        "pad": [
+          0,
+          24,
+          0,
+          24
+        ]
+      },
+      "sizing": [
+        "FILL",
+        "FIXED"
+      ],
+      "children": [
+        {
+          "name": "home_header_left",
+          "type": "FRAME",
+          "x": 24,
+          "y": 28,
+          "w": 186,
+          "h": 76,
+          "layout": {
+            "mode": "HORIZONTAL",
+            "gap": 24,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "sizing": [
+            "HUG",
+            "HUG"
+          ],
+          "children": [
+            {
+              "name": "home_settings_button",
+              "type": "FRAME",
+              "x": 0,
+              "y": 0,
+              "w": 76,
+              "h": 76,
+              "layout": {
+                "mode": "HORIZONTAL",
+                "gap": 0,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "sizing": [
+                "FIXED",
+                "FIXED"
+              ],
+              "children": [
+                {
+                  "name": "icon",
+                  "type": "FRAME",
+                  "x": 22,
+                  "y": 22,
+                  "w": 32,
+                  "h": 32,
+                  "sizing": [
+                    "FIXED",
+                    "FIXED"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "home_title",
+              "type": "TEXT",
+              "x": 100,
+              "y": 14,
+              "w": 86,
+              "h": 48,
+              "sizing": [
+                "HUG",
+                "HUG"
+              ],
+              "text": "Tips",
+              "fontSize": 40
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "home_content",
+      "type": "FRAME",
+      "x": 0,
+      "y": 132,
+      "w": 1400,
+      "h": 1400,
+      "layout": {
+        "mode": "VERTICAL",
+        "gap": 32,
+        "pad": [
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      "sizing": [
+        "FILL",
+        "FILL"
+      ],
+      "children": [
+        {
+          "name": "home_featured_tip",
+          "type": "FRAME",
+          "x": 24,
+          "y": 24,
+          "w": 1352,
+          "h": 600,
+          "layout": {
+            "mode": "HORIZONTAL",
+            "gap": 32,
+            "pad": [
+              32,
+              32,
+              32,
+              32
+            ]
+          },
+          "sizing": [
+            "FILL",
+            "FIXED"
+          ],
+          "children": [
+            {
+              "name": "home_featured_tip_image",
+              "type": "FRAME",
+              "x": 32,
+              "y": 32,
+              "w": 568,
+              "h": 536,
+              "layout": {
+                "mode": "VERTICAL",
+                "gap": 0,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "sizing": [
+                "FIXED",
+                "FILL"
+              ],
+              "children": [
+                {
+                  "name": "icon",
+                  "type": "FRAME",
+                  "x": 252,
+                  "y": 236,
+                  "w": 64,
+                  "h": 64,
+                  "sizing": [
+                    "FIXED",
+                    "FIXED"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "home_featured_tip_text",
+              "type": "FRAME",
+              "x": 632,
+              "y": 32,
+              "w": 688,
+              "h": 536,
+              "layout": {
+                "mode": "VERTICAL",
+                "gap": 20,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "sizing": [
+                "FILL",
+                "FILL"
+              ],
+              "children": [
+                {
+                  "name": "home_featured_tip_label",
+                  "type": "TEXT",
+                  "x": 0,
+                  "y": 0,
+                  "w": 171,
+                  "h": 27,
+                  "sizing": [
+                    "HUG",
+                    "HUG"
+                  ],
+                  "text": "TIP OF THE DAY",
+                  "fontSize": 22
+                },
+                {
+                  "name": "home_featured_tip_title",
+                  "type": "TEXT",
+                  "x": 0,
+                  "y": 47,
+                  "w": 688,
+                  "h": 96,
+                  "sizing": [
+                    "FILL",
+                    "HUG"
+                  ],
+                  "text": "Let adaptive cruise control handle stop-and-go traffic",
+                  "fontSize": 40
+                },
+                {
+                  "name": "home_featured_tip_body",
+                  "type": "TEXT",
+                  "x": 0,
+                  "y": 163,
+                  "w": 688,
+                  "h": 93,
+                  "sizing": [
+                    "FILL",
+                    "HUG"
+                  ],
+                  "text": "In traffic jams, ACC can bring the car to a full stop and move off again. Tap Resume or the accelerator to continue.",
+                  "fontSize": 26
+                },
+                {
+                  "name": "spacer",
+                  "type": "FRAME",
+                  "x": 0,
+                  "y": 276,
+                  "w": 1,
+                  "h": 164,
+                  "sizing": [
+                    "FIXED",
+                    "FILL"
+                  ],
+                  "children": []
+                },
+                {
+                  "name": "home_featured_tip_open_button",
+                  "type": "FRAME",
+                  "x": 0,
+                  "y": 460,
+                  "w": 199,
+                  "h": 76,
+                  "layout": {
+                    "mode": "HORIZONTAL",
+                    "gap": 0,
+                    "pad": [
+                      0,
+                      48,
+                      0,
+                      48
+                    ]
+                  },
+                  "sizing": [
+                    "HUG",
+                    "FIXED"
+                  ],
+                  "children": [
+                    {
+                      "name": "home_featured_tip_open_button_label",
+                      "type": "TEXT",
+                      "x": 48,
+                      "y": 23,
+                      "w": 103,
+                      "h": 31,
+                      "sizing": [
+                        "HUG",
+                        "HUG"
+                      ],
+                      "text": "Read tip",
+                      "fontSize": 26
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "home_category_cards",
+          "type": "FRAME",
+          "x": 24,
+          "y": 656,
+          "w": 1352,
+          "h": 720,
+          "layout": {
+            "mode": "VERTICAL",
+            "gap": 32,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "sizing": [
+            "FILL",
+            "FILL"
+          ],
+          "children": [
+            {
+              "name": "home_category_cards_row_1",
+              "type": "FRAME",
+              "x": 0,
+              "y": 0,
+              "w": 1352,
+              "h": 344,
+              "layout": {
+                "mode": "HORIZONTAL",
+                "gap": 32,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "sizing": [
+                "FILL",
+                "FILL"
+              ],
+              "children": [
+                {
+                  "name": "home_category_card_driving",
+                  "type": "FRAME",
+                  "x": 0,
+                  "y": 0,
+                  "w": 660,
+                  "h": 344,
+                  "layout": {
+                    "mode": "VERTICAL",
+                    "gap": 8,
+                    "pad": [
+                      32,
+                      32,
+                      32,
+                      32
+                    ]
+                  },
+                  "sizing": [
+                    "FILL",
+                    "FILL"
+                  ],
+                  "children": [
+                    {
+                      "name": "icon_bg",
+                      "type": "FRAME",
+                      "x": 32,
+                      "y": 32,
+                      "w": 76,
+                      "h": 76,
+                      "layout": {
+                        "mode": "HORIZONTAL",
+                        "gap": 0,
+                        "pad": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ]
+                      },
+                      "sizing": [
+                        "FIXED",
+                        "FIXED"
+                      ],
+                      "children": [
+                        {
+                          "name": "icon",
+                          "type": "FRAME",
+                          "x": 20,
+                          "y": 20,
+                          "w": 36,
+                          "h": 36,
+                          "sizing": [
+                            "FIXED",
+                            "FIXED"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "spacer",
+                      "type": "FRAME",
+                      "x": 32,
+                      "y": 116,
+                      "w": 1,
+                      "h": 114,
+                      "sizing": [
+                        "FIXED",
+                        "FILL"
+                      ],
+                      "children": []
+                    },
+                    {
+                      "name": "home_category_card_driving_title",
+                      "type": "TEXT",
+                      "x": 32,
+                      "y": 238,
+                      "w": 111,
+                      "h": 39,
+                      "sizing": [
+                        "HUG",
+                        "HUG"
+                      ],
+                      "text": "Driving",
+                      "fontSize": 32
+                    },
+                    {
+                      "name": "home_category_card_driving_count",
+                      "type": "TEXT",
+                      "x": 32,
+                      "y": 285,
+                      "w": 69,
+                      "h": 27,
+                      "sizing": [
+                        "HUG",
+                        "HUG"
+                      ],
+                      "text": "14 tips",
+                      "fontSize": 22
+                    }
+                  ]
+                },
+                {
+                  "name": "home_category_card_comfort",
+                  "type": "FRAME",
+                  "x": 692,
+                  "y": 0,
+                  "w": 660,
+                  "h": 344,
+                  "layout": {
+                    "mode": "VERTICAL",
+                    "gap": 8,
+                    "pad": [
+                      32,
+                      32,
+                      32,
+                      32
+                    ]
+                  },
+                  "sizing": [
+                    "FILL",
+                    "FILL"
+                  ],
+                  "children": [
+                    {
+                      "name": "icon_bg",
+                      "type": "FRAME",
+                      "x": 32,
+                      "y": 32,
+                      "w": 76,
+                      "h": 76,
+                      "layout": {
+                        "mode": "HORIZONTAL",
+                        "gap": 0,
+                        "pad": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ]
+                      },
+                      "sizing": [
+                        "FIXED",
+                        "FIXED"
+                      ],
+                      "children": [
+                        {
+                          "name": "icon",
+                          "type": "FRAME",
+                          "x": 20,
+                          "y": 20,
+                          "w": 36,
+                          "h": 36,
+                          "sizing": [
+                            "FIXED",
+                            "FIXED"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "spacer",
+                      "type": "FRAME",
+                      "x": 32,
+                      "y": 116,
+                      "w": 1,
+                      "h": 114,
+                      "sizing": [
+                        "FIXED",
+                        "FILL"
+                      ],
+                      "children": []
+                    },
+                    {
+                      "name": "home_category_card_comfort_title",
+                      "type": "TEXT",
+                      "x": 32,
+                      "y": 238,
+                      "w": 129,
+                      "h": 39,
+                      "sizing": [
+                        "HUG",
+                        "HUG"
+                      ],
+                      "text": "Comfort",
+                      "fontSize": 32
+                    },
+                    {
+                      "name": "home_category_card_comfort_count",
+                      "type": "TEXT",
+                      "x": 32,
+                      "y": 285,
+                      "w": 59,
+                      "h": 27,
+                      "sizing": [
+                        "HUG",
+                        "HUG"
+                      ],
+                      "text": "9 tips",
+                      "fontSize": 22
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "home_category_cards_row_2",
+              "type": "FRAME",
+              "x": 0,
+              "y": 376,
+              "w": 1352,
+              "h": 344,
+              "layout": {
+                "mode": "HORIZONTAL",
+                "gap": 32,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "sizing": [
+                "FILL",
+                "FILL"
+              ],
+              "children": [
+                {
+                  "name": "home_category_card_efficiency",
+                  "type": "FRAME",
+                  "x": 0,
+                  "y": 0,
+                  "w": 660,
+                  "h": 344,
+                  "layout": {
+                    "mode": "VERTICAL",
+                    "gap": 8,
+                    "pad": [
+                      32,
+                      32,
+                      32,
+                      32
+                    ]
+                  },
+                  "sizing": [
+                    "FILL",
+                    "FILL"
+                  ],
+                  "children": [
+                    {
+                      "name": "icon_bg",
+                      "type": "FRAME",
+                      "x": 32,
+                      "y": 32,
+                      "w": 76,
+                      "h": 76,
+                      "layout": {
+                        "mode": "HORIZONTAL",
+                        "gap": 0,
+                        "pad": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ]
+                      },
+                      "sizing": [
+                        "FIXED",
+                        "FIXED"
+                      ],
+                      "children": [
+                        {
+                          "name": "icon",
+                          "type": "FRAME",
+                          "x": 20,
+                          "y": 20,
+                          "w": 36,
+                          "h": 36,
+                          "sizing": [
+                            "FIXED",
+                            "FIXED"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "spacer",
+                      "type": "FRAME",
+                      "x": 32,
+                      "y": 116,
+                      "w": 1,
+                      "h": 114,
+                      "sizing": [
+                        "FIXED",
+                        "FILL"
+                      ],
+                      "children": []
+                    },
+                    {
+                      "name": "home_category_card_efficiency_title",
+                      "type": "TEXT",
+                      "x": 32,
+                      "y": 238,
+                      "w": 155,
+                      "h": 39,
+                      "sizing": [
+                        "HUG",
+                        "HUG"
+                      ],
+                      "text": "Efficiency",
+                      "fontSize": 32
+                    },
+                    {
+                      "name": "home_category_card_efficiency_count",
+                      "type": "TEXT",
+                      "x": 32,
+                      "y": 285,
+                      "w": 65,
+                      "h": 27,
+                      "sizing": [
+                        "HUG",
+                        "HUG"
+                      ],
+                      "text": "11 tips",
+                      "fontSize": 22
+                    }
+                  ]
+                },
+                {
+                  "name": "home_category_card_safety",
+                  "type": "FRAME",
+                  "x": 692,
+                  "y": 0,
+                  "w": 660,
+                  "h": 344,
+                  "layout": {
+                    "mode": "VERTICAL",
+                    "gap": 8,
+                    "pad": [
+                      32,
+                      32,
+                      32,
+                      32
+                    ]
+                  },
+                  "sizing": [
+                    "FILL",
+                    "FILL"
+                  ],
+                  "children": [
+                    {
+                      "name": "icon_bg",
+                      "type": "FRAME",
+                      "x": 32,
+                      "y": 32,
+                      "w": 76,
+                      "h": 76,
+                      "layout": {
+                        "mode": "HORIZONTAL",
+                        "gap": 0,
+                        "pad": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ]
+                      },
+                      "sizing": [
+                        "FIXED",
+                        "FIXED"
+                      ],
+                      "children": [
+                        {
+                          "name": "icon",
+                          "type": "FRAME",
+                          "x": 20,
+                          "y": 20,
+                          "w": 36,
+                          "h": 36,
+                          "sizing": [
+                            "FIXED",
+                            "FIXED"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "spacer",
+                      "type": "FRAME",
+                      "x": 32,
+                      "y": 116,
+                      "w": 1,
+                      "h": 114,
+                      "sizing": [
+                        "FIXED",
+                        "FILL"
+                      ],
+                      "children": []
+                    },
+                    {
+                      "name": "home_category_card_safety_title",
+                      "type": "TEXT",
+                      "x": 32,
+                      "y": 238,
+                      "w": 101,
+                      "h": 39,
+                      "sizing": [
+                        "HUG",
+                        "HUG"
+                      ],
+                      "text": "Safety",
+                      "fontSize": 32
+                    },
+                    {
+                      "name": "home_category_card_safety_count",
+                      "type": "TEXT",
+                      "x": 32,
+                      "y": 285,
+                      "w": 58,
+                      "h": 27,
+                      "sizing": [
+                        "HUG",
+                        "HUG"
+                      ],
+                      "text": "8 tips",
+                      "fontSize": 22
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

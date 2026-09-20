@@ -1,0 +1,709 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digiteq Reshape Assistant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Digiteq Archer design system tokens (exact values from the design system export) */
+  :root, :root[data-theme="light"] {
+    --primary: #1565C0; --primary-dark: #0D47A1; --primary-light: #1E88E5; --on-primary: #FFFFFF;
+    --primary-container: #BBDEFB; --on-primary-container: #0D47A1;
+    --success: #2E7D32; --success-bg: #E8F5E9; --error: #C62828; --error-bg: #FFEBEE;
+    --warning: #E65100; --warning-bg: #FFF3E0; --info: #01579B; --info-bg: #E1F5FE;
+    --tint-primary: rgba(21,101,192,.08); --tint-primary-strong: rgba(21,101,192,.12);
+    --bg-default: #F3F6FB; --surface-card: #FFFFFF; --surface-sunken: #EEF2F7; --surface-input: #F8FAFF;
+    --surface-selected: #90CAF9; --surface-hover: #DBEAFE;
+    --gradient-hero: linear-gradient(90deg, #0D47A1 0%, #1565C0 60%, #1976D2 100%);
+    --header-icon-hover: rgba(255,255,255,.12); --header-control-bg: rgba(255,255,255,.14);
+    --text-heading: #1A237E; --text-primary: #1A2340; --text-secondary: #455A64; --text-disabled: #90A4AE;
+    --border: #E2E8F0; --divider: #E3EAF4; --border-input: #CFD8DC; --border-input-hover: #1976D2;
+    --chip-neutral-bg: rgba(0,0,0,.08);
+    --selected-fg: #0D47A1;
+    --radius-sm: 6px; --radius-md: 8px; --radius-lg: 12px; --radius-xl: 16px; --radius-pill: 20px;
+    --shadow-button-hover: 0 1px 4px rgba(21,101,192,.25); --focus-ring: 0 0 0 2px rgba(21,101,192,.4);
+    --font-ui: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    color-scheme: light;
+  }
+  :root[data-theme="dark"] {
+    --primary: #90CAF9; --primary-dark: #BBDEFB; --primary-light: #BBDEFB; --on-primary: #0D1B2A;
+    --primary-container: rgba(144,202,249,.16); --on-primary-container: #BBDEFB;
+    --success: #66BB6A; --success-bg: rgba(102,187,106,.12); --error: #EF5350; --error-bg: rgba(239,83,80,.12);
+    --warning: #FFA726; --warning-bg: rgba(255,167,38,.12);
+    --tint-primary: rgba(144,202,249,.10); --tint-primary-strong: rgba(144,202,249,.16);
+    --bg-default: #111418; --surface-card: #1B1F24; --surface-sunken: #232932; --surface-input: #232932;
+    --surface-selected: #2A3645; --surface-hover: #2A3645;
+    --gradient-hero: linear-gradient(90deg, rgba(13,71,161,.5) 0%, rgba(21,101,192,.45) 60%, rgba(94,53,177,.4) 100%);
+    --text-heading: #E8ECF2; --text-primary: #E8ECF2; --text-secondary: #AAB4C2; --text-disabled: rgba(232,236,242,.45);
+    --border: #323843; --divider: #323843; --border-input: #3A4250; --border-input-hover: #64B5F6;
+    --chip-neutral-bg: rgba(255,255,255,.08);
+    --selected-fg: #90CAF9;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg-default); color: var(--text-primary); font: 400 0.95rem/1.6 var(--font-ui); -webkit-font-smoothing: antialiased; }
+  svg.i { width: 20px; height: 20px; fill: currentColor; flex: none; }
+
+  /* App header (3.5rem, hero gradient) */
+  .appbar { height: 56px; background: var(--gradient-hero); color: #fff; display: flex; align-items: center; gap: 12px; padding: 0 16px; }
+  .appbar .product { display: flex; align-items: center; gap: 10px; font: 600 1.05rem/1 var(--font-ui); letter-spacing: .01em; white-space: nowrap; min-width: 0; }
+  .appbar .product span { overflow: hidden; text-overflow: ellipsis; }
+  @media (max-width: 560px) { .appbar .tag { display: none; } .appbar .product { font-size: .95rem; } }
+  .appbar .product svg { width: 22px; height: 22px; }
+  .appbar .spacer { flex: 1; }
+  .appbar .tag { font: 600 0.75rem/1 var(--font-ui); background: var(--header-control-bg); border: 1px solid rgba(255,255,255,.25); border-radius: var(--radius-md); padding: 6px 10px; white-space: nowrap; }
+  .appbar .iconbtn { display: inline-flex; padding: 6px; border-radius: var(--radius-md); cursor: pointer; background: none; border: 0; color: #fff; }
+  .appbar .iconbtn:hover { background: var(--header-icon-hover); }
+
+  .page { max-width: 1200px; margin: 0 auto; padding: 24px 24px 16px; }
+  .intro { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; }
+  .intro h1 { margin: 0; font: 700 1rem/1.4 var(--font-ui); color: var(--text-heading); letter-spacing: .01em; }
+  .intro p { margin: 2px 0 0; font: 400 0.875rem/1.5 var(--font-ui); color: var(--text-secondary); }
+
+  /* Flow indicator (StepTabs style) */
+  .flow { display: flex; gap: 4px; border-bottom: 1px solid var(--divider); flex-wrap: wrap; }
+  .flow .st { display: flex; align-items: center; gap: 8px; padding: 10px 14px; font: 500 0.875rem/1.5 var(--font-ui); color: var(--text-disabled); border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; }
+  .flow .st b { width: 18px; height: 18px; border-radius: 4px; background: var(--chip-neutral-bg); color: var(--text-disabled); display: inline-flex; align-items: center; justify-content: center; font: 700 0.7rem/1 var(--font-ui); }
+  .flow .st.done { color: var(--text-secondary); }
+  .flow .st.done b { background: var(--text-secondary); color: #fff; }
+  .flow .st.active { color: var(--primary); border-bottom-color: var(--primary); }
+  .flow .st.active b { background: var(--primary); color: var(--on-primary); }
+
+  main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+  @media (max-width: 960px) { main { grid-template-columns: 1fr; } .page { padding: 16px 16px 12px; } }
+  .col { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+
+  /* Cards: 16px radius, 1px divider border, flat */
+  section { background: var(--surface-card); border: 1px solid var(--divider); border-radius: var(--radius-xl); padding: 16px 20px 20px; }
+  section h2 { margin: 0 0 12px; font: 600 1rem/1.6 var(--font-ui); color: var(--text-heading); display: flex; gap: 10px; align-items: center; }
+  section h2 .n { width: 22px; height: 22px; border-radius: 6px; background: var(--primary); color: var(--on-primary); display: inline-flex; align-items: center; justify-content: center; font: 700 0.75rem/1 var(--font-ui); flex: none; }
+  section h2 .grow { flex: 1; }
+
+  .lbl-field, label.lbl { display: block; font: 600 0.75rem/1.4 var(--font-ui); text-transform: uppercase; letter-spacing: .06em; color: var(--text-secondary); margin: 14px 0 6px; }
+
+  input[type=text], input[type=password], input[type=number], select, textarea {
+    width: 100%; padding: 10px 12px; border: 1px solid var(--border-input); border-radius: var(--radius-lg);
+    background: var(--surface-input); color: var(--text-primary); font: 400 0.95rem/1.4 var(--font-ui);
+    transition: border-color .15s ease, box-shadow .15s ease; outline: none; }
+  input:hover, select:hover, textarea:hover { border-color: var(--border-input-hover); }
+  input:focus, select:focus, textarea:focus { border-color: var(--primary); box-shadow: inset 0 0 0 1px var(--primary); }
+  textarea { font: 400 12px/1.5 var(--font-mono); resize: vertical; }
+  textarea[readonly] { background: var(--surface-sunken); }
+
+  .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .row > * { flex: 1; min-width: 0; }
+
+  /* Segmented control (ViewToggle style) */
+  .seg { display: flex; border: 1px solid var(--divider); border-radius: var(--radius-md); overflow: hidden; background: var(--surface-card); }
+  .seg label { flex: 1; margin: 0; padding: 8px 10px; text-align: center; cursor: pointer; color: var(--text-secondary); font: 500 0.875rem/1.4 var(--font-ui); border-left: 1px solid var(--divider); transition: background-color .2s ease; }
+  .seg label:first-child { border-left: 0; }
+  .seg label:hover { background: var(--tint-primary); }
+  .seg input { position: absolute; opacity: 0; pointer-events: none; }
+  .seg label:has(input:checked) { background: var(--surface-selected); color: var(--selected-fg); font-weight: 600; }
+  .seg label:has(input:focus-visible) { box-shadow: inset var(--focus-ring); }
+
+  /* Pill buttons, never uppercase */
+  button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 7px 20px; border-radius: var(--radius-pill);
+    border: 1px solid var(--primary); background: transparent; color: var(--primary); font: 500 0.875rem/1.75 var(--font-ui);
+    cursor: pointer; transition: all .2s ease; }
+  button svg.i { width: 18px; height: 18px; }
+  button:hover:not(:disabled) { background: var(--tint-primary); }
+  button.primary { background: var(--primary); color: var(--on-primary); border-color: transparent; }
+  button.primary:hover:not(:disabled) { background: var(--primary-dark); box-shadow: var(--shadow-button-hover); }
+  button:disabled { opacity: .5; cursor: default; }
+  button:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+
+  .hint { font: 400 0.8125rem/1.5 var(--font-ui); color: var(--text-secondary); margin-top: 8px; }
+  .msg { font: 500 0.875rem/1.5 var(--font-ui); margin-top: 8px; color: var(--text-secondary); }
+  .msg.err { color: var(--error); } .msg.ok { color: var(--success); } .msg.warn { color: var(--warning); }
+
+  ul.list { list-style: none; margin: 0 0 10px; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+  ul.list li { font: 400 0.875rem/1.45 var(--font-ui); padding: 7px 10px 7px 30px; border-radius: var(--radius-md); position: relative; background: var(--surface-sunken); color: var(--text-primary); }
+  ul.list li::before { content: ""; position: absolute; left: 11px; top: 13px; width: 8px; height: 8px; border-radius: 50%; background: var(--text-secondary); }
+  ul.list li.err { background: var(--error-bg); color: var(--error); } ul.list li.err::before { background: var(--error); }
+  ul.list li.warn { background: var(--warning-bg); color: var(--warning); } ul.list li.warn::before { background: var(--warning); }
+  ul.list li.ok::before { background: var(--success); }
+
+  .facts { font: 400 12px/1.55 var(--font-mono); background: var(--surface-sunken); border-radius: var(--radius-lg); padding: 10px 12px; white-space: pre-wrap; margin-top: 10px; max-height: 220px; overflow: auto; color: var(--text-primary); }
+  .chip { font: 600 0.8125rem/1.4 var(--font-ui); padding: 3px 12px; border-radius: var(--radius-md); background: var(--chip-neutral-bg); color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 60%; }
+  .hidden { display: none !important; }
+  details summary { cursor: pointer; font: 500 0.875rem/1.5 var(--font-ui); color: var(--primary); margin-top: 10px; }
+  .check { display: flex; gap: 8px; align-items: center; margin-top: 12px; font: 400 0.875rem/1.4 var(--font-ui); color: var(--text-primary); cursor: pointer; }
+  .check input { width: 16px; height: 16px; accent-color: var(--primary); }
+
+  /* Footer: Digiteq logo on a light surface + copyright */
+  footer { max-width: 1200px; margin: 8px auto 24px; padding: 0 24px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; color: var(--text-secondary); font: 400 0.8125rem/1.4 var(--font-ui); }
+  footer .plate { background: #FFFFFF; border-radius: var(--radius-md); padding: 8px 12px; display: inline-flex; border: 1px solid var(--divider); }
+  footer .plate img { height: 22px; display: block; }
+  footer .sep { flex: 1; }
+</style>
+</head>
+<body>
+<header class="appbar">
+  <div class="product">
+    <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12h-2v3h-3v2h5v-5zM7 9h3V7H5v5h2V9zm14-6H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16.01H3V4.99h18v14.02z"/></svg>
+    <span>Digiteq Reshape Assistant</span>
+  </div>
+  <div class="spacer"></div>
+  <span class="tag">POC</span>
+  <button class="iconbtn" id="themeToggle" title="Toggle light / dark theme" aria-label="Toggle light / dark theme">
+    <svg class="i" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg>
+  </button>
+</header>
+
+<div class="page">
+  <div class="intro">
+    <div>
+      <h1>Reshape a Figma screen with an LLM</h1>
+      <p>Screen JSON from the Digiteq Reshape Plugin + design rules → layout plan from the model → back into the plugin.</p>
+    </div>
+    <div class="flow" id="flow">
+      <div class="st" data-step="0"><b>1</b>Screen</div>
+      <div class="st" data-step="1"><b>2</b>Model</div>
+      <div class="st" data-step="2"><b>3</b>Import into plugin</div>
+    </div>
+  </div>
+
+  <main>
+    <div class="col">
+      <section>
+        <h2><span class="n">1</span>Model</h2>
+        <div class="seg" id="providerSeg">
+          <label><input type="radio" name="provider" value="anthropic" checked>Claude API</label>
+          <label><input type="radio" name="provider" value="openai">Internal model</label>
+          <label><input type="radio" name="provider" value="manual">Manual</label>
+        </div>
+        <div id="anthropicBox">
+          <div class="row">
+            <div><label class="lbl" for="aModel">Model</label>
+              <select id="aModel">
+                <option value="claude-opus-5">claude-opus-5</option>
+                <option value="claude-sonnet-5">claude-sonnet-5</option>
+                <option value="claude-haiku-4-5-20251001">claude-haiku-4-5</option>
+              </select></div>
+            <div><label class="lbl" for="aKey">API key</label><input id="aKey" type="password" placeholder="sk-ant-…" autocomplete="off"></div>
+          </div>
+        </div>
+        <div id="openaiBox" class="hidden">
+          <label class="lbl" for="oUrl">Endpoint (OpenAI-compatible chat completions URL)</label>
+          <input id="oUrl" type="text" placeholder="http://localhost:8000/v1/chat/completions">
+          <div class="row">
+            <div><label class="lbl" for="oModel">Model name</label><input id="oModel" type="text" placeholder="e.g. local-model"></div>
+            <div><label class="lbl" for="oKey">API key (optional)</label><input id="oKey" type="password" autocomplete="off"></div>
+          </div>
+          <div class="hint">The server must allow browser requests (CORS). Nothing leaves your network if the endpoint is internal.</div>
+        </div>
+        <div id="manualBox" class="hidden hint">Build the prompt, copy it into any chat (claude.ai, internal chat), then paste the whole answer into step 5.</div>
+        <label class="check"><input type="checkbox" id="rememberKey"> Remember keys in this browser</label>
+      </section>
+
+      <section>
+        <h2><span class="n">2</span>Task &amp; target</h2>
+        <div class="seg">
+          <label><input type="radio" name="task" value="plan" checked>Reshape plan</label>
+          <label><input type="radio" name="task" value="fix">Fix failed checks</label>
+        </div>
+        <div class="hint" id="taskHint"></div>
+        <div id="targetBox">
+          <span class="lbl-field">Target content area (header 132 is added)</span>
+          <div class="seg">
+            <label><input type="radio" name="res" value="1840x960">Wide 1840 × 960</label>
+            <label><input type="radio" name="res" value="1400x1400" checked>Square 1400 × 1400</label>
+            <label><input type="radio" name="res" value="custom">Custom</label>
+          </div>
+          <div class="row" id="customBox" style="margin-top:10px">
+            <input id="cw" type="number" value="1600" step="8" aria-label="width">
+            <input id="ch" type="number" value="1200" step="8" aria-label="height">
+          </div>
+          <div class="msg err" id="resErr"></div>
+        </div>
+      </section>
+
+      <section>
+        <h2><span class="n">3</span><span class="grow">Screen JSON</span><span class="chip" id="screenPill">empty</span></h2>
+        <textarea id="screen" rows="8" placeholder="Paste the plugin's “Export JSON” of the screen here"></textarea>
+        <div id="checksBox" class="hidden">
+          <label class="lbl" for="checks">Plugin report with the failed checks</label>
+          <textarea id="checks" rows="5" placeholder="Paste the plugin report (Reshape + check or Check only)"></textarea>
+        </div>
+        <div class="msg" id="screenMsg"></div>
+        <div class="facts hidden" id="facts"></div>
+      </section>
+
+      <section>
+        <h2><span class="n">4</span>Design rules</h2>
+        <textarea id="rules" rows="12"></textarea>
+        <div class="row" style="margin-top:10px">
+          <button id="resetRules" style="flex:none">
+            <svg class="i" viewBox="0 0 24 24"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+            <span class="lbl-t">Reset to default rules</span></button>
+          <span class="hint" id="rulesInfo" style="margin:0"></span>
+        </div>
+      </section>
+    </div>
+
+    <div class="col">
+      <section>
+        <h2><span class="n">5</span>Prompt &amp; answer</h2>
+        <div class="row">
+          <button id="build"><span class="lbl-t">Build prompt</span></button>
+          <button id="copyPrompt" disabled>
+            <svg class="i" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            <span class="lbl-t">Copy prompt</span></button>
+          <button id="send" class="primary" disabled>
+            <svg class="i" viewBox="0 0 24 24"><path d="M19 9l1.25-2.75L23 5l-2.75-1.25L19 1l-1.25 2.75L15 5l2.75 1.25L19 9zm-7.5.5L9 4 6.5 9.5 1 12l5.5 2.5L9 20l2.5-5.5L17 12l-5.5-2.5zM19 15l-1.25 2.75L15 19l2.75 1.25L19 23l1.25-2.75L23 19l-2.75-1.25L19 15z"/></svg>
+            <span class="lbl-t">Send to model</span></button>
+        </div>
+        <div class="msg" id="promptMsg"></div>
+        <details><summary>Show prompt</summary>
+          <label class="lbl" for="sys">System</label><textarea id="sys" rows="8" readonly></textarea>
+          <label class="lbl" for="usr">User</label><textarea id="usr" rows="10" readonly></textarea>
+        </details>
+        <label class="lbl" for="answer">Model answer (filled automatically, or paste it here in manual mode)</label>
+        <textarea id="answer" rows="12"></textarea>
+        <div class="row" style="margin-top:10px"><button id="readAnswer" style="flex:none"><span class="lbl-t">Read answer</span></button></div>
+      </section>
+
+      <section>
+        <h2><span class="n">6</span>Result for the plugin</h2>
+        <ul class="list" id="validation"></ul>
+        <textarea id="result" rows="14" readonly placeholder="The validated JSON appears here"></textarea>
+        <div class="row" style="margin-top:10px">
+          <button id="copyResult" class="primary" disabled>
+            <svg class="i" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            <span class="lbl-t">Copy JSON for plugin</span></button>
+        </div>
+        <div class="hint">In Figma: select the <b>source</b> screen (for a plan) or the reshaped screen (for fixes) → Digiteq Reshape Plugin → Import LLM result → paste → Apply JSON.</div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <span class="plate"><img alt="Digiteq Automotive" src="data:image/png;base64,__LOGO__"></span>
+  <span>© Digiteq Automotive s.r.o. (2026)</span>
+  <span class="sep"></span>
+  <span>Progressive Automation Centre · Proof of concept</span>
+</footer>
+
+<script type="text/plain" id="defaultRules">__DEFAULT_RULES__</script>
+
+<script>
+// CORE-START (pure logic, no DOM – also used by tests)
+const Core = (() => {
+  const HEADER = 132, M = 24, ROW_GAP = 16;
+  const LIMITS = { minW: 960, maxW: 2560, minH: 600, maxH: 2000, minAspect: 0.5, maxAspect: 3 };
+
+  function validateTarget(w, h) {
+    const e = [];
+    if (!Number.isInteger(w) || !Number.isInteger(h)) e.push('Width and height must be whole numbers.');
+    if (w < LIMITS.minW || w > LIMITS.maxW) e.push(`Width must be ${LIMITS.minW}–${LIMITS.maxW} (got ${w}).`);
+    if (h < LIMITS.minH || h > LIMITS.maxH) e.push(`Height must be ${LIMITS.minH}–${LIMITS.maxH} (got ${h}).`);
+    if (w % 8 || h % 8) e.push('Use multiples of 8.');
+    if (w / h < LIMITS.minAspect || w / h > LIMITS.maxAspect) e.push(`Aspect ${(w / h).toFixed(2)} is outside ${LIMITS.minAspect}–${LIMITS.maxAspect}.`);
+    return e;
+  }
+
+  const kids = n => (n.children || []);
+  const isOverlay = n => /_dropdown$/.test(n.name);
+  const countRows = n => { let best = 0; const walk = x => { const r = kids(x).filter(k => /_row_\d+$/.test(k.name)).length; best = Math.max(best, r); kids(x).forEach(walk); }; walk(n); return best; };
+
+  function parseScreen(text) {
+    let s;
+    try { s = JSON.parse(text); } catch (e) { return { error: 'Not valid JSON: ' + e.message }; }
+    if (!s || s.type !== 'FRAME' || !Array.isArray(s.children)) return { error: 'Expected the plugin export of a screen FRAME' };
+    const main = s.children.filter(k => !isOverlay(k));
+    const header = main.find(k => /_header$/.test(k.name)) || main[0];
+    const content = main.find(k => /_content$/.test(k.name)) || main[1];
+    if (!header || !content || header === content) return { error: 'Screen needs a header and a content frame' };
+    return { screen: s, header, content };
+  }
+
+  function facts(parsed, T, task) {
+    const { screen, header, content } = parsed;
+    const hk = kids(header).filter(k => !k.hidden);
+    const al = !!header.layout;
+    const pad = al ? header.layout.pad[1] + header.layout.pad[3] : 2 * M;
+    const gap = al ? header.layout.gap : 24;
+    const headerNeed = Math.round(pad + hk.reduce((a, k) => a + k.w, 0) + gap * Math.max(0, hk.length - 1));
+    const tabs = hk.find(k => /_tabs$/.test(k.name)) || null;
+    const panes = kids(content).filter(k => !k.hidden && !isOverlay(k)).map(p => {
+      const card = !/_image$/.test(p.name) && kids(p).some(k => /_image$/.test(k.name));
+      const rows = countRows(p);
+      return { name: p.name, w: p.w, h: p.h, x: p.x, y: p.y,
+        kind: /_image$/.test(p.name) ? 'media' : card ? 'card (has image child)' : rows >= 3 ? `list (${rows} rows)` : 'content' };
+    });
+    const overlays = kids(screen).filter(isOverlay).map(o => o.name);
+    const f = {
+      screen: screen.name, input: screen.layout ? 'auto layout' : 'flat (no auto layout)',
+      sourceContent: `${content.w} x ${content.h}`, headerNeed, headerFits: T ? headerNeed <= T.w : null,
+      tabs: tabs ? { name: tabs.name, w: tabs.w, h: tabs.h } : null,
+      panes, overlays,
+    };
+    if (T) {
+      f.target = `${T.w} x ${T.h}`;
+      f.usable = { w: T.w - 2 * M, h: T.h - 2 * M };
+      if (tabs) f.panesStartIfR4 = M + tabs.h + ROW_GAP;
+    }
+    return f;
+  }
+
+  function factsText(f) {
+    const L = [];
+    L.push(`- Source screen: ${f.screen} (${f.input}), content area ${f.sourceContent}`);
+    if (f.target) L.push(`- Target content area: ${f.target}; usable inside the 24 margins: ${f.usable.w} x ${f.usable.h}`);
+    L.push(`- Header needs ${f.headerNeed} px in one row` + (f.target ? ` -> ${f.headerFits ? 'fits' : 'does NOT fit'} the target width` : ''));
+    L.push(`- Header tabs element: ${f.tabs ? `${f.tabs.name} (${f.tabs.w} x ${f.tabs.h})` : 'none'}`);
+    if (f.panesStartIfR4 !== undefined) L.push(`- If r4 is used, panes start at y >= ${f.panesStartIfR4}`);
+    L.push(`- Panes (direct children of the content area, source order):`);
+    f.panes.forEach(p => L.push(`  - ${p.name}: ${p.w} x ${p.h} at ${p.x},${p.y} — ${p.kind}`));
+    if (f.overlays.length) L.push(`- Overlays (anchored automatically): ${f.overlays.join(', ')}`);
+    return L.join('\n');
+  }
+
+  // Compact tree: one line per element, list rows summarised
+  function compact(node, depth = 0, out = []) {
+    const t = { FRAME: 'F', TEXT: 'T', RECTANGLE: 'R', ELLIPSE: 'E', INSTANCE: 'I', GROUP: 'G', VECTOR: 'V' }[node.type] || node.type;
+    let line = `${'  '.repeat(depth)}${node.name} [${t}] ${node.x},${node.y} ${node.w}x${node.h}`;
+    if (node.layout) line += ` AL:${node.layout.mode[0]} gap${node.layout.gap} pad${node.layout.pad.join('/')}`;
+    if (node.sizing) line += ` ${node.sizing.map(s => s[0]).join('')}`;
+    if (node.hidden) line += ' hidden';
+    if (node.type === 'TEXT') line += ` "${String(node.text || '').slice(0, 60)}"${node.fontSize ? ' ' + node.fontSize + 'sp' : ''}`;
+    out.push(line);
+    if (node.name === 'icon') return out;
+    const ch = kids(node);
+    const rows = ch.filter(k => /_row_\d+$/.test(k.name));
+    if (rows.length > 3) {
+      ch.forEach(k => { if (!rows.includes(k) || rows.indexOf(k) < 2) compact(k, depth + 1, out); });
+      const step = rows[1].y - rows[0].y;
+      out.push(`${'  '.repeat(depth + 1)}… +${rows.length - 2} more rows like ${rows[1].name} (same structure, y step ${step})`);
+    } else ch.forEach(k => compact(k, depth + 1, out));
+    return out;
+  }
+
+  const SCHEMA_PLAN = `{
+  "screen": "<source screen name>",
+  "target": { "w": <width>, "h": <height> },
+  "mode": "side" | "stack",
+  "r4": true | false,
+  "panes": [
+    { "name": "<pane name>", "x": 0, "y": 0, "w": 0, "h": 0, "card": "horizontal" | "vertical" (only for card panes) }
+  ],
+  "overrides": [
+    { "path": "<ancestor>/<element>", "x": 0, "y": 0, "w": 0, "h": 0, "visible": true, "all": false }
+  ],
+  "decisions": ["<rule> <measured numbers> -> <choice>"],
+  "open_questions": []
+}`;
+
+  const SCHEMA_FIX = `{
+  "screen": "<reshaped screen name>",
+  "overrides": [
+    { "path": "<ancestor>/<element>", "x": 0, "y": 0, "w": 0, "h": 0, "visible": true, "all": false }
+  ],
+  "decisions": ["<failed check> -> <fix and why it keeps the other rules>"],
+  "open_questions": []
+}`;
+
+  const EXECUTOR = `How the Figma plugin executes your answer (you do not draw, you plan):
+- A screen = header bar (132 high, full width) + content area. The plugin resizes the screen to the target content size and keeps the header.
+- "Panes" are the direct children of the content area. Place every pane exactly once with x, y, w, h in content coordinates (0,0 = top-left of the content area).
+- mode "side" = panes next to each other; mode "stack" = panes above each other.
+- Inside a pane the plugin reflows everything itself (auto layout or inferred constraints: wide elements stretch, edge-pinned ones stay pinned, spacers absorb height), re-wraps text (a wrapped title pushes the text below it down; all list rows then get the height of the tallest row), fills lists with extra rows when there is room, ends side-by-side panes at the list's last visible row (R7), and keeps dropdowns anchored to their trigger. You do not position elements inside panes – but consider that narrower panes make long titles wrap and rows taller (fewer rows fit).
+- Card panes (a pane with an image child): "card": "horizontal" = image left / text right (good when the pane is >= 1000 wide), "vertical" = image on top.
+- "r4": true moves the header's ..._tabs element into the first content row (tabs height + 16 gap); panes must then start below it. Use it only when the header does not fit the target width.
+- "overrides" (optional, use sparingly) adjust single elements after the reshape. "path" = element name, prefixed with ancestor names separated by "/" when the name is not unique (e.g. "home_category_card_driving/icon_bg"). x/y are relative to the element's parent and are ignored inside auto layout; w/h resize; "visible": false hides it (never for P0). "all": true applies to every match.
+- After executing, the plugin runs the acceptance checks from the rules (§10) and more: sizes, gaps, margins, text sizes, overlaps, elements sticking out of their parent, unused list space, resized buttons, pane bottoms not aligned.`;
+
+  function buildPrompt({ task, rules, parsed, T, checksReport }) {
+    const f = facts(parsed, task === 'plan' ? T : null, task);
+    const tree = compact(parsed.screen).join('\n');
+    let system, user;
+    if (task === 'plan') {
+      system = `You are a senior HMI layout engineer for automotive infotainment (Android Automotive, Škoda design language).
+Your job: adapt ONE app screen from its current display to a new target display, following the DESIGN RULES exactly.
+
+${EXECUTOR}
+
+Rules for your answer:
+1. Base every decision on the MEASURED FACTS and quote the numbers in "decisions". Never estimate a width or height that is given in the facts.
+2. Follow the design rules: margins, pane min widths (default 560, higher where the screen tables say so), max column width, reflow patterns R1–R6, priorities (never hide or cut P0), touch sizes.
+3. Use multiples of 8 for positions and sizes. Keep 24 margins and 32 gaps between panes unless the rules say otherwise.
+4. If the target cannot hold the screen without breaking a rule, explain it in "open_questions" and return "panes": [].
+5. Think it through briefly, then end your answer with exactly one \`\`\`json block in this format:
+${SCHEMA_PLAN}`;
+      user = `## DESIGN RULES
+${rules}
+
+## TARGET
+Content area ${T.w} x ${T.h} (the plugin adds the 132 header on top).
+
+## MEASURED FACTS
+${factsText(f)}
+
+## SCREEN (compact tree: name [type] x,y wxh, AL = auto layout, sizing letters F=fill H=hug X=fixed)
+${tree}`;
+    } else {
+      system = `You are a senior HMI layout engineer for automotive infotainment (Android Automotive, Škoda design language).
+You receive a screen that was ALREADY reshaped to its new display, and the acceptance checks that failed. Return targeted fixes ("overrides") only – do not re-plan the panes.
+
+${EXECUTOR}
+
+Rules for your answer:
+1. Fix every failed check if possible; do not break any other rule while doing it. Checks that also failed on the source screen are rule/design conflicts – mention them in "open_questions" instead of fixing.
+2. Change as few elements as possible. Prefer moving over resizing; never shrink text or touch targets below the minimums; never hide P0 elements.
+3. Use multiples of 8 where you can.
+4. Think it through briefly, then end your answer with exactly one \`\`\`json block in this format:
+${SCHEMA_FIX}`;
+      user = `## DESIGN RULES
+${rules}
+
+## FAILED CHECKS (plugin report)
+${checksReport || '(none pasted)'}
+
+## MEASURED FACTS
+${factsText(f)}
+
+## SCREEN (compact tree: name [type] x,y wxh, AL = auto layout, sizing letters F=fill H=hug X=fixed)
+${tree}`;
+    }
+    return { system, user, facts: f };
+  }
+
+  function extractJson(text) {
+    const blocks = [...String(text).matchAll(/```(?:json)?\s*([\s\S]*?)```/g)].map(m => m[1].trim()).filter(b => b.startsWith('{'));
+    if (blocks.length) return blocks[blocks.length - 1];
+    const a = text.indexOf('{'), b = text.lastIndexOf('}');
+    if (a < 0 || b <= a) throw new Error('No JSON object found in the answer');
+    return text.slice(a, b + 1);
+  }
+
+  // Same structural checks as the plugin import + rule warnings
+  function validate(data, { task, parsed, T }) {
+    const out = [];
+    const err = m => out.push({ level: 'err', m }), warn = m => out.push({ level: 'warn', m }), ok = m => out.push({ level: 'ok', m });
+    if (task === 'fix') {
+      if (!Array.isArray(data.overrides) || !data.overrides.length) err('No "overrides" in the answer');
+      else {
+        data.overrides.forEach((o, i) => {
+          if (!o.path && !o.name) err(`override #${i + 1} has no path`);
+          ['x', 'y', 'w', 'h'].forEach(k => { if (o[k] !== undefined && !Number.isFinite(Number(o[k]))) err(`override ${o.path}: ${k} is not a number`); });
+          if (o.w !== undefined && o.w % 8) warn(`override ${o.path}: w ${o.w} not a multiple of 8`);
+        });
+        ok(`${data.overrides.length} override(s)`);
+      }
+      if (Array.isArray(data.panes) && data.panes.length) warn('Answer also contains "panes" – the plugin will treat it as a new plan, not a fix');
+      return out;
+    }
+    const f = facts(parsed, T, task);
+    if (!data.target || Number(data.target.w) !== T.w || Number(data.target.h) !== T.h) warn(`target in answer (${data.target && data.target.w}x${data.target && data.target.h}) differs from ${T.w}x${T.h} – the plugin uses the answer's target`);
+    if (!['side', 'stack'].includes(data.mode)) err(`mode must be "side" or "stack" (got ${JSON.stringify(data.mode)})`);
+    if (!Array.isArray(data.panes)) { err('"panes" missing'); return out; }
+    if (!data.panes.length) { warn('Empty "panes": the model says the target is not possible – see open_questions'); return out; }
+    if (data.r4 && !f.tabs) err('r4 is true but the header has no tabs element');
+    if (!data.r4 && f.headerFits === false) err(`Header needs ${f.headerNeed} > ${T.w} but r4 is false`);
+    const names = new Set(f.panes.map(p => p.name)), seen = new Set();
+    const top = data.r4 && f.tabs ? f.panesStartIfR4 : 0;
+    const W = Number(data.target && data.target.w) || T.w, H = Number(data.target && data.target.h) || T.h;
+    data.panes.forEach(p => {
+      if (!names.has(p.name)) { err(`unknown pane "${p.name}"`); return; }
+      if (seen.has(p.name)) err(`pane "${p.name}" listed twice`);
+      seen.add(p.name);
+      const [x, y, w, h] = ['x', 'y', 'w', 'h'].map(k => Number(p[k]));
+      if ([x, y, w, h].some(v => !Number.isFinite(v))) { err(`${p.name}: x, y, w, h must be numbers`); return; }
+      if (x < 0 || y < 0 || x + w > W || y + h > H) err(`${p.name}: ${x},${y} ${w}x${h} is outside ${W}x${H}`);
+      if (x < M || y < M || x + w > W - M || y + h > H - M) warn(`${p.name}: inside the ${M} margin`);
+      if (data.r4 && y < top) err(`${p.name}: y ${y} overlaps the tabs row (panes start at ${top})`);
+      if ([x, y, w, h].some(v => v % 8)) warn(`${p.name}: values not all multiples of 8`);
+      if (p.card && !['horizontal', 'vertical'].includes(p.card)) err(`${p.name}: card must be "horizontal" or "vertical"`);
+    });
+    f.panes.forEach(p => { if (!seen.has(p.name)) err(`pane "${p.name}" is missing`); });
+    const ps = data.panes.filter(p => names.has(p.name));
+    for (let i = 0; i < ps.length; i++) for (let j = i + 1; j < ps.length; j++) {
+      const a = ps[i], b = ps[j];
+      if (Math.min(a.x + a.w, b.x + b.w) - Math.max(a.x, b.x) > 0 && Math.min(a.y + a.h, b.y + b.h) - Math.max(a.y, b.y) > 0) err(`panes ${a.name} and ${b.name} overlap`);
+    }
+    if (!out.some(o => o.level === 'err')) ok(`${ps.length} pane(s), mode ${data.mode}${data.r4 ? ' + r4' : ''} – ready for the plugin`);
+    return out;
+  }
+
+  async function callModel({ provider, system, user, anthropic, openai }) {
+    if (provider === 'anthropic') {
+      const r = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'x-api-key': anthropic.key, 'anthropic-version': '2023-06-01',
+                   'anthropic-dangerous-direct-browser-access': 'true' },
+        body: JSON.stringify({ model: anthropic.model, max_tokens: 8000, system, messages: [{ role: 'user', content: user }] }),
+      });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error((j.error && j.error.message) || `HTTP ${r.status}`);
+      return { text: (j.content || []).filter(c => c.type === 'text').map(c => c.text).join('\n'), usage: j.usage };
+    }
+    const headers = { 'content-type': 'application/json' };
+    if (openai.key) headers.authorization = 'Bearer ' + openai.key;
+    const r = await fetch(openai.url, { method: 'POST', headers,
+      body: JSON.stringify({ model: openai.model, temperature: 0.2, messages: [{ role: 'system', content: system }, { role: 'user', content: user }] }) });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error((j.error && (j.error.message || j.error)) || `HTTP ${r.status}`);
+    return { text: j.choices && j.choices[0] && j.choices[0].message ? j.choices[0].message.content : '', usage: j.usage };
+  }
+
+  return { validateTarget, parseScreen, facts, factsText, compact, buildPrompt, extractJson, validate, callModel };
+})();
+// CORE-END
+
+// ---------- UI ----------
+const $ = id => document.getElementById(id);
+const store = {
+  get(k) { try { return localStorage.getItem('ra.' + k); } catch (e) { return null; } },
+  set(k, v) { try { v === null ? localStorage.removeItem('ra.' + k) : localStorage.setItem('ra.' + k, v); } catch (e) {} },
+};
+const radio = name => document.querySelector(`input[name=${name}]:checked`).value;
+const DEFAULT_RULES = $('defaultRules').textContent.trim();
+let prompt = null;
+
+function target() {
+  const v = radio('res');
+  if (v !== 'custom') { const [w, h] = v.split('x').map(Number); return { w, h }; }
+  return { w: Number($('cw').value), h: Number($('ch').value) };
+}
+
+function refresh() {
+  const provider = radio('provider'), task = radio('task');
+  $('anthropicBox').classList.toggle('hidden', provider !== 'anthropic');
+  $('openaiBox').classList.toggle('hidden', provider !== 'openai');
+  $('manualBox').classList.toggle('hidden', provider !== 'manual');
+  $('targetBox').classList.toggle('hidden', task !== 'plan');
+  $('checksBox').classList.toggle('hidden', task !== 'fix');
+  $('customBox').classList.toggle('hidden', radio('res') !== 'custom');
+  $('taskHint').textContent = task === 'plan'
+    ? 'Paste the SOURCE screen export. The model returns a full layout plan for the target size.'
+    : 'Paste the RESHAPED screen export and the plugin report. The model returns small fixes (overrides).';
+  const resErr = task === 'plan' ? Core.validateTarget(target().w, target().h) : [];
+  $('resErr').textContent = resErr.join(' ');
+
+  const parsed = $('screen').value.trim() ? Core.parseScreen($('screen').value) : null;
+  if (!parsed) { $('screenPill').textContent = 'empty'; $('screenMsg').textContent = ''; $('facts').classList.add('hidden'); }
+  else if (parsed.error) { $('screenPill').textContent = 'invalid'; $('screenMsg').className = 'msg err'; $('screenMsg').textContent = parsed.error; $('facts').classList.add('hidden'); }
+  else {
+    $('screenPill').textContent = parsed.screen.name;
+    $('screenMsg').className = 'msg ok';
+    $('screenMsg').textContent = `${$('screen').value.length.toLocaleString()} chars exported → ${Core.compact(parsed.screen).join('\n').length.toLocaleString()} chars in the prompt`;
+    $('facts').textContent = 'Measured facts sent to the model:\n' + Core.factsText(Core.facts(parsed, task === 'plan' && !resErr.length ? target() : null, task));
+    $('facts').classList.remove('hidden');
+  }
+  $('build').disabled = !parsed || !!parsed.error || resErr.length > 0 || !$('rules').value.trim();
+  $('rulesInfo').textContent = $('rules').value.trim() === DEFAULT_RULES ? 'Default rules (DESIGN-RULES.md)' : 'Edited rules – saved in this browser';
+  $('send').disabled = !prompt || provider === 'manual';
+  $('copyPrompt').disabled = !prompt;
+
+  store.set('provider', provider); store.set('aModel', $('aModel').value);
+  store.set('oUrl', $('oUrl').value); store.set('oModel', $('oModel').value);
+  store.set('rules', $('rules').value.trim() === DEFAULT_RULES ? null : $('rules').value);
+  if ($('rememberKey').checked) { store.set('aKey', $('aKey').value); store.set('oKey', $('oKey').value); store.set('remember', '1'); }
+  else { store.set('aKey', null); store.set('oKey', null); store.set('remember', null); }
+  updateFlow();
+}
+
+function invalidatePrompt() { prompt = null; $('promptMsg').textContent = ''; $('sys').value = ''; $('usr').value = ''; }
+
+function buildPrompt() {
+  const parsed = Core.parseScreen($('screen').value);
+  if (parsed.error) return;
+  prompt = Core.buildPrompt({ task: radio('task'), rules: $('rules').value.trim(), parsed, T: target(), checksReport: $('checks').value.trim() });
+  prompt.task = radio('task'); prompt.parsed = parsed; prompt.T = target();
+  $('sys').value = prompt.system; $('usr').value = prompt.user;
+  const chars = prompt.system.length + prompt.user.length;
+  $('promptMsg').className = 'msg ok';
+  $('promptMsg').textContent = `Prompt ready: ${chars.toLocaleString()} characters (≈ ${Math.round(chars / 3.5).toLocaleString()} tokens).`;
+  refresh();
+}
+
+async function send() {
+  if (!prompt) return;
+  const provider = radio('provider');
+  $('send').disabled = true;
+  $('promptMsg').className = 'msg'; $('promptMsg').textContent = 'Waiting for the model…';
+  const t0 = Date.now();
+  try {
+    const r = await Core.callModel({ provider, system: prompt.system, user: prompt.user,
+      anthropic: { key: $('aKey').value.trim(), model: $('aModel').value },
+      openai: { url: $('oUrl').value.trim(), model: $('oModel').value.trim(), key: $('oKey').value.trim() } });
+    $('answer').value = r.text;
+    const u = r.usage ? ` · tokens in/out ${r.usage.input_tokens ?? r.usage.prompt_tokens}/${r.usage.output_tokens ?? r.usage.completion_tokens}` : '';
+    $('promptMsg').className = 'msg ok'; $('promptMsg').textContent = `Answer received in ${((Date.now() - t0) / 1000).toFixed(1)} s${u}.`;
+    readAnswer();
+  } catch (e) {
+    $('promptMsg').className = 'msg err';
+    $('promptMsg').textContent = 'Request failed: ' + e.message + (provider === 'openai' ? ' (check URL and CORS on the server)' : '');
+  } finally { refresh(); }
+}
+
+function readAnswer() {
+  const list = $('validation'); list.innerHTML = ''; $('result').value = ''; $('copyResult').disabled = true;
+  const add = (level, m) => { const li = document.createElement('li'); li.className = level; li.textContent = m; list.appendChild(li); };
+  let data;
+  try { data = JSON.parse(Core.extractJson($('answer').value)); }
+  catch (e) { add('err', 'Could not read JSON from the answer: ' + e.message); updateFlow(); return; }
+  const task = prompt ? prompt.task : radio('task');
+  const parsed = prompt ? prompt.parsed : Core.parseScreen($('screen').value);
+  if (!parsed || parsed.error) { add('err', 'Paste the screen JSON first (step 3) so the answer can be validated'); return; }
+  const T = prompt ? prompt.T : target();
+  const res = Core.validate(data, { task, parsed, T });
+  res.forEach(r => add(r.level, r.m));
+  (data.open_questions || []).forEach(q => add('warn', 'Open question: ' + q));
+  (data.decisions || []).forEach(d => add('ok', 'Decision: ' + d));
+  $('result').value = JSON.stringify(data, null, 2);
+  $('copyResult').disabled = res.some(r => r.level === 'err');
+  updateFlow();
+}
+
+function copy(text, btn) {
+  const l = btn.querySelector('.lbl-t') || btn;
+  const done = () => { const t = l.textContent; l.textContent = 'Copied'; setTimeout(() => { l.textContent = t; }, 1200); };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, () => fallback());
+  else fallback();
+  function fallback() { const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); done(); }
+}
+
+// flow indicator: 1 Screen -> 2 Model -> 3 Import into plugin
+function updateFlow() {
+  const p = $('screen').value.trim() ? Core.parseScreen($('screen').value) : null;
+  const stage = !p || p.error ? 0 : ($('copyResult').disabled ? 1 : 2);
+  document.querySelectorAll('#flow .st').forEach(el => {
+    const s = +el.dataset.step;
+    el.classList.toggle('done', s < stage); el.classList.toggle('active', s === stage);
+  });
+}
+
+// theme: light by default (design system rule), dark only via the header toggle
+function setTheme(t) { document.documentElement.setAttribute('data-theme', t); store.set('theme', t === 'dark' ? 'dark' : null); }
+setTheme(store.get('theme') === 'dark' ? 'dark' : 'light');
+$('themeToggle').onclick = () => setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+
+// init
+$('rules').value = store.get('rules') || DEFAULT_RULES;
+const p = store.get('provider'); if (p) { const r = document.querySelector(`input[name=provider][value=${p}]`); if (r) r.checked = true; }
+if (store.get('aModel')) $('aModel').value = store.get('aModel');
+$('oUrl').value = store.get('oUrl') || ''; $('oModel').value = store.get('oModel') || '';
+if (store.get('remember')) { $('rememberKey').checked = true; $('aKey').value = store.get('aKey') || ''; $('oKey').value = store.get('oKey') || ''; }
+
+document.querySelectorAll('input, select, textarea').forEach(el => el.addEventListener('input', () => {
+  if (!['answer', 'result', 'sys', 'usr', 'aKey', 'oKey', 'rememberKey'].includes(el.id)) invalidatePrompt();
+  refresh();
+}));
+$('resetRules').onclick = () => { $('rules').value = DEFAULT_RULES; invalidatePrompt(); refresh(); };
+$('build').onclick = buildPrompt;
+$('send').onclick = send;
+$('copyPrompt').onclick = () => copy(`${prompt.system}\n\n---\n\n${prompt.user}`, $('copyPrompt'));
+$('readAnswer').onclick = readAnswer;
+$('copyResult').onclick = () => copy($('result').value, $('copyResult'));
+refresh();
+</script>
+</body>
+</html>

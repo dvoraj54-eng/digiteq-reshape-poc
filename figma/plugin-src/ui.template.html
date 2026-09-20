@@ -1,0 +1,191 @@
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Digiteq Archer design system tokens (light theme) */
+  :root {
+    --primary: #1565C0; --primary-dark: #0D47A1; --on-primary: #FFFFFF;
+    --tint-primary: rgba(21,101,192,.08);
+    --bg-default: #F3F6FB; --surface-card: #FFFFFF; --surface-sunken: #EEF2F7; --surface-input: #F8FAFF; --surface-selected: #90CAF9;
+    --gradient-hero: linear-gradient(90deg, #0D47A1 0%, #1565C0 60%, #1976D2 100%);
+    --text-heading: #1A237E; --text-primary: #1A2340; --text-secondary: #455A64; --text-disabled: #90A4AE;
+    --divider: #E3EAF4; --border-input: #CFD8DC; --border-input-hover: #1976D2;
+    --success: #2E7D32; --error: #C62828; --chip-pending: #ED9B0E; --chip-neutral: rgba(0,0,0,.08);
+    --radius-md: 8px; --radius-lg: 12px; --radius-xl: 16px; --radius-pill: 20px;
+    --font-ui: "Figtree", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg-default); color: var(--text-primary); font: 400 13px/1.5 var(--font-ui); -webkit-font-smoothing: antialiased; }
+  svg.i { width: 18px; height: 18px; fill: currentColor; flex: none; }
+
+  .appbar { height: 44px; background: var(--gradient-hero); color: #fff; display: flex; align-items: center; gap: 8px; padding: 0 12px; font: 600 14px/1 var(--font-ui); letter-spacing: .01em; }
+  .appbar .sp { flex: 1; }
+  .appbar .tag { font: 600 10px/1 var(--font-ui); background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.25); border-radius: 6px; padding: 4px 7px; }
+
+  .wrap { padding: 10px; display: flex; flex-direction: column; gap: 10px; }
+  .card { background: var(--surface-card); border: 1px solid var(--divider); border-radius: var(--radius-xl); padding: 10px 12px 12px; }
+  .card h3 { margin: 0 0 8px; display: flex; align-items: center; gap: 8px; font: 600 13px/1.4 var(--font-ui); color: var(--text-heading); }
+  .card h3 .n { width: 18px; height: 18px; border-radius: 4px; background: var(--primary); color: #fff; display: inline-flex; align-items: center; justify-content: center; font: 700 10px/1 var(--font-ui); }
+  .card h3 .grow { flex: 1; }
+
+  .sel { display: flex; align-items: center; gap: 8px; font: 500 13px/1.4 var(--font-ui); }
+  .sel.bad { color: var(--text-secondary); font-weight: 400; }
+  .chip { display: inline-flex; align-items: center; gap: 4px; font: 600 11px/1.4 var(--font-ui); padding: 2px 8px; border-radius: var(--radius-md); background: var(--chip-neutral); color: var(--text-primary); white-space: nowrap; }
+  .chip.ok { background: var(--success); color: #fff; } .chip.fail { background: var(--error); color: #fff; } .chip.warn { background: var(--chip-pending); color: #fff; }
+
+  .seg { display: flex; border: 1px solid var(--divider); border-radius: var(--radius-md); overflow: hidden; }
+  .seg label { flex: 1; padding: 6px 4px; text-align: center; cursor: pointer; color: var(--text-secondary); font: 500 12px/1.3 var(--font-ui); border-left: 1px solid var(--divider); }
+  .seg label:first-child { border-left: 0; }
+  .seg label:hover { background: var(--tint-primary); }
+  .seg input { position: absolute; opacity: 0; pointer-events: none; }
+  .seg label b { display: block; font-weight: inherit; }
+  .seg label small { display: block; font: 400 11px/1.3 var(--font-ui); opacity: .85; white-space: nowrap; }
+  .seg label:has(input:checked) { background: var(--surface-selected); color: var(--primary-dark); font-weight: 600; }
+
+  .row { display: flex; gap: 6px; align-items: center; }
+  .row > * { flex: 1; min-width: 0; }
+  input[type=number], textarea { width: 100%; padding: 6px 8px; border: 1px solid var(--border-input); border-radius: var(--radius-lg); background: var(--surface-input); color: var(--text-primary); font: 400 12px/1.4 var(--font-ui); outline: none; }
+  input:hover, textarea:hover { border-color: var(--border-input-hover); }
+  input:focus, textarea:focus { border-color: var(--primary); box-shadow: inset 0 0 0 1px var(--primary); }
+  textarea { font: 400 11px/1.4 var(--font-mono); resize: vertical; }
+  textarea[readonly] { background: var(--surface-sunken); }
+
+  button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 5px 12px; border-radius: var(--radius-pill); border: 1px solid var(--primary); background: transparent; color: var(--primary); font: 500 12.5px/1.6 var(--font-ui); cursor: pointer; transition: all .2s ease; white-space: nowrap; }
+  button:hover:not(:disabled) { background: var(--tint-primary); }
+  button.primary { background: var(--primary); color: #fff; border-color: transparent; }
+  button.primary:hover:not(:disabled) { background: var(--primary-dark); box-shadow: 0 1px 4px rgba(21,101,192,.25); }
+  button:disabled { opacity: .5; cursor: default; }
+
+  .hint { font: 400 11px/1.45 var(--font-ui); color: var(--text-secondary); margin-top: 6px; }
+  .err { font: 500 11.5px/1.4 var(--font-ui); color: var(--error); margin-top: 6px; }
+  .mt { margin-top: 8px; }
+
+  footer { display: flex; align-items: center; gap: 8px; padding: 2px 12px 12px; color: var(--text-secondary); font: 400 11px/1.3 var(--font-ui); }
+  footer .plate { background: #fff; border: 1px solid var(--divider); border-radius: var(--radius-md); padding: 5px 8px; display: inline-flex; }
+  footer img { height: 15px; display: block; }
+</style>
+
+<div class="appbar">
+  <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12h-2v3h-3v2h5v-5zM7 9h3V7H5v5h2V9zm14-6H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16.01H3V4.99h18v14.02z"/></svg>
+  Digiteq Reshape Plugin
+  <span class="sp"></span><span class="tag">POC</span>
+</div>
+
+<div class="wrap">
+  <div class="card">
+    <h3><span class="n">1</span>Screen</h3>
+    <div id="sel" class="sel bad">Select a screen frame on the canvas…</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="n">2</span>Target content area</h3>
+    <div class="seg">
+      <label><input type="radio" name="res" value="1840x960"><b>Wide</b><small>1840 × 960</small></label>
+      <label><input type="radio" name="res" value="1400x1400" checked><b>Square</b><small>1400 × 1400</small></label>
+      <label><input type="radio" name="res" value="custom"><b>Custom</b><small>your size</small></label>
+    </div>
+    <div class="row mt" id="customRow">
+      <input id="cw" type="number" value="1600" step="8" aria-label="width">
+      <input id="ch" type="number" value="1200" step="8" aria-label="height">
+    </div>
+    <div class="hint">Header 132 is added. Width 960–2560, height 600–2000, multiples of 8, aspect 0.5–3.</div>
+    <div id="verr" class="err"></div>
+  </div>
+
+  <div class="card">
+    <h3><span class="n">3</span>Action</h3>
+    <div class="row">
+      <button id="reshape" class="primary">Reshape + check</button>
+      <button id="check">Check only</button>
+      <button id="export">Export JSON</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="n">4</span>Import LLM result</h3>
+    <textarea id="imp" style="height:70px" placeholder="Paste the JSON from the Digiteq Reshape Assistant (or the model's whole answer)"></textarea>
+    <div class="hint">A plan (“panes”) reshapes the selected <b>source</b> screen into a new frame. Fixes (“overrides”) change the selected frame in place – Ctrl/Cmd+Z undoes them.</div>
+    <div class="row mt"><button id="import" class="primary" style="flex:none">Apply JSON</button></div>
+  </div>
+
+  <div class="card">
+    <h3><span class="grow">Report</span><span id="status" class="chip">–</span></h3>
+    <textarea id="out" readonly style="height:170px" placeholder="Results appear here"></textarea>
+    <div class="row mt"><button id="copy" style="flex:none">Copy report</button></div>
+  </div>
+</div>
+
+<footer>
+  <span class="plate"><img alt="Digiteq Automotive" src="data:image/png;base64,__LOGO__"></span>
+  <span>© Digiteq Automotive s.r.o. (2026)</span>
+</footer>
+
+<script>
+  const LIMITS = { minW: 960, maxW: 2560, minH: 600, maxH: 2000, minAspect: 0.5, maxAspect: 3 };
+  let selOk = false;
+  const $ = id => document.getElementById(id);
+
+  function target() {
+    const v = document.querySelector('input[name=res]:checked').value;
+    if (v !== 'custom') { const [w, h] = v.split('x').map(Number); return { w, h }; }
+    return { w: Number($('cw').value), h: Number($('ch').value) };
+  }
+  function validate({ w, h }) {
+    const e = [];
+    if (!Number.isInteger(w) || !Number.isInteger(h)) e.push('Width and height must be whole numbers.');
+    if (w < LIMITS.minW || w > LIMITS.maxW) e.push(`Width must be ${LIMITS.minW}–${LIMITS.maxW} (got ${w}).`);
+    if (h < LIMITS.minH || h > LIMITS.maxH) e.push(`Height must be ${LIMITS.minH}–${LIMITS.maxH} (got ${h}).`);
+    if (w % 8 || h % 8) e.push('Use multiples of 8 (design grid).');
+    const a = w / h;
+    if (a < LIMITS.minAspect || a > LIMITS.maxAspect) e.push(`Aspect ${a.toFixed(2)} is outside ${LIMITS.minAspect}–${LIMITS.maxAspect}.`);
+    return e;
+  }
+  function refresh() {
+    const custom = document.querySelector('input[name=res]:checked').value === 'custom';
+    $('customRow').style.display = custom ? 'flex' : 'none';
+    const errs = validate(target());
+    $('verr').textContent = errs.join(' ');
+    $('reshape').disabled = !selOk || errs.length > 0;
+    $('check').disabled = !selOk;
+    $('export').disabled = !selOk;
+    $('import').disabled = !selOk || !$('imp').value.trim();
+  }
+  document.querySelectorAll('input, textarea').forEach(i => i.addEventListener('input', refresh));
+
+  function setStatus(kind, text) { $('status').className = 'chip' + (kind ? ' ' + kind : ''); $('status').textContent = text; }
+  function working() { $('out').value = 'Working…'; setStatus('', 'Working…'); }
+  $('reshape').onclick = () => { working(); parent.postMessage({ pluginMessage: { type: 'run', action: 'reshape', ...target() } }, '*'); };
+  $('check').onclick = () => { working(); parent.postMessage({ pluginMessage: { type: 'run', action: 'check' } }, '*'); };
+  $('export').onclick = () => { working(); parent.postMessage({ pluginMessage: { type: 'run', action: 'export' } }, '*'); };
+  $('import').onclick = () => { working(); parent.postMessage({ pluginMessage: { type: 'run', action: 'import', json: $('imp').value } }, '*'); };
+  $('copy').onclick = () => { $('out').select(); document.execCommand('copy'); const b = $('copy'); b.textContent = 'Copied'; setTimeout(() => { b.textContent = 'Copy report'; }, 1200); };
+
+  // Summarise any report as one status chip (for demos)
+  function summarise(text) {
+    let r; try { r = JSON.parse(text); } catch (e) { return setStatus('', 'Done'); }
+    if (r.error || r.result === 'rejected' || r.fatal) return setStatus('fail', r.result === 'rejected' ? 'Plan rejected' : 'Error');
+    if (r.result === 'not possible') return setStatus('warn', 'Not possible');
+    const out = r.checks ? r.checks.output : r.result && typeof r.result.pass === 'boolean' ? r.result : null;
+    if (!out) return setStatus('', r.type === 'FRAME' ? 'JSON exported' : 'Done');
+    if (out.pass) return setStatus('ok', 'Checks passed');
+    setStatus('fail', `${out.fails.length} check${out.fails.length > 1 ? 's' : ''} failed`);
+  }
+
+  onmessage = e => {
+    const m = e.data.pluginMessage; if (!m) return;
+    if (m.type === 'selection') {
+      selOk = m.ok;
+      const el = $('sel');
+      el.className = 'sel' + (m.ok ? '' : ' bad');
+      if (m.ok) {
+        el.textContent = '';
+        const name = document.createElement('span'); name.textContent = m.name; name.style.cssText = 'flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap';
+        const size = document.createElement('span'); size.className = 'chip'; size.textContent = `${m.cw} × ${m.ch}`;
+        const kind = document.createElement('span'); kind.className = 'chip'; kind.textContent = m.autoLayout ? 'auto layout' : 'flat';
+        el.append(name, size, kind);
+      } else el.textContent = m.reason;
+      refresh();
+    }
+    if (m.type === 'result') { $('out').value = m.text; summarise(m.text); }
+  };
+  refresh();
+</script>

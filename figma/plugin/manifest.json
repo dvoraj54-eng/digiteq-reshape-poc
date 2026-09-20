@@ -1,0 +1,18 @@
+{
+  "name": "Digiteq Reshape Plugin",
+  "id": "tips-screen-reshaper-poc",
+  "api": "1.0.0",
+  "main": "code.js",
+  "ui": "ui.html",
+  "editorType": [
+    "figma"
+  ],
+  "documentAccess": "dynamic-page",
+  "networkAccess": {
+    "allowedDomains": [
+      "https://fonts.googleapis.com",
+      "https://fonts.gstatic.com"
+    ],
+    "reasoning": "Loads the Figtree font (Digiteq design system) for the plugin window."
+  }
+}
