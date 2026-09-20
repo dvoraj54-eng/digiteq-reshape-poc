@@ -1,5 +1,6 @@
 package cz.digiteq.tips
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +18,7 @@ class CategoryActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCategoryBinding
     private var filterIndex = 0
+    private var selectedTip = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +28,12 @@ class CategoryActivity : AppCompatActivity() {
         binding.root.padForSystemBars()
 
         binding.categoryBackButton.setOnClickListener { finish() }
+        binding.categoryOpenButton.setOnClickListener {
+            startActivity(
+                Intent(this, TipDetailActivity::class.java)
+                    .putExtra(TipDetailActivity.EXTRA_TIP_INDEX, selectedTip)
+            )
+        }
         setUpTabs()
         setUpFilter()
         setUpList()
@@ -102,6 +110,7 @@ class CategoryActivity : AppCompatActivity() {
     }
 
     private fun select(index: Int) {
+        selectedTip = index
         val rows = binding.categoryTipList.findViewById<ViewGroup>(R.id.category_tip_list_rows)
         rows.children.forEachIndexed { i, row -> row.isSelected = i == index }
 

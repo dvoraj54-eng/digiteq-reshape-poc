@@ -3,7 +3,7 @@
 `TipsApp/` – the Tips app from the Figma POC as an Android Automotive app (XML Views, Kotlin).
 Spec: `docs/android-app-spec.md`. Mac setup: `docs/android-setup-mac.md`.
 
-**Status:** phase 2a – wide layouts only (`res/layout/`). S1 Home, S2 Category and S3 Tip detail done; navigation between them follows.
+**Status:** phase 2a – wide layouts only (`res/layout/`). all three screens and the navigation between them are done (Home → Category → Tip detail → back).
 
 ## Build and run (from `android/TipsApp`)
 
