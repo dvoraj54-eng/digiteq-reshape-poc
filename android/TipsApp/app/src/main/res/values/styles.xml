@@ -74,6 +74,33 @@
         <item name="android:textSize">26sp</item>
     </style>
 
+    <style name="Tips.Text.Title36" parent="Tips.Text.Title40">
+        <item name="android:textSize">36sp</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+    <style name="Tips.Text.StepNumber" parent="Tips.Text">
+        <item name="android:textSize">26sp</item>
+        <item name="android:textFontWeight">600</item>
+        <item name="android:textColor">@color/accent</item>
+    </style>
+    <style name="Tips.Text.StepText" parent="Tips.Text">
+        <item name="android:textSize">26sp</item>
+        <item name="android:textColor">@color/white_90</item>
+    </style>
+    <style name="Tips.Text.Segment" parent="Tips.Text">
+        <item name="android:textSize">26sp</item>
+        <item name="android:textFontWeight">500</item>
+        <item name="android:textColor">@color/white_85</item>
+    </style>
+    <style name="Tips.Text.Segment.Selected">
+        <item name="android:textFontWeight">600</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="Tips.Text.ButtonLabel.OnDark">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
     <!-- Components -->
     <style name="Tips.Header">
         <item name="android:layout_width">match_parent</item>
@@ -93,7 +120,9 @@
     </style>
     <style name="Tips.Card">
         <item name="android:background">@drawable/bg_card</item>
-        <item name="android:padding">@dimen/card_padding</item>
+        <!-- not android:padding: that would win over the paddingHorizontal/Vertical of child styles -->
+        <item name="android:paddingHorizontal">@dimen/card_padding</item>
+        <item name="android:paddingVertical">@dimen/card_padding</item>
         <item name="android:orientation">vertical</item>
     </style>
     <!-- Card whose children are 20 apart (card inner gap) -->
@@ -176,5 +205,53 @@
         <item name="android:background">@drawable/bg_dropdown_option</item>
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
+    </style>
+
+    <!-- S3 Tip detail -->
+    <style name="Tips.StepCard" parent="Tips.Card">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">88dp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingHorizontal">24dp</item>
+        <item name="android:paddingVertical">16dp</item>
+        <item name="android:divider">@drawable/divider_24</item>
+        <item name="android:showDividers">middle</item>
+    </style>
+    <style name="Tips.StepNumber">
+        <item name="android:layout_width">56dp</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/bg_step_number</item>
+    </style>
+    <style name="Tips.Segment">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/bg_segment</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+    <style name="Tips.NavButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:foreground">@drawable/ripple_pill</item>
+        <item name="android:divider">@drawable/divider_12</item>
+        <item name="android:showDividers">middle</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+    <style name="Tips.NavButton.Primary">
+        <item name="android:background">@drawable/bg_button_primary</item>
+        <item name="android:paddingStart">48dp</item>
+        <item name="android:paddingEnd">32dp</item>
+    </style>
+    <style name="Tips.NavButton.Secondary">
+        <item name="android:background">@drawable/bg_pill_12</item>
+        <item name="android:paddingStart">32dp</item>
+        <item name="android:paddingEnd">48dp</item>
     </style>
 </resources>

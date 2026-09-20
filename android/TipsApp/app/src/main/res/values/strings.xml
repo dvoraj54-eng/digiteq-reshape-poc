@@ -55,4 +55,20 @@
     <string name="tip_7_title">Adjust the steering assist level</string>
     <string name="tip_7_subtitle">Assistants · 1 min</string>
     <string name="tip_7_body">Choose how strongly the steering assist corrects the car, from gentle to firm.</string>
+
+    <!-- S3 Tip detail -->
+    <string name="tip_back">Back</string>
+    <string name="tip_save">Save tip</string>
+    <string name="tip_search">Search</string>
+    <string name="tip_step_1_text">Press the ACC button on the steering wheel.</string>
+    <string name="tip_step_2_text">Set your speed with SET, then choose a following distance.</string>
+    <string name="tip_step_3_text">In a jam, the car stops and waits behind the vehicle ahead.</string>
+    <string name="tip_step_4_text">Tap RES or the accelerator to move off again.</string>
+    <string name="tip_distance_setting_label">Try it: following distance</string>
+    <string name="tip_distance_close">Close</string>
+    <string name="tip_distance_medium">Medium</string>
+    <string name="tip_distance_far">Far</string>
+    <string name="tip_helpful_toggle_label">Show this tip again next time</string>
+    <string name="tip_prev">Previous</string>
+    <string name="tip_next">Next tip</string>
 </resources>

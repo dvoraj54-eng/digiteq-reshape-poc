@@ -23,6 +23,10 @@
         <activity
             android:name=".CategoryActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".TipDetailActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
