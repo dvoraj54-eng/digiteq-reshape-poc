@@ -33,7 +33,7 @@
     <string name="category_preview_meta">%1$s READ</string>
     <string name="category_open_button">Open tip</string>
 
-    <!-- Tips (invented). List rows 8-11 repeat tips 1-4, like the Figma placeholder rows. -->
+    <!-- Tips (invented) -->
     <string name="tip_1_title">Stop-and-go with adaptive cruise control</string>
     <string name="tip_1_subtitle">Assistants · 2 min</string>
     <string name="tip_1_body">ACC keeps a set distance to the car ahead and can brake to a full stop in traffic jams.</string>
@@ -55,6 +55,18 @@
     <string name="tip_7_title">Adjust the steering assist level</string>
     <string name="tip_7_subtitle">Assistants · 1 min</string>
     <string name="tip_7_body">Choose how strongly the steering assist corrects the car, from gentle to firm.</string>
+    <string name="tip_8_title">Remote-park from outside the car</string>
+    <string name="tip_8_subtitle">Parking · 2 min</string>
+    <string name="tip_8_body">Start the parking manoeuvre from your phone while you stand next to the car.</string>
+    <string name="tip_9_title">Set a departure time for heating</string>
+    <string name="tip_9_subtitle">Winter · 1 min</string>
+    <string name="tip_9_body">Pick the time you leave and the car warms up the cabin so it is ready when you are.</string>
+    <string name="tip_10_title">Let Travel Assist change lanes</string>
+    <string name="tip_10_subtitle">Assistants · 2 min</string>
+    <string name="tip_10_body">Confirm a suggested lane change with the indicator and Travel Assist steers into the gap.</string>
+    <string name="tip_11_title">Warm the seats before you get in</string>
+    <string name="tip_11_subtitle">Winter · 1 min</string>
+    <string name="tip_11_body">Switch on seat heating from your phone, so the seats are warm when you get in.</string>
 
     <!-- S3 Tip detail -->
     <string name="tip_back">Back</string>

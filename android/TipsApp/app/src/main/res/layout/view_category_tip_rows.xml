@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- The 11 tip rows of S2. Shared by layout/ and layout-port/ (same IDs as the Figma layers).
-     Rows 8-11 repeat tips 1-4, like the Figma placeholder rows. -->
+<!-- The 11 tip rows of S2. Shared by layout/ and layout-port/ (same IDs as the Figma layers). -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/category_tip_list_rows"
     android:layout_width="match_parent"
@@ -302,7 +301,7 @@
                 style="@style/Tips.Text.RowTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/tip_1_title" />
+                android:text="@string/tip_8_title" />
 
             <TextView
                 android:id="@+id/category_tip_row_8_subtitle"
@@ -310,7 +309,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="@string/tip_1_subtitle" />
+                android:text="@string/tip_8_subtitle" />
         </LinearLayout>
 
         <ImageView
@@ -341,7 +340,7 @@
                 style="@style/Tips.Text.RowTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/tip_2_title" />
+                android:text="@string/tip_9_title" />
 
             <TextView
                 android:id="@+id/category_tip_row_9_subtitle"
@@ -349,7 +348,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="@string/tip_2_subtitle" />
+                android:text="@string/tip_9_subtitle" />
         </LinearLayout>
 
         <ImageView
@@ -380,7 +379,7 @@
                 style="@style/Tips.Text.RowTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/tip_3_title" />
+                android:text="@string/tip_10_title" />
 
             <TextView
                 android:id="@+id/category_tip_row_10_subtitle"
@@ -388,7 +387,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="@string/tip_3_subtitle" />
+                android:text="@string/tip_10_subtitle" />
         </LinearLayout>
 
         <ImageView
@@ -419,7 +418,7 @@
                 style="@style/Tips.Text.RowTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/tip_4_title" />
+                android:text="@string/tip_11_title" />
 
             <TextView
                 android:id="@+id/category_tip_row_11_subtitle"
@@ -427,7 +426,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="@string/tip_4_subtitle" />
+                android:text="@string/tip_11_subtitle" />
         </LinearLayout>
 
         <ImageView
