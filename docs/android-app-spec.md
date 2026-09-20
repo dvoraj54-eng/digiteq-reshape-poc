@@ -80,7 +80,7 @@ Touch targets ≥ **76 × 76 dp**, gap ≥ 16 (rules §4). Text ≥ **22 sp** ev
 
 ## 4. Screens
 
-Geometry below is the content area (below the 132 header), in dp, from the Figma frames. Exact numbers: `design-exports/json/*` (portrait) and the wide exports Jan adds (`*_1840x960.autolayout.json`).
+Geometry below is the content area (below the 132 header), in dp, from the Figma frames. Exact numbers: `design-exports/json/*` – wide sources are `*_1840x960.flat.json`, portrait targets `*_1400x1400.*`.
 
 ### S1 Home – `activity_home.xml`
 Header: `home_settings_button`, `home_title` ("Tips"), left-aligned.

@@ -1,0 +1,505 @@
+{
+  "name": "S3_TipDetail_Wide",
+  "type": "FRAME",
+  "x": 4150,
+  "y": 650,
+  "w": 1840,
+  "h": 1092,
+  "children": [
+    {
+      "name": "tip_header",
+      "type": "FRAME",
+      "x": 0,
+      "y": 0,
+      "w": 1840,
+      "h": 132,
+      "children": [
+        {
+          "name": "tip_title",
+          "type": "TEXT",
+          "x": 40,
+          "y": 44,
+          "w": 726,
+          "h": 44,
+          "text": "Stop-and-go with adaptive cruise control",
+          "fontSize": 36
+        },
+        {
+          "name": "tip_header_actions",
+          "type": "FRAME",
+          "x": 1556,
+          "y": 28,
+          "w": 260,
+          "h": 76,
+          "children": [
+            {
+              "name": "tip_save_button",
+              "type": "FRAME",
+              "x": 0,
+              "y": 0,
+              "w": 76,
+              "h": 76,
+              "children": [
+                {
+                  "name": "icon",
+                  "type": "FRAME",
+                  "x": 22,
+                  "y": 22,
+                  "w": 32,
+                  "h": 32
+                }
+              ]
+            },
+            {
+              "name": "tip_back_button",
+              "type": "FRAME",
+              "x": 92,
+              "y": 0,
+              "w": 76,
+              "h": 76,
+              "children": [
+                {
+                  "name": "icon",
+                  "type": "FRAME",
+                  "x": 22,
+                  "y": 22,
+                  "w": 32,
+                  "h": 32
+                }
+              ]
+            },
+            {
+              "name": "tip_search_button",
+              "type": "FRAME",
+              "x": 184,
+              "y": 0,
+              "w": 76,
+              "h": 76,
+              "children": [
+                {
+                  "name": "icon",
+                  "type": "FRAME",
+                  "x": 22,
+                  "y": 22,
+                  "w": 32,
+                  "h": 32
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tip_content",
+      "type": "FRAME",
+      "x": 0,
+      "y": 132,
+      "w": 1840,
+      "h": 960,
+      "children": [
+        {
+          "name": "tip_image",
+          "type": "FRAME",
+          "x": 24,
+          "y": 24,
+          "w": 704,
+          "h": 912,
+          "children": [
+            {
+              "name": "icon",
+              "type": "FRAME",
+              "x": 304,
+              "y": 408,
+              "w": 96,
+              "h": 96
+            }
+          ]
+        },
+        {
+          "name": "tip_body",
+          "type": "FRAME",
+          "x": 760,
+          "y": 24,
+          "w": 1056,
+          "h": 912,
+          "children": [
+            {
+              "name": "tip_steps",
+              "type": "FRAME",
+              "x": 0,
+              "y": 0,
+              "w": 1056,
+              "h": 400,
+              "children": [
+                {
+                  "name": "tip_step_1",
+                  "type": "FRAME",
+                  "x": 0,
+                  "y": 0,
+                  "w": 1056,
+                  "h": 88,
+                  "children": [
+                    {
+                      "name": "number",
+                      "type": "FRAME",
+                      "x": 24,
+                      "y": 16,
+                      "w": 56,
+                      "h": 56,
+                      "children": [
+                        {
+                          "name": "tip_step_1_number",
+                          "type": "TEXT",
+                          "x": 22,
+                          "y": 13,
+                          "w": 13,
+                          "h": 31,
+                          "text": "1",
+                          "fontSize": 26
+                        }
+                      ]
+                    },
+                    {
+                      "name": "tip_step_1_text",
+                      "type": "TEXT",
+                      "x": 104,
+                      "y": 29,
+                      "w": 928,
+                      "h": 31,
+                      "text": "Press the ACC button on the steering wheel.",
+                      "fontSize": 26
+                    }
+                  ]
+                },
+                {
+                  "name": "tip_step_2",
+                  "type": "FRAME",
+                  "x": 0,
+                  "y": 104,
+                  "w": 1056,
+                  "h": 88,
+                  "children": [
+                    {
+                      "name": "number",
+                      "type": "FRAME",
+                      "x": 24,
+                      "y": 16,
+                      "w": 56,
+                      "h": 56,
+                      "children": [
+                        {
+                          "name": "tip_step_2_number",
+                          "type": "TEXT",
+                          "x": 20,
+                          "y": 13,
+                          "w": 17,
+                          "h": 31,
+                          "text": "2",
+                          "fontSize": 26
+                        }
+                      ]
+                    },
+                    {
+                      "name": "tip_step_2_text",
+                      "type": "TEXT",
+                      "x": 104,
+                      "y": 29,
+                      "w": 928,
+                      "h": 31,
+                      "text": "Set your speed with SET, then choose a following distance.",
+                      "fontSize": 26
+                    }
+                  ]
+                },
+                {
+                  "name": "tip_step_3",
+                  "type": "FRAME",
+                  "x": 0,
+                  "y": 208,
+                  "w": 1056,
+                  "h": 88,
+                  "children": [
+                    {
+                      "name": "number",
+                      "type": "FRAME",
+                      "x": 24,
+                      "y": 16,
+                      "w": 56,
+                      "h": 56,
+                      "children": [
+                        {
+                          "name": "tip_step_3_number",
+                          "type": "TEXT",
+                          "x": 20,
+                          "y": 13,
+                          "w": 17,
+                          "h": 31,
+                          "text": "3",
+                          "fontSize": 26
+                        }
+                      ]
+                    },
+                    {
+                      "name": "tip_step_3_text",
+                      "type": "TEXT",
+                      "x": 104,
+                      "y": 29,
+                      "w": 928,
+                      "h": 31,
+                      "text": "In a jam, the car stops and waits behind the vehicle ahead.",
+                      "fontSize": 26
+                    }
+                  ]
+                },
+                {
+                  "name": "tip_step_4",
+                  "type": "FRAME",
+                  "x": 0,
+                  "y": 312,
+                  "w": 1056,
+                  "h": 88,
+                  "children": [
+                    {
+                      "name": "number",
+                      "type": "FRAME",
+                      "x": 24,
+                      "y": 16,
+                      "w": 56,
+                      "h": 56,
+                      "children": [
+                        {
+                          "name": "tip_step_4_number",
+                          "type": "TEXT",
+                          "x": 19,
+                          "y": 13,
+                          "w": 18,
+                          "h": 31,
+                          "text": "4",
+                          "fontSize": 26
+                        }
+                      ]
+                    },
+                    {
+                      "name": "tip_step_4_text",
+                      "type": "TEXT",
+                      "x": 104,
+                      "y": 29,
+                      "w": 928,
+                      "h": 31,
+                      "text": "Tap RES or the accelerator to move off again.",
+                      "fontSize": 26
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "tip_distance_setting",
+              "type": "FRAME",
+              "x": 0,
+              "y": 416,
+              "w": 1056,
+              "h": 175,
+              "children": [
+                {
+                  "name": "tip_distance_setting_label",
+                  "type": "TEXT",
+                  "x": 24,
+                  "y": 20,
+                  "w": 304,
+                  "h": 31,
+                  "text": "Try it: following distance",
+                  "fontSize": 26
+                },
+                {
+                  "name": "tip_distance_segmented",
+                  "type": "FRAME",
+                  "x": 24,
+                  "y": 67,
+                  "w": 1008,
+                  "h": 88,
+                  "children": [
+                    {
+                      "name": "tip_distance_option_close",
+                      "type": "FRAME",
+                      "x": 6,
+                      "y": 6,
+                      "w": 327,
+                      "h": 76,
+                      "children": [
+                        {
+                          "name": "tip_distance_option_close_label",
+                          "type": "TEXT",
+                          "x": 128,
+                          "y": 23,
+                          "w": 70,
+                          "h": 31,
+                          "text": "Close",
+                          "fontSize": 26
+                        }
+                      ]
+                    },
+                    {
+                      "name": "tip_distance_option_medium",
+                      "type": "FRAME",
+                      "x": 339,
+                      "y": 6,
+                      "w": 331,
+                      "h": 76,
+                      "children": [
+                        {
+                          "name": "tip_distance_option_medium_label",
+                          "type": "TEXT",
+                          "x": 114,
+                          "y": 23,
+                          "w": 102,
+                          "h": 31,
+                          "text": "Medium",
+                          "fontSize": 26
+                        }
+                      ]
+                    },
+                    {
+                      "name": "tip_distance_option_far",
+                      "type": "FRAME",
+                      "x": 675,
+                      "y": 6,
+                      "w": 327,
+                      "h": 76,
+                      "children": [
+                        {
+                          "name": "tip_distance_option_far_label",
+                          "type": "TEXT",
+                          "x": 143,
+                          "y": 23,
+                          "w": 40,
+                          "h": 31,
+                          "text": "Far",
+                          "fontSize": 26
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "tip_helpful_toggle",
+              "type": "FRAME",
+              "x": 0,
+              "y": 607,
+              "w": 1056,
+              "h": 96,
+              "children": [
+                {
+                  "name": "tip_helpful_toggle_label",
+                  "type": "TEXT",
+                  "x": 24,
+                  "y": 33,
+                  "w": 896,
+                  "h": 31,
+                  "text": "Show this tip again next time",
+                  "fontSize": 26
+                },
+                {
+                  "name": "switch",
+                  "type": "FRAME",
+                  "x": 944,
+                  "y": 24,
+                  "w": 88,
+                  "h": 48,
+                  "children": [
+                    {
+                      "name": "knob",
+                      "type": "ELLIPSE",
+                      "x": 44,
+                      "y": 4,
+                      "w": 40,
+                      "h": 40
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "spacer",
+              "type": "FRAME",
+              "x": 0,
+              "y": 719,
+              "w": 1,
+              "h": 101,
+              "children": []
+            },
+            {
+              "name": "tip_nav",
+              "type": "FRAME",
+              "x": 0,
+              "y": 836,
+              "w": 1056,
+              "h": 76,
+              "children": [
+                {
+                  "name": "tip_prev_button",
+                  "type": "FRAME",
+                  "x": 0,
+                  "y": 0,
+                  "w": 230,
+                  "h": 76,
+                  "children": [
+                    {
+                      "name": "icon",
+                      "type": "FRAME",
+                      "x": 32,
+                      "y": 24,
+                      "w": 28,
+                      "h": 28
+                    },
+                    {
+                      "name": "tip_prev_button_label",
+                      "type": "TEXT",
+                      "x": 72,
+                      "y": 23,
+                      "w": 110,
+                      "h": 31,
+                      "text": "Previous",
+                      "fontSize": 26
+                    }
+                  ]
+                },
+                {
+                  "name": "tip_next_button",
+                  "type": "FRAME",
+                  "x": 837,
+                  "y": 0,
+                  "w": 219,
+                  "h": 76,
+                  "children": [
+                    {
+                      "name": "tip_next_button_label",
+                      "type": "TEXT",
+                      "x": 48,
+                      "y": 23,
+                      "w": 99,
+                      "h": 31,
+                      "text": "Next tip",
+                      "fontSize": 26
+                    },
+                    {
+                      "name": "icon",
+                      "type": "FRAME",
+                      "x": 159,
+                      "y": 24,
+                      "w": 28,
+                      "h": 28
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
