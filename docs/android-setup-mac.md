@@ -145,7 +145,7 @@ mkdir -p ~/dev && cd ~/dev
 gh auth login                       # GitHub.com → HTTPS → login with browser
 gh repo clone dvoraj54-eng/digiteq-reshape-poc
 cd digiteq-reshape-poc
-node figma/tests/simulate.js        # quick check: 27 passed, 0 failed
+node figma/tests/simulate.js        # quick check: 29 passed, 0 failed
 ```
 
 Both machines then work with `git pull` / `git push` as usual – pull before you start, push when you stop.

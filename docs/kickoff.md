@@ -20,7 +20,7 @@
 - `rules/DESIGN-RULES.md` – layout rules R1–R7 + 13 automatable checks, aligned with the Škoda HMI masters (portrait app area 1400 × 1532, content 1400 × 1400).
 - **Digiteq Reshape Plugin** (Figma) – reshape, check, export, import LLM result. Works on auto-layout and flat files.
 - **Digiteq Reshape Assistant** (browser) – builds the prompt from rules + measured facts, talks to Claude API, an **internal OpenAI-compatible model**, or manual copy-paste; validates the answer.
-- Tested on 3 screen types (Home, list–detail, settings-style) × 2 file styles × several target sizes; LLM and rule engine produced the same layout. 27 regression checks.
+- Tested on 3 screen types (Home, list–detail, settings-style) × 2 file styles × several target sizes; LLM and rule engine produced the same layout. 29 regression checks.
 - Details: `docs/figma-pipeline.md`.
 
 Next (this week, Jan): the POC Tips app in Android (XML views, one screen also in Compose) on the MacBook emulator – proves step 2 and 3 before we touch the real app.

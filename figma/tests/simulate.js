@@ -164,6 +164,20 @@ const byName = n => page.children.find(c => c.name === n);
   ok(rej.result === 'rejected' && rej.errors.some(e => e.includes('unknown pane')), 'broken plan is rejected with reasons');
   const fix = await run({ type: 'run', action: 'import', json: JSON.stringify({ overrides: [{ path: 'tip_header_actions/tip_save_button', visible: false }] }) }, byName('S3_TipDetail_1400x1400'));
   ok(fix.kind === 'fix' && fix.overrideErrors.length === 0, 'fix (overrides) applies in place');
+  // a screen whose tabs an earlier R4 put into the content: the plugin moves them back into
+  // the header, so a plan that still lists them as a pane must be read as r4, not rejected
+  const r4out = await run({ type: 'run', action: 'reshape', w: 1200, h: 1800 }, byName('S2_Category_Wide'));
+  const r4node = byName(r4out.output);
+  ok(r4out.plan.r4 && r4node.findOne(n => n.name === 'category_content').children.some(k => k.name === 'category_tabs'),
+    'setup: 1200x1800 puts category_tabs into the content row');
+  const tabsPlan = { target: { w: 1400, h: 1400 }, mode: 'side', r4: false, panes: [
+    { name: 'category_tabs', x: 24, y: 24, w: 684, h: 96 },
+    { name: 'category_tip_preview', x: 24, y: 152, w: 560, h: 1224 },
+    { name: 'category_tip_list', x: 616, y: 152, w: 760, h: 1224 }] };
+  const tabsImp = await run({ type: 'run', action: 'import', json: JSON.stringify(tabsPlan) }, r4node);
+  ok(tabsImp.kind === 'plan' && tabsImp.checks.output.pass && tabsImp.plan.r4,
+    'plan that lists …_tabs as a pane is read as r4 and passes', JSON.stringify(tabsImp.errors || tabsImp.checks && tabsImp.checks.output.fails || tabsImp));
+
   const garbage = await run({ type: 'run', action: 'import', json: 'no json here' }, byName('S3_TipDetail_Wide'));
   ok(/Could not read JSON/.test(garbage.error || ''), 'garbage input is refused');
 

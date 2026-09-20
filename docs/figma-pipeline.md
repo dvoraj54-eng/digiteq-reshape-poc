@@ -109,7 +109,7 @@ POC file: *Tips App POC* (personal Figma account, invented content, no Škoda da
 | Impossible sizes (960 × 600, 12 × 5) | ✅ refused with a reason |
 | Round trip square → wide | ✅ |
 | LLM round trip (Claude via Assistant, S2 → 1200 × 1800) | ✅ Claude chose the **same layout as the rule engine**, citing the measured numbers, and predicted the text wrapping |
-| Regression suite (`figma/tests/simulate.js`) | 27 checks, run before every change |
+| Regression suite (`figma/tests/simulate.js`) | 29 checks, run before every change |
 
 ### Lessons (each one is now a rule, a check or a test)
 1. **Plan from measurements, not estimates.** The first plan guessed the header wouldn't fit. Measured: 1312 ≤ 1400. → the plugin and the Assistant always measure first.

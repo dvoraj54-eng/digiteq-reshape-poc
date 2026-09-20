@@ -802,16 +802,24 @@ function planFromLLM(data, parts, T) {
   const plan = { target: `${T.w}x${T.h}`, input: parts.al ? 'auto layout' : 'flat', source: 'llm',
     decisions: Array.isArray(data.decisions) ? data.decisions.map(String) : [], errors, mode: data.mode, r4: !!data.r4 };
   if (!['side', 'stack'].includes(plan.mode)) errors.push(`mode must be "side" or "stack" (got ${JSON.stringify(data.mode)})`);
+  const nodes = flowKids(content);
+  const byName = new Map(nodes.map(n => [n.name, n]));
+  // a …_tabs element always lives in the header before planning (normalize moved it back
+  // if an earlier R4 had put it in the content). A plan that lists it as a pane means R4.
+  const tabsPane = data.panes.find(p => /_tabs$/.test(String(p && p.name)) && !byName.has(p.name)) || null;
+  if (tabsPane && !plan.r4) {
+    plan.r4 = true;
+    plan.decisions.push(`${tabsPane.name} listed as a pane -> read as r4 (tabs row above the panes)`);
+  }
   if (plan.r4) {
     plan.tabsNode = flowKids(header).find(k => /_tabs$/.test(k.name));
     if (!plan.tabsNode) errors.push('r4 is true but the header has no …_tabs element');
   }
   const top = plan.r4 && plan.tabsNode ? M + plan.tabsNode.height + ROW_GAP : 0;
-  const nodes = flowKids(content);
-  const byName = new Map(nodes.map(n => [n.name, n]));
   const seen = new Set();
   const info = [];
   for (const p of data.panes) {
+    if (p === tabsPane) continue;
     const node = byName.get(p.name);
     if (!node) { errors.push(`unknown pane "${p.name}" (content has: ${[...byName.keys()].join(', ')})`); continue; }
     if (seen.has(p.name)) { errors.push(`pane "${p.name}" listed twice`); continue; }

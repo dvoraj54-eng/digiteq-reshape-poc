@@ -515,9 +515,13 @@ const Core = (() => {
     const al = !!header.layout;
     const pad = al ? header.layout.pad[1] + header.layout.pad[3] : 2 * M;
     const gap = al ? header.layout.gap : 24;
-    const headerNeed = Math.round(pad + hk.reduce((a, k) => a + k.w, 0) + gap * Math.max(0, hk.length - 1));
-    const tabs = hk.find(k => /_tabs$/.test(k.name)) || null;
-    const panes = kids(content).filter(k => !k.hidden && !isOverlay(k)).map(p => {
+    // an earlier R4 may have put the tabs in the first content row; the plugin always moves
+    // them back into the header before planning, so they count towards the header width
+    const tabsInContent = kids(content).find(k => /_tabs$/.test(k.name) && !k.hidden) || null;
+    let headerNeed = Math.round(pad + hk.reduce((a, k) => a + k.w, 0) + gap * Math.max(0, hk.length - 1));
+    if (tabsInContent) headerNeed += Math.round(tabsInContent.w + gap);
+    const tabs = hk.find(k => /_tabs$/.test(k.name)) || tabsInContent;
+    const panes = kids(content).filter(k => !k.hidden && !isOverlay(k) && k !== tabsInContent).map(p => {
       const card = !/_image$/.test(p.name) && kids(p).some(k => /_image$/.test(k.name));
       const rows = countRows(p);
       return { name: p.name, w: p.w, h: p.h, x: p.x, y: p.y,
@@ -527,7 +531,7 @@ const Core = (() => {
     const f = {
       screen: screen.name, input: screen.layout ? 'auto layout' : 'flat (no auto layout)',
       sourceContent: `${content.w} x ${content.h}`, headerNeed, headerFits: T ? headerNeed <= T.w : null,
-      tabs: tabs ? { name: tabs.name, w: tabs.w, h: tabs.h } : null,
+      tabs: tabs ? { name: tabs.name, w: tabs.w, h: tabs.h, inContent: !!tabsInContent } : null,
       panes, overlays,
     };
     if (T) {
@@ -544,6 +548,7 @@ const Core = (() => {
     if (f.target) L.push(`- Target content area: ${f.target}; usable inside the 24 margins: ${f.usable.w} x ${f.usable.h}`);
     L.push(`- Header needs ${f.headerNeed} px in one row` + (f.target ? ` -> ${f.headerFits ? 'fits' : 'does NOT fit'} the target width` : ''));
     L.push(`- Header tabs element: ${f.tabs ? `${f.tabs.name} (${f.tabs.w} x ${f.tabs.h})` : 'none'}`);
+    if (f.tabs && f.tabs.inContent) L.push(`  (${f.tabs.name} currently sits in the first content row from an earlier r4; the plugin moves it back into the header before executing, so it is counted in the header width above and is NOT a pane – decide r4 again for this target)`);
     if (f.panesStartIfR4 !== undefined) L.push(`- If r4 is used, panes start at y >= ${f.panesStartIfR4}`);
     L.push(`- Panes (direct children of the content area, source order):`);
     f.panes.forEach(p => L.push(`  - ${p.name}: ${p.w} x ${p.h} at ${p.x},${p.y} — ${p.kind}`));
@@ -601,7 +606,7 @@ const Core = (() => {
 - mode "side" = panes next to each other; mode "stack" = panes above each other.
 - Inside a pane the plugin reflows everything itself (auto layout or inferred constraints: wide elements stretch, edge-pinned ones stay pinned, spacers absorb height), re-wraps text (a wrapped title pushes the text below it down; all list rows then get the height of the tallest row), fills lists with extra rows when there is room, ends side-by-side panes at the list's last visible row (R7), and keeps dropdowns anchored to their trigger. You do not position elements inside panes – but consider that narrower panes make long titles wrap and rows taller (fewer rows fit).
 - Card panes (a pane with an image child): "card": "horizontal" = image left / text right (good when the pane is >= 1000 wide), "vertical" = image on top.
-- "r4": true moves the header's ..._tabs element into the first content row (tabs height + 16 gap); panes must then start below it. Use it only when the header does not fit the target width.
+- "r4": true moves the header's ..._tabs element into the first content row (tabs height + 16 gap); panes must then start below it. Use it only when the header does not fit the target width. If the source screen already has its tabs in the first content row (from an earlier r4), the plugin first moves them back into the header: never list a ..._tabs element among the panes, just set r4 true or false for this target.
 - "overrides" (optional, use sparingly) adjust single elements after the reshape. "path" = element name, prefixed with ancestor names separated by "/" when the name is not unique (e.g. "home_category_card_driving/icon_bg"). x/y are relative to the element's parent and are ignored inside auto layout; w/h resize; "visible": false hides it (never for P0). "all": true applies to every match.
 - After executing, the plugin runs the acceptance checks from the rules (§10) and more: sizes, gaps, margins, text sizes, overlaps, elements sticking out of their parent, unused list space, resized buttons, pane bottoms not aligned.`;
 

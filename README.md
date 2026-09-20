@@ -35,7 +35,7 @@ rules/DESIGN-RULES.md ─────────────── the contract
 ```bash
 # Figma part (any machine with Node 18+ – Windows, macOS, Linux)
 node figma/build.mjs            # rebuild the plugin UI + assistant after editing *-src or the rules
-node figma/tests/simulate.js    # 27 regression checks – must pass before committing
+node figma/tests/simulate.js    # 29 regression checks – must pass before committing
 
 # Android part (MacBook, see docs/android-setup-mac.md)
 cd android/TipsApp && ./gradlew installDebug
