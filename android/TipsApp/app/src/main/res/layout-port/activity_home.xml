@@ -58,7 +58,7 @@
             <FrameLayout
                 android:id="@+id/home_featured_tip_image"
                 style="@style/Tips.MediaPlaceholder"
-                android:layout_width="568dp"
+                android:layout_width="600dp"
                 android:layout_height="match_parent">
 
                 <ImageView
