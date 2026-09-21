@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- S2 Category, portrait display: preview card left (560), tip list right (fills the rest) (R1: both panes keep >= 560) -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/category_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_screen"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/category_header"
+        style="@style/Tips.Header">
+
+        <LinearLayout
+            android:id="@+id/category_header_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/divider_24"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:showDividers="middle">
+
+            <ImageView
+                android:id="@+id/category_back_button"
+                style="@style/Tips.IconButton"
+                android:contentDescription="@string/category_back"
+                android:src="@drawable/ic_chevron_left" />
+
+            <TextView
+                android:id="@+id/category_title"
+                style="@style/Tips.Text.Title40"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/category_driving" />
+
+            <LinearLayout
+                android:id="@+id/category_filter_button"
+                style="@style/Tips.FilterPill"
+                android:contentDescription="@string/category_filter">
+
+                <TextView
+                    android:id="@+id/category_filter_button_label"
+                    style="@style/Tips.Text.Pill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/category_filter_newest" />
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_chevron_down"
+                    android:tint="@color/white" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- free space between the left group and the search button; tabs sit in its centre -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:id="@+id/category_tabs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:divider="@drawable/divider_8"
+                android:orientation="horizontal"
+                android:showDividers="middle">
+
+            <LinearLayout
+                android:id="@+id/category_tab_all"
+                style="@style/Tips.Tab">
+
+                <TextView
+                    android:id="@+id/category_tab_all_label"
+                    style="@style/Tips.Text.Tab.Selected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/category_tab_all" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/category_tab_assistants"
+                style="@style/Tips.Tab">
+
+                <TextView
+                    android:id="@+id/category_tab_assistants_label"
+                    style="@style/Tips.Text.Tab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/category_tab_assistants" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/category_tab_parking"
+                style="@style/Tips.Tab">
+
+                <TextView
+                    android:id="@+id/category_tab_parking_label"
+                    style="@style/Tips.Text.Tab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/category_tab_parking" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/category_tab_winter"
+                style="@style/Tips.Tab">
+
+                <TextView
+                    android:id="@+id/category_tab_winter_label"
+                    style="@style/Tips.Text.Tab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/category_tab_winter" />
+            </LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/category_search_button"
+            style="@style/Tips.IconButton"
+            android:contentDescription="@string/category_search"
+            android:src="@drawable/ic_search" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/category_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@drawable/divider_pane_gap"
+        android:orientation="horizontal"
+        android:padding="@dimen/screen_padding"
+        android:showDividers="middle">
+
+        <!-- Preview card: fills the content height -->
+        <LinearLayout
+            android:id="@+id/category_tip_preview"
+            style="@style/Tips.Card.Spaced"
+            android:layout_width="560dp"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/category_tip_preview_image"
+                style="@style/Tips.MediaPlaceholder"
+                android:layout_width="match_parent"
+                android:layout_height="300dp">
+
+                <ImageView
+                    android:layout_width="@dimen/media_icon_size"
+                    android:layout_height="@dimen/media_icon_size"
+                    android:layout_gravity="center"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_image"
+                    android:alpha="0.6"
+                    android:tint="@color/white" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/category_tip_preview_meta"
+                style="@style/Tips.Text.Label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/category_tip_preview_title"
+                style="@style/Tips.Text.Title40"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/category_tip_preview_body"
+                style="@style/Tips.Text.Body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <!-- spacer: pushes the button to the bottom -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:id="@+id/category_open_button"
+                style="@style/Tips.PrimaryButton">
+
+                <TextView
+                    android:id="@+id/category_open_button_label"
+                    style="@style/Tips.Text.ButtonLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/category_open_button" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Tip list: rows + scrollbar 16 to the right, fills the content height -->
+        <LinearLayout
+            android:id="@+id/category_tip_list"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:divider="@drawable/divider_16"
+            android:orientation="horizontal"
+            android:showDividers="middle">
+
+            <ScrollView
+                android:id="@+id/category_tip_list_scroll"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:overScrollMode="never"
+                android:scrollbars="none">
+
+                <include layout="@layout/view_category_tip_rows" />
+            </ScrollView>
+
+            <cz.digiteq.tips.ui.ListScrollbar
+                android:id="@+id/category_tip_list_scrollbar"
+                android:layout_width="@dimen/scrollbar_width"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_scrollbar_track"
+                android:importantForAccessibility="no" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

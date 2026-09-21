@@ -19,9 +19,12 @@ object TipsRepository {
         4 -> Tip(R.string.tip_4_title, R.string.tip_4_subtitle, R.string.tip_4_body)
         5 -> Tip(R.string.tip_5_title, R.string.tip_5_subtitle, R.string.tip_5_body)
         6 -> Tip(R.string.tip_6_title, R.string.tip_6_subtitle, R.string.tip_6_body)
-        else -> Tip(R.string.tip_7_title, R.string.tip_7_subtitle, R.string.tip_7_body)
+        7 -> Tip(R.string.tip_7_title, R.string.tip_7_subtitle, R.string.tip_7_body)
+        8 -> Tip(R.string.tip_8_title, R.string.tip_8_subtitle, R.string.tip_8_body)
+        9 -> Tip(R.string.tip_9_title, R.string.tip_9_subtitle, R.string.tip_9_body)
+        10 -> Tip(R.string.tip_10_title, R.string.tip_10_subtitle, R.string.tip_10_body)
+        else -> Tip(R.string.tip_11_title, R.string.tip_11_subtitle, R.string.tip_11_body)
     }
 
-    // Rows 8-11 repeat tips 1-4, like the Figma placeholder rows.
-    val tips: List<Tip> = listOf(1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4).map(::tip)
+    val tips: List<Tip> = (1..11).map(::tip)
 }

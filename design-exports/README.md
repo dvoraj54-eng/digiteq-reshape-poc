@@ -30,3 +30,6 @@ To export: select the frame → right panel *Export* → PNG, **1x**.
 
 The JSON has geometry and text, not colours – colours and styles are in `docs/android-app-spec.md`.
 Exports without a `layout` field come from the flat page; the geometry is identical to the auto-layout page.
+
+## Known differences inside the exports
+The square PNGs were exported after the square JSONs. Where they differ, the app follows the **PNG**: S2 preview image 496 × **300** (JSON: 344), S3 image 1200 × **440** (JSON: 448), S2 rows 8–11 have their own titles (JSON: repeats of rows 1–4). Re-export the square JSONs from the current Figma frames to make them consistent.

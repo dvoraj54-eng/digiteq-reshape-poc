@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- S3 Tip detail, portrait display: image on top, settings-style column below; both centred, max 1200 wide (R2 + R5) -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tip_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_screen"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/tip_header"
+        style="@style/Tips.Header"
+        android:paddingStart="40dp">
+
+        <TextView
+            android:id="@+id/tip_title"
+            style="@style/Tips.Text.Title36"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_weight="1"
+            android:text="@string/tip_1_title" />
+
+        <LinearLayout
+            android:id="@+id/tip_header_actions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/divider_16"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:showDividers="middle">
+
+            <ImageView
+                android:id="@+id/tip_save_button"
+                style="@style/Tips.IconButton"
+                android:contentDescription="@string/tip_save"
+                android:src="@drawable/ic_bookmark" />
+
+            <ImageView
+                android:id="@+id/tip_back_button"
+                style="@style/Tips.IconButton"
+                android:contentDescription="@string/tip_back"
+                android:src="@drawable/ic_chevron_left" />
+
+            <ImageView
+                android:id="@+id/tip_search_button"
+                style="@style/Tips.IconButton"
+                android:contentDescription="@string/tip_search"
+                android:src="@drawable/ic_search" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/tip_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="@dimen/screen_padding">
+
+        <FrameLayout
+            android:id="@+id/tip_image"
+            style="@style/Tips.MediaPlaceholder"
+            android:layout_width="0dp"
+            android:layout_height="440dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_max="1200dp">
+
+            <ImageView
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_gravity="center"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_image"
+                android:alpha="0.6"
+                    android:tint="@color/white" />
+        </FrameLayout>
+
+
+        <!-- Settings-style column: cards 16 apart, nav buttons at the bottom -->
+        <LinearLayout
+            android:id="@+id/tip_body"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/pane_gap"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tip_image"
+            app:layout_constraintWidth_max="1200dp"
+            android:divider="@drawable/divider_16"
+            android:orientation="vertical"
+            android:showDividers="middle">
+
+            <LinearLayout
+                android:id="@+id/tip_steps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@drawable/divider_16"
+                android:orientation="vertical"
+                android:showDividers="middle">
+
+                <LinearLayout
+                    android:id="@+id/tip_step_1"
+                    style="@style/Tips.StepCard">
+
+                    <TextView
+                        android:id="@+id/tip_step_1_number"
+                        style="@style/Tips.StepNumber"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:text="1"
+                        android:textAppearance="@style/Tips.Text.StepNumber" />
+
+                    <TextView
+                        android:id="@+id/tip_step_1_text"
+                        style="@style/Tips.Text.StepText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/tip_step_1_text" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tip_step_2"
+                    style="@style/Tips.StepCard">
+
+                    <TextView
+                        android:id="@+id/tip_step_2_number"
+                        style="@style/Tips.StepNumber"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:text="2"
+                        android:textAppearance="@style/Tips.Text.StepNumber" />
+
+                    <TextView
+                        android:id="@+id/tip_step_2_text"
+                        style="@style/Tips.Text.StepText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/tip_step_2_text" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tip_step_3"
+                    style="@style/Tips.StepCard">
+
+                    <TextView
+                        android:id="@+id/tip_step_3_number"
+                        style="@style/Tips.StepNumber"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:text="3"
+                        android:textAppearance="@style/Tips.Text.StepNumber" />
+
+                    <TextView
+                        android:id="@+id/tip_step_3_text"
+                        style="@style/Tips.Text.StepText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/tip_step_3_text" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tip_step_4"
+                    style="@style/Tips.StepCard">
+
+                    <TextView
+                        android:id="@+id/tip_step_4_number"
+                        style="@style/Tips.StepNumber"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:text="4"
+                        android:textAppearance="@style/Tips.Text.StepNumber" />
+
+                    <TextView
+                        android:id="@+id/tip_step_4_text"
+                        style="@style/Tips.Text.StepText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/tip_step_4_text" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tip_distance_setting"
+                style="@style/Tips.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@drawable/divider_16"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="20dp"
+                android:showDividers="middle">
+
+                <TextView
+                    android:id="@+id/tip_distance_setting_label"
+                    style="@style/Tips.Text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tip_distance_setting_label"
+                    android:textSize="26sp" />
+
+                <LinearLayout
+                    android:id="@+id/tip_distance_segmented"
+                    android:layout_width="match_parent"
+                    android:layout_height="88dp"
+                    android:background="@drawable/bg_segmented"
+                    android:divider="@drawable/divider_6"
+                    android:orientation="horizontal"
+                    android:padding="6dp"
+                    android:showDividers="middle">
+
+                <LinearLayout
+                    android:id="@+id/tip_distance_option_close"
+                    style="@style/Tips.Segment">
+
+                    <TextView
+                        android:id="@+id/tip_distance_option_close_label"
+                        style="@style/Tips.Text.Segment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tip_distance_close" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tip_distance_option_medium"
+                    style="@style/Tips.Segment">
+
+                    <TextView
+                        android:id="@+id/tip_distance_option_medium_label"
+                        style="@style/Tips.Text.Segment.Selected"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tip_distance_medium" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tip_distance_option_far"
+                    style="@style/Tips.Segment">
+
+                    <TextView
+                        android:id="@+id/tip_distance_option_far_label"
+                        style="@style/Tips.Text.Segment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tip_distance_far" />
+                </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- The whole row is the touch target; the switch itself is not clickable -->
+            <LinearLayout
+                android:id="@+id/tip_helpful_toggle"
+                style="@style/Tips.Card"
+                android:layout_width="match_parent"
+                android:layout_height="96dp"
+                android:clickable="true"
+                android:divider="@drawable/divider_24"
+                android:focusable="true"
+                android:foreground="@drawable/ripple_card"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="0dp"
+                android:showDividers="middle">
+
+                <TextView
+                    android:id="@+id/tip_helpful_toggle_label"
+                    style="@style/Tips.Text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tip_helpful_toggle_label"
+                    android:textSize="26sp" />
+
+                <!-- Drawn switch (88 x 48): state_selected = on. Not a widget, the row is the control. -->
+                <ImageView
+                    android:id="@+id/tip_helpful_toggle_switch"
+                    android:layout_width="88dp"
+                    android:layout_height="48dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_switch" />
+            </LinearLayout>
+
+            <!-- spacer: pushes the nav buttons to the bottom -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:id="@+id/tip_nav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/tip_prev_button"
+                    style="@style/Tips.NavButton.Secondary">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_chevron_left"
+                        android:tint="@color/white" />
+
+                    <TextView
+                        android:id="@+id/tip_prev_button_label"
+                        style="@style/Tips.Text.ButtonLabel.OnDark"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tip_prev" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <LinearLayout
+                    android:id="@+id/tip_next_button"
+                    style="@style/Tips.NavButton.Primary">
+
+                    <TextView
+                        android:id="@+id/tip_next_button_label"
+                        style="@style/Tips.Text.ButtonLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tip_next" />
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_chevron_right"
+                        android:tint="@color/on_accent" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
