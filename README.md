@@ -1,5 +1,7 @@
 # Digiteq Reshape POC
 
+**New here? Read [docs/START-HERE.md](docs/START-HERE.md) first.**
+
 Reshape an Android Automotive app from the **wide** display to the **portrait** display, in **design** (Figma) and in **code** (Android), with automatic checks.
 POC for the Škoda demo (Sep/Oct 2026). **Invented content only – no Škoda data in this repo.**
 
