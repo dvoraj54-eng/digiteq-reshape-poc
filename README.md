@@ -63,6 +63,7 @@ cd android/TipsApp
 ./gradlew installDebug                                  # build + install on the running emulator
 adb shell am start -n cz.digiteq.tips/.HomeActivity     # other screens: adb root first (activities aren't exported)
 adb exec-out screencap -d <id of EMU_display_0> -p > /tmp/shot.png   # id: adb shell dumpsys SurfaceFlinger --display-id
+android/run-tests.sh                                    # layout-rule tests on both emulators + screenshots (docs/android-tests.md)
 ```
 After a UI change, look at a screenshot next to the PNG in `design-exports/png/` and list the differences. The emulator window is smaller than the Figma frame (system bars): expect the app area to be about 80 dp wider and 64 dp lower on the wide emulator; fixed sizes must match exactly. More: `android/README.md`.
 
@@ -77,6 +78,7 @@ After a UI change, look at a screenshot next to the PNG in `design-exports/png/`
 | [docs/figma-howto.md](docs/figma-howto.md) | Step by step: plugin + assistant |
 | [docs/android-setup-mac.md](docs/android-setup-mac.md) | Setting up the MacBook: Android Studio, emulators, Claude Code, GitHub |
 | [docs/android-app-spec.md](docs/android-app-spec.md) | What Claude Code builds in `android/` |
+| [docs/android-tests.md](docs/android-tests.md) | The automated checks on the app and `android/run-tests.sh` |
 
 ## Data rule
 
