@@ -32,4 +32,13 @@ The JSON has geometry and text, not colours – colours and styles are in `docs/
 Exports without a `layout` field come from the flat page; the geometry is identical to the auto-layout page.
 
 ## Known differences inside the exports
-The square PNGs were exported after the square JSONs. Where they differ, the app follows the **PNG**: S2 preview image 496 × **300** (JSON: 344), S3 image 1200 × **440** (JSON: 448), S2 rows 8–11 have their own titles (JSON: repeats of rows 1–4). Re-export the square JSONs from the current Figma frames to make them consistent.
+Only the **flat** exports of S1 and S3 (`S1_Home_1400x1400.flat.json`, `S3_TipDetail_1400x1400.flat.json`, root frames named `*_Square`) and the square PNGs reflect the current Figma frames. The other square JSONs are from an older export. Where they disagree, the app follows the PNGs and the newer flat exports:
+
+| Element | Current (PNG / new flat JSON) | Older JSON |
+|---|---|---|
+| S1 featured image (portrait) | 600 × 536 | 568 × 536 (`S1_Home_1400x1400.autolayout.json`) |
+| S3 image (portrait) | 1200 × 440 | 448 (`S3_TipDetail_1400x1400.autolayout.json`) |
+| S2 preview image (portrait) | 496 × 300 (PNG) | 344 (both S2 square JSONs) |
+| S2 list rows 8–11 | own titles (PNG) | repeats of rows 1–4 (both S2 square JSONs) |
+
+To make them consistent, re-export **S2 (flat + autolayout)** and the **autolayout files of S1 and S3** from the current Figma frames.

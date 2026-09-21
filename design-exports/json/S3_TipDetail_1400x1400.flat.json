@@ -1,8 +1,8 @@
 {
-  "name": "S3_TipDetail_1400x1400",
+  "name": "S3_TipDetail_Square",
   "type": "FRAME",
-  "x": 6540,
-  "y": 9970,
+  "x": 4370,
+  "y": 450,
   "w": 1400,
   "h": 1532,
   "children": [
@@ -104,13 +104,13 @@
           "x": 100,
           "y": 24,
           "w": 1200,
-          "h": 448,
+          "h": 440,
           "children": [
             {
               "name": "icon",
               "type": "FRAME",
               "x": 552,
-              "y": 176,
+              "y": 172,
               "w": 96,
               "h": 96
             }
@@ -120,9 +120,9 @@
           "name": "tip_body",
           "type": "FRAME",
           "x": 100,
-          "y": 504,
+          "y": 496,
           "w": 1200,
-          "h": 872,
+          "h": 880,
           "children": [
             {
               "name": "tip_steps",
@@ -325,13 +325,13 @@
                       "type": "FRAME",
                       "x": 6,
                       "y": 6,
-                      "w": 374,
+                      "w": 376,
                       "h": 76,
                       "children": [
                         {
                           "name": "tip_distance_option_close_label",
                           "type": "TEXT",
-                          "x": 152,
+                          "x": 153,
                           "y": 23,
                           "w": 70,
                           "h": 31,
@@ -343,15 +343,15 @@
                     {
                       "name": "tip_distance_option_medium",
                       "type": "FRAME",
-                      "x": 386,
+                      "x": 388,
                       "y": 6,
-                      "w": 379,
+                      "w": 376,
                       "h": 76,
                       "children": [
                         {
                           "name": "tip_distance_option_medium_label",
                           "type": "TEXT",
-                          "x": 139,
+                          "x": 137,
                           "y": 23,
                           "w": 102,
                           "h": 31,
@@ -363,15 +363,15 @@
                     {
                       "name": "tip_distance_option_far",
                       "type": "FRAME",
-                      "x": 772,
+                      "x": 770,
                       "y": 6,
-                      "w": 374,
+                      "w": 376,
                       "h": 76,
                       "children": [
                         {
                           "name": "tip_distance_option_far_label",
                           "type": "TEXT",
-                          "x": 167,
+                          "x": 168,
                           "y": 23,
                           "w": 40,
                           "h": 31,
@@ -426,16 +426,16 @@
               "name": "spacer",
               "type": "FRAME",
               "x": 0,
-              "y": 719,
+              "y": 0,
               "w": 1,
-              "h": 61,
+              "h": 101,
               "children": []
             },
             {
               "name": "tip_nav",
               "type": "FRAME",
               "x": 0,
-              "y": 796,
+              "y": 804,
               "w": 1200,
               "h": 76,
               "children": [
