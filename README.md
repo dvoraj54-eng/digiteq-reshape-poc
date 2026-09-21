@@ -79,6 +79,7 @@ After a UI change, look at a screenshot next to the PNG in `design-exports/png/`
 | [docs/android-setup-mac.md](docs/android-setup-mac.md) | Setting up the MacBook: Android Studio, emulators, Claude Code, GitHub |
 | [docs/android-app-spec.md](docs/android-app-spec.md) | What Claude Code builds in `android/` |
 | [docs/android-tests.md](docs/android-tests.md) | The automated checks on the app and `android/run-tests.sh` |
+| [docs/reshape-tool.md](docs/reshape-tool.md) | Design of the reshape tool (repo link → exports → coding agent → PR) |
 
 ## Data rule
 
