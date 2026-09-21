@@ -161,10 +161,10 @@ Not live (agent runs vary and take minutes). Show: the command, the run folder, 
 
 Compose apps, pushing results back into Figma, non-Android apps, automatic screen discovery (screens come from the config), parallel emulators, learning from earlier runs.
 
-## 11. Open questions for you
+## 11. Decisions (Jan, 2026-09-21)
 
-1. **Exporter (D1):** OK with option A (injected instrumented test) as the default, uiautomator as fallback?
-2. **Second agent for the demo:** should the `command` adapter be shown with another agent your team could use? If yes, which one is realistic to have on the demo laptop?
-3. **Name:** "Digiteq Reshape Runner"? (folder is `tools/reshape-app/` either way.)
-4. **PR target for the demo:** our own repo with a base branch created from `wide-baseline` – OK, or a separate demo repo so `main` stays untouched?
-5. **Screens config:** fine to keep it as a small JSON next to the app, filled by hand for the POC?
+1. **Exporter:** injected instrumented test is the default, `uiautomator` the fallback. ✔
+2. **Second agent:** yes, the `command` adapter is shown with another agent your team could use – **which one is still to be named** by Jan (it must be runnable on the demo laptop).
+3. **Name:** "Digiteq Reshape Runner" (folder stays `tools/reshape-app/`). ✔
+4. **PR target for the demo:** our own repo, base branch created from `wide-baseline`, so `main` stays untouched. ✔
+5. **Screens config:** a small hand-written JSON next to the app is fine for the POC. ✔
